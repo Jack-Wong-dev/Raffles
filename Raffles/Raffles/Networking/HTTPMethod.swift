@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+enum HTTPMethod {
+    case get
+    case post
+    case put
+}
+
