@@ -12,7 +12,7 @@
 		0AA8AB562662FDDC00978B99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA8AB552662FDDC00978B99 /* Assets.xcassets */; };
 		0AA8AB592662FDDC00978B99 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA8AB582662FDDC00978B99 /* Preview Assets.xcassets */; };
 		0AA8AB642662FEC900978B99 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8AB632662FEC900978B99 /* HTTPMethod.swift */; };
-		0AA8AB662662FFF500978B99 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8AB652662FFF500978B99 /* Endpoint.swift */; };
+		0AA8AB662662FFF500978B99 /* PathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8AB652662FFF500978B99 /* PathComponent.swift */; };
 		0AA8AB682663010900978B99 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8AB672663010900978B99 /* API.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +24,7 @@
 		0AA8AB582662FDDC00978B99 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0AA8AB5A2662FDDC00978B99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AA8AB632662FEC900978B99 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
-		0AA8AB652662FFF500978B99 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		0AA8AB652662FFF500978B99 /* PathComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathComponent.swift; sourceTree = "<group>"; };
 		0AA8AB672663010900978B99 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				0AA8AB632662FEC900978B99 /* HTTPMethod.swift */,
-				0AA8AB652662FFF500978B99 /* Endpoint.swift */,
+				0AA8AB652662FFF500978B99 /* PathComponent.swift */,
 				0AA8AB672663010900978B99 /* API.swift */,
 			);
 			path = Networking;
@@ -157,7 +157,7 @@
 			files = (
 				0AA8AB542662FDDB00978B99 /* ContentView.swift in Sources */,
 				0AA8AB522662FDDB00978B99 /* RafflesApp.swift in Sources */,
-				0AA8AB662662FFF500978B99 /* Endpoint.swift in Sources */,
+				0AA8AB662662FFF500978B99 /* PathComponent.swift in Sources */,
 				0AA8AB642662FEC900978B99 /* HTTPMethod.swift in Sources */,
 				0AA8AB682663010900978B99 /* API.swift in Sources */,
 			);

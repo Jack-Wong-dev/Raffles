@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+enum PathComponent: String {
+    case raffle = "raffles"
+}
