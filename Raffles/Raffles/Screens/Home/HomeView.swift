@@ -61,7 +61,6 @@ struct HomeView: View {
             
             Spacer(minLength: 0)
         }
-        .textFieldStyle(RoundedBorderTextFieldStyle())
         .autocapitalization(.none)
         .disableAutocorrection(true)
         .alert(item: $viewModel.alertMessage) { message in
