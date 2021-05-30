@@ -73,32 +73,7 @@ struct RaffleParticipantsView: View {
             
             ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
-                    ForEach(0..<6, id: \.self) { index in
-                        VStack(alignment: .leading) {
-                            Text("Alejandro Franco")
-                                .fontWeight(.medium)
-                            
-                            HStack {
-                                Image(systemName: "person.crop.circle")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(height: 50)
-                                VStack(alignment: .leading) {
-                                    Group {
-                                        Label("1", systemImage: "number")
-                                        Label("alejandrofranco@pursuit.org", systemImage: "envelope.fill")
-                                        Label("12345678900", systemImage: "phone")
-                                    }
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                }
-                            }
-                        }
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                                .strokeBorder(style: StrokeStyle(lineWidth: 2))
-                        )
-                    }
+                    ParticipantsView()
                 }
             }
             
@@ -111,5 +86,36 @@ struct RaffleParticipantsView: View {
 struct RaffleParticipantsView_Previews: PreviewProvider {
     static var previews: some View {
         RaffleParticipantsView()
+    }
+}
+
+struct ParticipantsView: View {
+    var body: some View {
+        ForEach(0..<6, id: \.self) { index in
+            VStack(alignment: .leading) {
+                Text("Alejandro Franco")
+                    .fontWeight(.medium)
+                
+                HStack {
+                    Image(systemName: "person.crop.circle")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 50)
+                    VStack(alignment: .leading) {
+                        Group {
+                            Label("1", systemImage: "number")
+                            Label("alejandrofranco@pursuit.org", systemImage: "envelope.fill")
+                            Label("12345678900", systemImage: "phone")
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                }
+            }
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                    .strokeBorder(style: StrokeStyle(lineWidth: 2))
+            )
+        }
     }
 }
