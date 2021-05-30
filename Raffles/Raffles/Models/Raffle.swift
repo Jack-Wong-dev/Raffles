@@ -24,3 +24,7 @@ struct Raffle: Decodable {
     case winnerId = "winner_id"
   }
 }
+
+extension Raffle {
+    static let placeholder = Raffle(id: 0, name: "Johnny", createdAt: "Created on: May 22 2021 at 8:02:46 PM", raffledAt: "Raffled On: Sat May 22 2021 at 8:05:58 PM", winnerId: 11)
+}

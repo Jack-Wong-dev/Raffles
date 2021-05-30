@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AllRafflesView: View {
+    @Binding var allRaffles: [Raffle]
+    
     var body: some View {
         LazyVStack {
             ForEach(0..<4, id: \.self) { _ in
@@ -31,11 +33,13 @@ struct AllRafflesView: View {
 
 
 struct AllRafflesView_Previews: PreviewProvider {
+    static let placeholders: [Raffle] = Array(repeating: .placeholder, count: 5)
+    
     static var previews: some View {
         Group {
-            AllRafflesView()
+            AllRafflesView(allRaffles: .constant(placeholders))
             
-            AllRafflesView()
+            AllRafflesView(allRaffles: .constant(placeholders))
                 .preferredColorScheme(.dark)
         }
     }
