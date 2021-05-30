@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var raffleName: String = ""
-    @State private var secretToken: String = ""
+    @StateObject var viewModel: HomeViewModel = .init()
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -27,14 +26,14 @@ struct HomeView: View {
                         .fontWeight(.medium)
                         .lineLimit(1)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    TextField("", text: $raffleName)
+                    TextField("", text: $viewModel.raffleName)
                 }
                 VStack(spacing: 4) {
                     Text("Raffle Secret Token*")
                         .fontWeight(.medium)
                         .lineLimit(1)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    TextField("", text: $secretToken)
+                    TextField("", text: $viewModel.secretToken)
                 }
                 
                 Text("You must remember the Raffle Token because it will be asked when picking a winner")

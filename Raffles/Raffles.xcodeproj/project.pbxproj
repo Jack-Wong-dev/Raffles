@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0AA8AB522662FDDB00978B99 /* RafflesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8AB512662FDDB00978B99 /* RafflesApp.swift */; };
-		0AA8AB542662FDDB00978B99 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8AB532662FDDB00978B99 /* ContentView.swift */; };
 		0AA8AB562662FDDC00978B99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA8AB552662FDDC00978B99 /* Assets.xcassets */; };
 		0AA8AB592662FDDC00978B99 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA8AB582662FDDC00978B99 /* Preview Assets.xcassets */; };
 		0AA8AB642662FEC900978B99 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8AB632662FEC900978B99 /* HTTPMethod.swift */; };
@@ -28,7 +27,6 @@
 /* Begin PBXFileReference section */
 		0AA8AB4E2662FDDB00978B99 /* Raffles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raffles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA8AB512662FDDB00978B99 /* RafflesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RafflesApp.swift; sourceTree = "<group>"; };
-		0AA8AB532662FDDB00978B99 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0AA8AB552662FDDC00978B99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AA8AB582662FDDC00978B99 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0AA8AB5A2662FDDC00978B99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,7 +78,6 @@
 				0AE678262663C0FC00D7CEEE /* Models */,
 				0AA8AB602662FE1D00978B99 /* Networking */,
 				0AA8AB512662FDDB00978B99 /* RafflesApp.swift */,
-				0AA8AB532662FDDB00978B99 /* ContentView.swift */,
 				0AA8AB552662FDDC00978B99 /* Assets.xcassets */,
 				0AA8AB5A2662FDDC00978B99 /* Info.plist */,
 				0AA8AB572662FDDC00978B99 /* Preview Content */,
@@ -207,7 +204,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AE678252663B91300D7CEEE /* Extension-URL.swift in Sources */,
-				0AA8AB542662FDDB00978B99 /* ContentView.swift in Sources */,
 				0AA8AB522662FDDB00978B99 /* RafflesApp.swift in Sources */,
 				0AA8AB662662FFF500978B99 /* Endpoint.swift in Sources */,
 				0AE6783526640D8C00D7CEEE /* PickAWinnerView.swift in Sources */,
