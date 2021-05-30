@@ -13,5 +13,5 @@ protocol API {
 
     func get<T>(endpoint: Endpoint, params: [String:String]?) -> AnyPublisher<T, APIError> where T: Decodable
 
-    func post<T>(endpoint: Endpoint, params: [String:String]?) -> AnyPublisher<T, APIError> where T: Decodable
+    func post<T, E>(endpoint: Endpoint, params: E?) -> AnyPublisher<T, APIError> where T: Decodable, E: Encodable
 }

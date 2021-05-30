@@ -14,7 +14,8 @@ final class HomeViewModel: ObservableObject {
     @Published var secretToken: String
     @Published var allRaffles: [Raffle]
     
-    private var cancellable: AnyCancellable?
+    private var getCancellable: AnyCancellable?
+    private var postCancellable: AnyCancellable?
     
     init(raffleName: String = "",
          secretToken: String = "",
@@ -31,24 +32,52 @@ final class HomeViewModel: ObservableObject {
 //Mark: Network Calls
 extension HomeViewModel {
     typealias RafflesPublisher = AnyPublisher<[Raffle],APIError>
+    typealias CreateRafflePublisher = AnyPublisher<PostRaffleResponse,APIError>
 
     func createRaffle() {
-        
-    }
-    
-    func getRaffles()  {
-        cancellable = rafflesPublisher()
+        postCancellable = createRafflePublisher()
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 if case .failure(let error) = completion {
-                    print(error)
+                    dump(error)
+                }
+            }, receiveValue: { response in
+                print(response.success)
+            })
+    }
+    
+    func getRaffles()  {
+        getCancellable = rafflesPublisher()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                if case .failure(let error) = completion {
+                    dump(error)
                 }
             }, receiveValue: { [weak self] receivedRaffles in
-                #if DEBUG
-                dump(receivedRaffles)
-                #endif
                 self?.allRaffles = receivedRaffles
             })
+    }
+    
+//    private func createRafflePublisher() -> CreateRafflePublisher {
+//        print(raffleName, secretToken)
+//        return RaffleAPIClient
+//            .shared
+//            .post(endpoint: .createRaffle,
+//                  params: [
+//                    "name" : raffleName,
+//                    "secret_Token" : secretToken
+//                  ]
+//            )
+//            .eraseToAnyPublisher()
+//    }
+    private func createRafflePublisher() -> CreateRafflePublisher {
+        print(raffleName, secretToken)
+        return RaffleAPIClient
+            .shared
+            .post(endpoint: .createRaffle,
+                  params: PostRaffle(name: raffleName, secretToken: secretToken)
+            )
+            .eraseToAnyPublisher()
     }
     
     private func rafflesPublisher() -> RafflesPublisher {

@@ -34,6 +34,7 @@ struct HomeView: View {
                         .lineLimit(1)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     TextField("", text: $viewModel.secretToken)
+                        .autocapitalization(.none)
                 }
                 
                 Text("You must remember the Raffle Token because it will be asked when picking a winner")
@@ -65,7 +66,9 @@ struct HomeView: View {
     }
     
     private func createNewRaffle() {
-        
+        withAnimation {
+            viewModel.createRaffle()
+        }
     }
 }
 

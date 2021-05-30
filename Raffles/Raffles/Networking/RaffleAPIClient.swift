@@ -20,40 +20,30 @@ final class RaffleAPIClient {
     }
     
     #warning("TODO: Add Path Components")
-    func makeURL(endpoint: Endpoint, isJSONAPI: Bool) -> URL {
-           var url = baseURL
-           url = url.appendingPathComponent(endpoint.path())
-           if isJSONAPI {
-               url = url.appendingPathExtension("json")
-           }
-           let component = URLComponents(url: url, resolvingAgainstBaseURL: false)!
-           return component.url!
-       }
+    func makeURL(endpoint: Endpoint) -> URL {
+        var url = baseURL
+        url = url.appendingPathComponent(endpoint.path())
+        let component = URLComponents(url: url, resolvingAgainstBaseURL: false)!
+        return component.url!
+    }
     
-    func makeRequest(url: URL, httpMethod: String = "GET", params: [String:String]? = nil, queryParamsAsBody: Bool = false) -> URLRequest {
+    func makeRequest<E>(url: URL, httpMethod: String = "GET", params: E? = nil, queryParamsAsBody: Bool = true) -> URLRequest where E: Encodable {
         var request: URLRequest
-             var url = url
-             if let params = params {
-                 if queryParamsAsBody {
-                     var urlComponents = URLComponents()
-                     urlComponents.queryItems = []
-                     for (_, param) in params.enumerated() {
-                         urlComponents.queryItems?.append(URLQueryItem(name: param.key, value: param.value))
-                     }
-                     request = URLRequest(url: url)
-                     request.httpBody = urlComponents.percentEncodedQuery?.data(using: .utf8)
-                     request.setValue("application/x-www-form-urlencoded",forHTTPHeaderField: "Content-Type")
-                 } else {
-                     for (_, value) in params.enumerated() {
-                         url = url.appending(value.key, value: value.value)
-                     }
-                     request = URLRequest(url: url)
-                 }
-             } else {
-                 request = URLRequest(url: url)
-             }
-             request.httpMethod = httpMethod
-             return request
+        request = URLRequest(url: url)
+        request.httpMethod = httpMethod
+
+        if let params = params {
+            request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+            
+            let encoder = JSONEncoder()
+            encoder.keyEncodingStrategy = .convertToSnakeCase
+            
+            let encodedData = try? encoder.encode(params)
+            
+            request.httpBody = encodedData
+        }
+
+        return request
     }
 }
 
@@ -63,40 +53,45 @@ extension RaffleAPIClient: API {
     func request<T>(_ request: URLRequest) -> AnyPublisher<T, APIError> where T : Decodable {
         session
             .dataTaskPublisher(for: request)
-            .retry(1)
             .mapError { _ in .noInternet }
             .flatMap { data, response -> AnyPublisher<T, APIError> in
                 if let response = response as? HTTPURLResponse {
                     //If successful response
                     if case 200...299 = response.statusCode {
+                        
                         let decoder = JSONDecoder()
                         let formatter = DateFormatter()
+                        //Used for 'create_At' and 'raffled_At' Date properties
                         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
                         decoder.dateDecodingStrategy = .formatted(formatter)
+                        
                         return Just(data)
                             .decode(type: T.self, decoder: decoder)
                             .mapError {.decodingError($0)}
+                            .eraseToAnyPublisher()
+                    } else {
+                        return Fail(error: .httpError(response.statusCode))
                             .eraseToAnyPublisher()
                     }
                 }
                 
                 //If all possible avenues are exhausted
-                return Fail(error: APIError.unknown)
+                return Fail(error: .unknown)
                     .eraseToAnyPublisher()
             }
             .eraseToAnyPublisher()
     }
-
+    
     func get<T>(endpoint: Endpoint, params: [String:String]? = nil) -> AnyPublisher<T, APIError> where T : Decodable {
-        let url = makeURL(endpoint: endpoint, isJSONAPI: false)
+        let url = makeURL(endpoint: endpoint)
         let urlRequest = makeRequest(url: url, params: params)
         return request(urlRequest)
             .eraseToAnyPublisher()
     }
-
-    func post<T>(endpoint: Endpoint, params: [String:String]? = nil) -> AnyPublisher<T, APIError> where T : Decodable {
-        let url = makeURL(endpoint: endpoint, isJSONAPI: true)
-        let urlRequest = makeRequest(url: url, httpMethod: "POST", params: params, queryParamsAsBody: true)
+    
+    func post<T, E>(endpoint: Endpoint, params: E? = nil) -> AnyPublisher<T, APIError> where T : Decodable, E : Encodable {
+        let url = makeURL(endpoint: endpoint)
+        let urlRequest = makeRequest(url: url, httpMethod: "POST", params: params)
         return request(urlRequest)
             .eraseToAnyPublisher()
     }
