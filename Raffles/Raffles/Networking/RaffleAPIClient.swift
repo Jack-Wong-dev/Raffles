@@ -12,11 +12,9 @@ import Combine
 final class RaffleAPIClient {
     private let baseURL = URL(staticString: "https://raffle-fs-app.herokuapp.com")
     private let session: URLSession
-    private let decoder: JSONDecoder
     
-    init(session: URLSession = .shared, decoder: JSONDecoder = .init()) {
+    init(session: URLSession = .shared) {
         self.session = session
-        self.decoder = decoder
     }
     
     #warning("TODO: Add Path Components")
@@ -33,6 +31,14 @@ extension RaffleAPIClient: API {
             .retry(1)
             .mapError { _ in .noInternet }
             .flatMap { data, response -> AnyPublisher<T, APIError> in
+                if let response = response as? HTTPURLResponse {
+                    if case 200...299 = response.statusCode {
+                        return Just(data)
+                            .decode(type: T.self, decoder: JSONDecoder())
+                            .mapError {.decodingError($0)}
+                            .eraseToAnyPublisher()
+                    }
+                }
                 return Fail(error: APIError.unknown)
                     .eraseToAnyPublisher()
             }
