@@ -12,7 +12,7 @@ struct RafflesApp: App {
     var body: some Scene {
         WindowGroup {
 //            HomeView()
-            RaffleParticipantsView()
+            RaffleParticipantsView(viewModel: .init(id: 8))
                 .textFieldStyle(RoundedBorderTextFieldStyle())
         }
     }

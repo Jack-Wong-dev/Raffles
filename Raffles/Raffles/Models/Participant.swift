@@ -26,3 +26,10 @@ public struct Participant: Decodable {
     case registeredAt = "registered_at"
   }
 }
+
+//MARK: Computer Properties
+extension Participant {
+    var fullName: String {
+        "\(firstname) \(lastname)".capitalized
+    }
+}

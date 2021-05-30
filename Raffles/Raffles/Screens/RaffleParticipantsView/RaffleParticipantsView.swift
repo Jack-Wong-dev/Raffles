@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RaffleParticipantsView: View {
+    @StateObject var viewModel: ParticipantsViewModel
+    
     var body: some View {
         VStack(spacing: 20) {
             Text("Raffle App")
@@ -66,15 +68,13 @@ struct RaffleParticipantsView: View {
                     .strokeBorder(style: StrokeStyle(lineWidth: 2))
             )
             
-            Text("Participants: 6 total")
+            Text("Participants: \(viewModel.allParticipants.count) total")
                 .font(.title2)
                 .fontWeight(.medium)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             ScrollView(showsIndicators: false) {
-                LazyVStack(alignment: .leading) {
-                    ParticipantsView()
-                }
+                ParticipantsView(participants: viewModel.allParticipants)
             }
             
             Spacer(minLength: 0)
@@ -85,37 +85,41 @@ struct RaffleParticipantsView: View {
 
 struct RaffleParticipantsView_Previews: PreviewProvider {
     static var previews: some View {
-        RaffleParticipantsView()
+        RaffleParticipantsView(viewModel: .init(id: 8))
     }
 }
 
 struct ParticipantsView: View {
+    var participants: [Participant]
+    
     var body: some View {
-        ForEach(0..<6, id: \.self) { index in
-            VStack(alignment: .leading) {
-                Text("Alejandro Franco")
-                    .fontWeight(.medium)
-                
-                HStack {
-                    Image(systemName: "person.crop.circle")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 50)
-                    VStack(alignment: .leading) {
-                        Group {
-                            Label("1", systemImage: "number")
-                            Label("alejandrofranco@pursuit.org", systemImage: "envelope.fill")
-                            Label("12345678900", systemImage: "phone")
+        LazyVStack(alignment: .leading) {
+            ForEach(participants, id: \.id) { participant in
+                VStack(alignment: .leading) {
+                    Text(participant.fullName)
+                        .fontWeight(.medium)
+                    
+                    HStack {
+                        Image(systemName: "person.crop.circle")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 50)
+                        VStack(alignment: .leading) {
+                            Group {
+                                Label("\(participant.id)", systemImage: "number")
+                                Label(participant.email, systemImage: "envelope.fill")
+                                Label(participant.phone ?? "N/A", systemImage: "phone")
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
                         }
-                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                        .strokeBorder(style: StrokeStyle(lineWidth: 2))
+                )
             }
-            .padding()
-            .background(
-                RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                    .strokeBorder(style: StrokeStyle(lineWidth: 2))
-            )
         }
     }
 }

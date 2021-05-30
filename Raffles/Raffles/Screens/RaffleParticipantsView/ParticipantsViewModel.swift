@@ -35,6 +35,7 @@ extension ParticipantsViewModel {
                 }
             }, receiveValue: { [weak self] participants in
                 self?.allParticipants = participants
+                print(participants)
             })
     }
     
