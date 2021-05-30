@@ -10,13 +10,15 @@ import Combine
 
 final class RafflesViewModel: ObservableObject {
     typealias RafflesPublisher = AnyPublisher<[Raffle],APIError>
+    
+    //MARK: - Properties
     @Published private(set) var raffles: [Raffle] = []
+    
     private var cancellable: AnyCancellable?
     
-    init() {
-        
-    }
+    init() {}
     
+    //MARK: - Public Methods
     func getRaffles() {
         cancellable = rafflesPublisher()
             .receive(on: DispatchQueue.main)
@@ -29,6 +31,8 @@ final class RafflesViewModel: ObservableObject {
             })
     }
     
+    #warning("TODO: Specify Path Component here.")
+    //MARK: - Private methods
     private func rafflesPublisher() -> RafflesPublisher {
         RaffleAPIClient.shared
             .get()
