@@ -8,7 +8,6 @@
 import Foundation
 import Combine
 
-#warning("TODO: REMOVE PLACEHOLDERS AND IMPLEMENT THE PROTOCOL STUBS.")
 final class RaffleAPIClient {
     static public let shared = RaffleAPIClient()
     
@@ -19,7 +18,6 @@ final class RaffleAPIClient {
         self.session = session
     }
     
-    #warning("TODO: Add Path Components")
     func makeURL(endpoint: Endpoint) -> URL {
         var url = baseURL
         url = url.appendingPathComponent(endpoint.path())
