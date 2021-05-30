@@ -33,3 +33,14 @@ extension Participant {
         "\(firstname) \(lastname)".capitalized
     }
 }
+
+//MARK: Placeholder for preview
+extension Participant {
+    static let placeholder: Participant = .init(id: 1,
+                                                raffleId: 8,
+                                                firstname: "Alejandro",
+                                                lastname: "Franco",
+                                                email: "alejandrofranco@pursuit.org",
+                                                phone: "12345678900", registeredAt: Date()
+    )
+}

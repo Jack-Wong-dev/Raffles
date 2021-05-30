@@ -89,12 +89,3 @@ struct RaffleParticipantsView_Previews: PreviewProvider {
     }
 }
 
-struct ParticipantsView: View {
-    var participants: [Participant]
-    
-    var body: some View {
-        LazyVStack(alignment: .leading) {
-            ForEach(participants, id: \.id, content: ParticipantCell.init)
-        }
-    }
-}
