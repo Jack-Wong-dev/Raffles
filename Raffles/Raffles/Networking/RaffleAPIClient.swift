@@ -10,6 +10,8 @@ import Combine
 
 #warning("TODO: REMOVE PLACEHOLDERS AND IMPLEMENT THE PROTOCOL STUBS.")
 final class RaffleAPIClient {
+    static public let shared = RaffleAPIClient()
+    
     private let baseURL = URL(staticString: "https://raffle-fs-app.herokuapp.com")
     private let session: URLSession
     
