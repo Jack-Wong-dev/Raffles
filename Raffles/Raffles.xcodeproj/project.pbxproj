@@ -22,6 +22,7 @@
 		0AE678332663F3BE00D7CEEE /* RaffleParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE678322663F3BE00D7CEEE /* RaffleParticipantsView.swift */; };
 		0AE6783526640D8C00D7CEEE /* PickAWinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6783426640D8C00D7CEEE /* PickAWinnerView.swift */; };
 		0AE6783A2664116F00D7CEEE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE678392664116F00D7CEEE /* HomeViewModel.swift */; };
+		0AE6783D2664162300D7CEEE /* AllRafflesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6783C2664162300D7CEEE /* AllRafflesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		0AE678322663F3BE00D7CEEE /* RaffleParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaffleParticipantsView.swift; sourceTree = "<group>"; };
 		0AE6783426640D8C00D7CEEE /* PickAWinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickAWinnerView.swift; sourceTree = "<group>"; };
 		0AE678392664116F00D7CEEE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		0AE6783C2664162300D7CEEE /* AllRafflesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRafflesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,10 +130,19 @@
 		0AE678362664113300D7CEEE /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0AE6783B266415F900D7CEEE /* SubViews */,
 				0AE6782E2663E76000D7CEEE /* HomeView.swift */,
 				0AE678392664116F00D7CEEE /* HomeViewModel.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		0AE6783B266415F900D7CEEE /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				0AE6783C2664162300D7CEEE /* AllRafflesView.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +216,7 @@
 			files = (
 				0AE678252663B91300D7CEEE /* Extension-URL.swift in Sources */,
 				0AA8AB522662FDDB00978B99 /* RafflesApp.swift in Sources */,
+				0AE6783D2664162300D7CEEE /* AllRafflesView.swift in Sources */,
 				0AA8AB662662FFF500978B99 /* Endpoint.swift in Sources */,
 				0AE6783526640D8C00D7CEEE /* PickAWinnerView.swift in Sources */,
 				0AE678332663F3BE00D7CEEE /* RaffleParticipantsView.swift in Sources */,
