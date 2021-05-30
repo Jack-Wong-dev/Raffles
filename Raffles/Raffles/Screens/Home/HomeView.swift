@@ -56,7 +56,7 @@ struct HomeView: View {
             Text("All Raffles:").font(.title2.bold()).padding(.leading)
             
             ScrollView(showsIndicators: false) {
-                AllRafflesView(allRaffles: $viewModel.allRaffles)
+                AllRafflesView(allRaffles: viewModel.allRaffles)
             }
             
             Spacer(minLength: 0)

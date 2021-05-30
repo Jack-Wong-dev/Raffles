@@ -23,6 +23,8 @@ final class HomeViewModel: ObservableObject {
         self.raffleName = raffleName
         self.secretToken = secretToken
         self.allRaffles = raffles
+        
+        getRaffles()
     }
 }
 
