@@ -70,10 +70,9 @@ extension RaffleAPIClient: API {
                     //If successful response
                     if case 200...299 = response.statusCode {
                         let decoder = JSONDecoder()
-//                        let formatter = DateFormatter()
-//                        formatter.dateFormat = "yyyy-MM-dd HH:mm:ssZ" //"2021-05-29T22:20:46.781Z"
-//
-//                        decoder.dateDecodingStrategy = .formatted(formatter)
+                        let formatter = DateFormatter()
+                        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                        decoder.dateDecodingStrategy = .formatted(formatter)
                         return Just(data)
                             .decode(type: T.self, decoder: decoder)
                             .mapError {.decodingError($0)}

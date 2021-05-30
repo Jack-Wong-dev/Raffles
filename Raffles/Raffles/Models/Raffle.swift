@@ -10,10 +10,10 @@ import Foundation
 struct Raffle: Decodable {
   let id: Int
   let name: String
-//  let createdAt: Date
-//  let raffledAt: Date?
-    let createdAt: String
-    let raffledAt: String?
+  let createdAt: Date
+  let raffledAt: Date?
+//    let createdAt: String
+//    let raffledAt: String?
   let winnerId: Int?
 
   private enum CodingKeys: String, CodingKey {
@@ -27,7 +27,7 @@ struct Raffle: Decodable {
 
 //MARK: Placeholder for Preview
 extension Raffle {
-    static let placeholder = Raffle(id: 0, name: "Johnny", createdAt: "Created on: May 22 2021 at 8:02:46 PM", raffledAt: "Raffled On: Sat May 22 2021 at 8:05:58 PM", winnerId: 11)
+    static let placeholder = Raffle(id: 0, name: "Johnny", createdAt: .init(), raffledAt: nil, winnerId: 11)
 }
 
 //MARK: Computer Properties
@@ -35,5 +35,10 @@ extension Raffle {
     var winner: String {
         guard let winningId = winnerId else { return "No Winner Yet" }
         return String(winningId)
+    }
+    
+    var raffleDate: String {
+        guard let date = raffledAt else { return "Not raffled yet"}
+        return "\(date)"
     }
 }

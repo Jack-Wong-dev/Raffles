@@ -16,7 +16,7 @@ struct RaffleCard: View {
                 Text("\(raffle.name)'s raffle").font(.title3).fontWeight(.medium)
                 Text("Created on: \(raffle.createdAt)")
                 Text("Winner ID: \(raffle.winner)")
-                Text("Raffled On: \(raffle.raffledAt ?? "Not raffled yet")")
+                Text("Raffled On: \(raffle.raffleDate)")
             }
             .padding()
             .frame(maxWidth: .infinity)
