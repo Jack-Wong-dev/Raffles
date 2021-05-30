@@ -41,7 +41,7 @@ extension ParticipantsViewModel {
     private func getParticipantsPublisher() -> ParticipantsPublisher {
         RaffleAPIClient
             .shared
-            .get(endpoint: .participants(id: 8))
+            .get(endpoint: .participants(id: id))
             .eraseToAnyPublisher()
     }
 }
