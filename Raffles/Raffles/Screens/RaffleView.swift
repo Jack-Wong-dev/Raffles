@@ -1,5 +1,5 @@
 //
-//  HomeView.swift
+//  RaffleView.swift
 //  Raffles
 //
 //  Created by Jack Wong on 5/30/21.
@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct RaffleView: View {
     var body: some View {
-        VStack {
-            
+        VStack(spacing: 20) {
+        
         }
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
+struct RaffleView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        RaffleView()
     }
 }
