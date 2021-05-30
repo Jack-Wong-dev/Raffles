@@ -16,6 +16,7 @@
 		0AA8AB682663010900978B99 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8AB672663010900978B99 /* API.swift */; };
 		0AA8AB6A2663024F00978B99 /* RaffleAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8AB692663024F00978B99 /* RaffleAPIClient.swift */; };
 		0AE678252663B91300D7CEEE /* Extension-URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE678242663B91300D7CEEE /* Extension-URL.swift */; };
+		0AE678282663C10400D7CEEE /* Raffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE678272663C10400D7CEEE /* Raffle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		0AA8AB672663010900978B99 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		0AA8AB692663024F00978B99 /* RaffleAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaffleAPIClient.swift; sourceTree = "<group>"; };
 		0AE678242663B91300D7CEEE /* Extension-URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-URL.swift"; sourceTree = "<group>"; };
+		0AE678272663C10400D7CEEE /* Raffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Raffle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		0AA8AB502662FDDB00978B99 /* Raffles */ = {
 			isa = PBXGroup;
 			children = (
+				0AE678262663C0FC00D7CEEE /* Models */,
 				0AA8AB602662FE1D00978B99 /* Networking */,
 				0AA8AB512662FDDB00978B99 /* RafflesApp.swift */,
 				0AA8AB532662FDDB00978B99 /* ContentView.swift */,
@@ -90,6 +93,14 @@
 				0AE678242663B91300D7CEEE /* Extension-URL.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		0AE678262663C0FC00D7CEEE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0AE678272663C10400D7CEEE /* Raffle.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +179,7 @@
 				0AA8AB642662FEC900978B99 /* HTTPMethod.swift in Sources */,
 				0AA8AB682663010900978B99 /* API.swift in Sources */,
 				0AA8AB6A2663024F00978B99 /* RaffleAPIClient.swift in Sources */,
+				0AE678282663C10400D7CEEE /* Raffle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
