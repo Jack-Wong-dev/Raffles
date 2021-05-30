@@ -19,6 +19,7 @@
 		0AE678282663C10400D7CEEE /* Raffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE678272663C10400D7CEEE /* Raffle.swift */; };
 		0AE6782A2663C24100D7CEEE /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE678292663C24100D7CEEE /* APIError.swift */; };
 		0AE6782C2663C6EA00D7CEEE /* RafflesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6782B2663C6EA00D7CEEE /* RafflesViewModel.swift */; };
+		0AE6782F2663E76000D7CEEE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6782E2663E76000D7CEEE /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		0AE678272663C10400D7CEEE /* Raffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Raffle.swift; sourceTree = "<group>"; };
 		0AE678292663C24100D7CEEE /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		0AE6782B2663C6EA00D7CEEE /* RafflesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RafflesViewModel.swift; sourceTree = "<group>"; };
+		0AE6782E2663E76000D7CEEE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		0AA8AB502662FDDB00978B99 /* Raffles */ = {
 			isa = PBXGroup;
 			children = (
+				0AE6782D2663E73C00D7CEEE /* Screens */,
 				0AE678262663C0FC00D7CEEE /* Models */,
 				0AA8AB602662FE1D00978B99 /* Networking */,
 				0AA8AB512662FDDB00978B99 /* RafflesApp.swift */,
@@ -107,6 +110,14 @@
 				0AE678272663C10400D7CEEE /* Raffle.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		0AE6782D2663E73C00D7CEEE /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				0AE6782E2663E76000D7CEEE /* HomeView.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +194,7 @@
 				0AA8AB522662FDDB00978B99 /* RafflesApp.swift in Sources */,
 				0AA8AB662662FFF500978B99 /* Endpoint.swift in Sources */,
 				0AE6782C2663C6EA00D7CEEE /* RafflesViewModel.swift in Sources */,
+				0AE6782F2663E76000D7CEEE /* HomeView.swift in Sources */,
 				0AA8AB642662FEC900978B99 /* HTTPMethod.swift in Sources */,
 				0AA8AB682663010900978B99 /* API.swift in Sources */,
 				0AA8AB6A2663024F00978B99 /* RaffleAPIClient.swift in Sources */,
