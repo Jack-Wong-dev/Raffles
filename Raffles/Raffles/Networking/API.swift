@@ -9,9 +9,9 @@ import Foundation
 import Combine
 
 protocol API {
-    func request<T>(_ request: URLRequest) -> AnyPublisher<T, Error> where T: Decodable
+    func request<T>(_ request: URLRequest) -> AnyPublisher<T, APIError> where T: Decodable
 
-    func get<T>() -> AnyPublisher<T, Error> where T: Decodable
+    func get<T>() -> AnyPublisher<T, APIError> where T: Decodable
 
-    func post<T>() -> AnyPublisher<T, Error> where T: Decodable
+    func post<T>() -> AnyPublisher<T, APIError> where T: Decodable
 }
