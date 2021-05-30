@@ -99,11 +99,19 @@
 		0A606D2B2664545900DB1D54 /* RaffleParticipantsView */ = {
 			isa = PBXGroup;
 			children = (
+				0A606D3426645D2700DB1D54 /* SubViews */,
 				0AE678322663F3BE00D7CEEE /* RaffleParticipantsView.swift */,
 				0A606D2C266455B200DB1D54 /* ParticipantsViewModel.swift */,
-				0A606D3226645C2C00DB1D54 /* ParticipantCell.swift */,
 			);
 			path = RaffleParticipantsView;
+			sourceTree = "<group>";
+		};
+		0A606D3426645D2700DB1D54 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				0A606D3226645C2C00DB1D54 /* ParticipantCell.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 		0AA8AB452662FDDB00978B99 = {
