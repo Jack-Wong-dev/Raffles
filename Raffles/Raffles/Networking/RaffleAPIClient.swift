@@ -25,6 +25,7 @@ final class RaffleAPIClient {
 
 //MARK: API Methods
 extension RaffleAPIClient: API {
+    //Generic network call
     func request<T>(_ request: URLRequest) -> AnyPublisher<T, APIError> where T : Decodable {
         session
             .dataTaskPublisher(for: request)
@@ -32,6 +33,7 @@ extension RaffleAPIClient: API {
             .mapError { _ in .noInternet }
             .flatMap { data, response -> AnyPublisher<T, APIError> in
                 if let response = response as? HTTPURLResponse {
+                    //If successful response
                     if case 200...299 = response.statusCode {
                         return Just(data)
                             .decode(type: T.self, decoder: JSONDecoder())
@@ -39,6 +41,8 @@ extension RaffleAPIClient: API {
                             .eraseToAnyPublisher()
                     }
                 }
+                
+                //If all possible avenues are exhausted
                 return Fail(error: APIError.unknown)
                     .eraseToAnyPublisher()
             }

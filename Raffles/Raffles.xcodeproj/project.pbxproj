@@ -18,6 +18,7 @@
 		0AE678252663B91300D7CEEE /* Extension-URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE678242663B91300D7CEEE /* Extension-URL.swift */; };
 		0AE678282663C10400D7CEEE /* Raffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE678272663C10400D7CEEE /* Raffle.swift */; };
 		0AE6782A2663C24100D7CEEE /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE678292663C24100D7CEEE /* APIError.swift */; };
+		0AE6782C2663C6EA00D7CEEE /* RafflesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6782B2663C6EA00D7CEEE /* RafflesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		0AE678242663B91300D7CEEE /* Extension-URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension-URL.swift"; sourceTree = "<group>"; };
 		0AE678272663C10400D7CEEE /* Raffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Raffle.swift; sourceTree = "<group>"; };
 		0AE678292663C24100D7CEEE /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		0AE6782B2663C6EA00D7CEEE /* RafflesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RafflesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				0AA8AB552662FDDC00978B99 /* Assets.xcassets */,
 				0AA8AB5A2662FDDC00978B99 /* Info.plist */,
 				0AA8AB572662FDDC00978B99 /* Preview Content */,
+				0AE6782B2663C6EA00D7CEEE /* RafflesViewModel.swift */,
 			);
 			path = Raffles;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				0AA8AB542662FDDB00978B99 /* ContentView.swift in Sources */,
 				0AA8AB522662FDDB00978B99 /* RafflesApp.swift in Sources */,
 				0AA8AB662662FFF500978B99 /* PathComponent.swift in Sources */,
+				0AE6782C2663C6EA00D7CEEE /* RafflesViewModel.swift in Sources */,
 				0AA8AB642662FEC900978B99 /* HTTPMethod.swift in Sources */,
 				0AA8AB682663010900978B99 /* API.swift in Sources */,
 				0AA8AB6A2663024F00978B99 /* RaffleAPIClient.swift in Sources */,
