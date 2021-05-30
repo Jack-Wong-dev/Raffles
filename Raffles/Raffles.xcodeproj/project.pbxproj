@@ -22,6 +22,7 @@
 		0AE6782F2663E76000D7CEEE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6782E2663E76000D7CEEE /* HomeView.swift */; };
 		0AE678312663F05600D7CEEE /* RaffleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE678302663F05600D7CEEE /* RaffleView.swift */; };
 		0AE678332663F3BE00D7CEEE /* RaffleParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE678322663F3BE00D7CEEE /* RaffleParticipantsView.swift */; };
+		0AE6783526640D8C00D7CEEE /* PickAWinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6783426640D8C00D7CEEE /* PickAWinnerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		0AE6782E2663E76000D7CEEE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0AE678302663F05600D7CEEE /* RaffleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaffleView.swift; sourceTree = "<group>"; };
 		0AE678322663F3BE00D7CEEE /* RaffleParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaffleParticipantsView.swift; sourceTree = "<group>"; };
+		0AE6783426640D8C00D7CEEE /* PickAWinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickAWinnerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				0AE6782E2663E76000D7CEEE /* HomeView.swift */,
 				0AE678302663F05600D7CEEE /* RaffleView.swift */,
 				0AE678322663F3BE00D7CEEE /* RaffleParticipantsView.swift */,
+				0AE6783426640D8C00D7CEEE /* PickAWinnerView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				0AA8AB542662FDDB00978B99 /* ContentView.swift in Sources */,
 				0AA8AB522662FDDB00978B99 /* RafflesApp.swift in Sources */,
 				0AA8AB662662FFF500978B99 /* Endpoint.swift in Sources */,
+				0AE6783526640D8C00D7CEEE /* PickAWinnerView.swift in Sources */,
 				0AE678332663F3BE00D7CEEE /* RaffleParticipantsView.swift in Sources */,
 				0AE6782C2663C6EA00D7CEEE /* RafflesViewModel.swift in Sources */,
 				0AE6782F2663E76000D7CEEE /* HomeView.swift in Sources */,
