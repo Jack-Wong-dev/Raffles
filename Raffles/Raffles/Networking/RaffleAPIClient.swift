@@ -20,8 +20,40 @@ final class RaffleAPIClient {
     }
     
     #warning("TODO: Add Path Components")
-    func makeURL() -> URL {
-        return baseURL
+    func makeURL(endpoint: Endpoint, isJSONAPI: Bool) -> URL {
+           var url = baseURL
+           url = url.appendingPathComponent(endpoint.path())
+           if isJSONAPI {
+               url = url.appendingPathExtension("json")
+           }
+           let component = URLComponents(url: url, resolvingAgainstBaseURL: false)!
+           return component.url!
+       }
+    
+    func makeRequest(url: URL, httpMethod: String = "GET", params: [String:String]? = nil, queryParamsAsBody: Bool = false) -> URLRequest {
+        var request: URLRequest
+             var url = url
+             if let params = params {
+                 if queryParamsAsBody {
+                     var urlComponents = URLComponents()
+                     urlComponents.queryItems = []
+                     for (_, param) in params.enumerated() {
+                         urlComponents.queryItems?.append(URLQueryItem(name: param.key, value: param.value))
+                     }
+                     request = URLRequest(url: url)
+                     request.httpBody = urlComponents.percentEncodedQuery?.data(using: .utf8)
+                     request.setValue("application/x-www-form-urlencoded",forHTTPHeaderField: "Content-Type")
+                 } else {
+                     for (_, value) in params.enumerated() {
+                         url = url.appending(value.key, value: value.value)
+                     }
+                     request = URLRequest(url: url)
+                 }
+             } else {
+                 request = URLRequest(url: url)
+             }
+             request.httpMethod = httpMethod
+             return request
     }
 }
 
@@ -37,8 +69,13 @@ extension RaffleAPIClient: API {
                 if let response = response as? HTTPURLResponse {
                     //If successful response
                     if case 200...299 = response.statusCode {
+                        let decoder = JSONDecoder()
+//                        let formatter = DateFormatter()
+//                        formatter.dateFormat = "yyyy-MM-dd HH:mm:ssZ" //"2021-05-29T22:20:46.781Z"
+//
+//                        decoder.dateDecodingStrategy = .formatted(formatter)
                         return Just(data)
-                            .decode(type: T.self, decoder: JSONDecoder())
+                            .decode(type: T.self, decoder: decoder)
                             .mapError {.decodingError($0)}
                             .eraseToAnyPublisher()
                     }
@@ -51,16 +88,16 @@ extension RaffleAPIClient: API {
             .eraseToAnyPublisher()
     }
 
-    #warning("TODO: Add GET")
-    func get<T>() -> AnyPublisher<T, APIError> where T : Decodable {
-        let urlRequest = URLRequest(url: makeURL())
+    func get<T>(endpoint: Endpoint, params: [String:String]? = nil) -> AnyPublisher<T, APIError> where T : Decodable {
+        let url = makeURL(endpoint: endpoint, isJSONAPI: false)
+        let urlRequest = makeRequest(url: url, params: params)
         return request(urlRequest)
             .eraseToAnyPublisher()
     }
 
-    #warning("TODO: Add POST")
-    func post<T>() -> AnyPublisher<T, APIError> where T : Decodable {
-        let urlRequest = URLRequest(url: makeURL())
+    func post<T>(endpoint: Endpoint, params: [String:String]? = nil) -> AnyPublisher<T, APIError> where T : Decodable {
+        let url = makeURL(endpoint: endpoint, isJSONAPI: true)
+        let urlRequest = makeRequest(url: url, httpMethod: "POST", params: params, queryParamsAsBody: true)
         return request(urlRequest)
             .eraseToAnyPublisher()
     }

@@ -27,6 +27,9 @@ final class RafflesViewModel: ObservableObject {
                     print(error)
                 }
             }, receiveValue: { [weak self] receivedRaffles in
+                #if DEBUG
+                dump(receivedRaffles)
+                #endif
                 self?.raffles = receivedRaffles
             })
     }
@@ -35,6 +38,6 @@ final class RafflesViewModel: ObservableObject {
     //MARK: - Private methods
     private func rafflesPublisher() -> RafflesPublisher {
         RaffleAPIClient.shared
-            .get()
+            .get(endpoint: .allRaffles)
     }
 }

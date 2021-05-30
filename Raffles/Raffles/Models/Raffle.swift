@@ -10,8 +10,10 @@ import Foundation
 struct Raffle: Decodable {
   let id: Int
   let name: String
-  let createdAt: Date
-  let raffledAt: Date?
+//  let createdAt: Date
+//  let raffledAt: Date?
+    let createdAt: String
+    let raffledAt: String?
   let winnerId: Int?
 
   private enum CodingKeys: String, CodingKey {
