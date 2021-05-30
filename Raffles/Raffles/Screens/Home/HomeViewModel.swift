@@ -8,13 +8,27 @@
 import Foundation
 import Combine
 
+enum AlertMessage: Identifiable {
+    case success(String)
+    case failure(String)
+    
+    var id: String {
+        switch self {
+        case .success:
+            return "Success"
+        case .failure:
+            return "Failure"
+        }
+    }
+}
+
 final class HomeViewModel: ObservableObject {
     //MARK: - Properties
     @Published var raffleName: String
     @Published var secretToken: String
     @Published var allRaffles: [Raffle]
     @Published private(set) var isLoading: Bool
-    @Published var alertMessage: String?
+    @Published var alertMessage: AlertMessage?
     
     private var getCancellable: AnyCancellable?
     private var postCancellable: AnyCancellable?
@@ -25,7 +39,7 @@ final class HomeViewModel: ObservableObject {
          raffles: [Raffle] = [],
          isLoading: Bool = false,
          showAlert: Bool = false,
-         alertMessage: String? = nil
+         alertMessage: AlertMessage? = nil
     ) {
         self.raffleName = raffleName
         self.secretToken = secretToken
@@ -35,6 +49,11 @@ final class HomeViewModel: ObservableObject {
         
         //Immediately fetch all raffles
         getRaffles()
+    }
+    
+    func resetFields() {
+        raffleName.removeAll()
+        secretToken.removeAll()
     }
 }
 
@@ -51,14 +70,14 @@ extension HomeViewModel {
             .sink(receiveCompletion: { [weak self] completion in
                 if case .failure(let error) = completion {
                     dump(error)
-                    self?.alertMessage = error.localizedDescription
+                    self?.alertMessage = .failure(error.localizedDescription)
                 }
                 self?.isLoading = false
             }, receiveValue: { [weak self] response in
                 if response.success {
                     self?.getRaffles()
                 }
-                self?.alertMessage = response.title
+                self?.alertMessage = .success(response.title)
             })
     }
     

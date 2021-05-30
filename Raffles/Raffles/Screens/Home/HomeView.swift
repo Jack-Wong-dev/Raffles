@@ -34,7 +34,6 @@ struct HomeView: View {
                         .lineLimit(1)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     TextField("", text: $viewModel.secretToken)
-                        .autocapitalization(.none)
                 }
                 
                 Text("You must remember the Raffle Token because it will be asked when picking a winner")
@@ -63,6 +62,20 @@ struct HomeView: View {
             Spacer(minLength: 0)
         }
         .textFieldStyle(RoundedBorderTextFieldStyle())
+        .autocapitalization(.none)
+        .disableAutocorrection(true)
+        .alert(item: $viewModel.alertMessage) { message in
+            switch message {
+            case .success(let successMessage):
+                return Alert(
+                    title: Text("Success"),
+                    message: Text(successMessage),
+                    dismissButton: .default(Text("Okay"), action: viewModel.resetFields)
+                )
+            case .failure(let errorMessage):
+                return Alert(title: Text(errorMessage))
+            }
+        }
     }
     
     private func createNewRaffle() {

@@ -101,10 +101,10 @@
 		0AA8AB502662FDDB00978B99 /* Raffles */ = {
 			isa = PBXGroup;
 			children = (
+				0AA8AB512662FDDB00978B99 /* RafflesApp.swift */,
 				0A606D262664488500DB1D54 /* Utilities */,
 				0AE6782D2663E73C00D7CEEE /* Screens */,
 				0AE678262663C0FC00D7CEEE /* Models */,
-				0AA8AB512662FDDB00978B99 /* RafflesApp.swift */,
 				0AA8AB552662FDDC00978B99 /* Assets.xcassets */,
 				0AA8AB5A2662FDDC00978B99 /* Info.plist */,
 				0AA8AB572662FDDC00978B99 /* Preview Content */,
