@@ -11,7 +11,7 @@ struct RaffleCard: View {
     let raffle: Raffle
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack {
             VStack(alignment: .leading, spacing: 10) {
                 Text("\(raffle.name)'s raffle").font(.title3).fontWeight(.medium)
                 Text("Created on: \(raffle.createdAt)")
@@ -19,6 +19,7 @@ struct RaffleCard: View {
                 Text("Raffled On: \(raffle.raffledAt ?? "Not raffled yet")")
             }
             .padding()
+            .frame(maxWidth: .infinity)
             .background(
                 RoundedRectangle(cornerRadius: 8.0, style: .continuous)
                     .strokeBorder(style: StrokeStyle(lineWidth: 2))
@@ -36,5 +37,6 @@ struct RaffleCard_Previews: PreviewProvider {
             RaffleCard(raffle: .placeholder)
                 .preferredColorScheme(.dark)
         }
+        .padding()
     }
 }

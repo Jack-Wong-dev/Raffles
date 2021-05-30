@@ -11,8 +11,9 @@ struct AllRafflesView: View {
     var allRaffles: [Raffle]
     
     var body: some View {
-        LazyVStack {
+        LazyVStack(alignment: .leading) {
             ForEach(allRaffles, id: \.id, content: RaffleCard.init)
+                .padding(.horizontal)
         }
     }
 }
