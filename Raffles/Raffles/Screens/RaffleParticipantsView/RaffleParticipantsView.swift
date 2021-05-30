@@ -98,34 +98,3 @@ struct ParticipantsView: View {
         }
     }
 }
-
-struct ParticipantCell: View {
-    let participant: Participant
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text(participant.fullName)
-                .fontWeight(.medium)
-            
-            HStack {
-                Image(systemName: "person.crop.circle")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(height: 50)
-                VStack(alignment: .leading) {
-                    Group {
-                        Label("\(participant.id)", systemImage: "number")
-                        Label(participant.email, systemImage: "envelope.fill")
-                        Label(participant.phone ?? "N/A", systemImage: "phone")
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                }
-            }
-        }
-        .padding()
-        .background(
-            RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                .strokeBorder(style: StrokeStyle(lineWidth: 2))
-        )
-    }
-}

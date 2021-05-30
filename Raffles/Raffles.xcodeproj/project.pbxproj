@@ -13,6 +13,7 @@
 		0A606D29266448A700DB1D54 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D28266448A700DB1D54 /* Validation.swift */; };
 		0A606D2D266455B200DB1D54 /* ParticipantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D2C266455B200DB1D54 /* ParticipantsViewModel.swift */; };
 		0A606D2F266456B600DB1D54 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D2E266456B600DB1D54 /* Participant.swift */; };
+		0A606D3326645C2C00DB1D54 /* ParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D3226645C2C00DB1D54 /* ParticipantCell.swift */; };
 		0AA8AB522662FDDB00978B99 /* RafflesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8AB512662FDDB00978B99 /* RafflesApp.swift */; };
 		0AA8AB562662FDDC00978B99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA8AB552662FDDC00978B99 /* Assets.xcassets */; };
 		0AA8AB592662FDDC00978B99 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA8AB582662FDDC00978B99 /* Preview Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		0A606D28266448A700DB1D54 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		0A606D2C266455B200DB1D54 /* ParticipantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsViewModel.swift; sourceTree = "<group>"; };
 		0A606D2E266456B600DB1D54 /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
+		0A606D3226645C2C00DB1D54 /* ParticipantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantCell.swift; sourceTree = "<group>"; };
 		0AA8AB4E2662FDDB00978B99 /* Raffles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raffles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA8AB512662FDDB00978B99 /* RafflesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RafflesApp.swift; sourceTree = "<group>"; };
 		0AA8AB552662FDDC00978B99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				0AE678322663F3BE00D7CEEE /* RaffleParticipantsView.swift */,
 				0A606D2C266455B200DB1D54 /* ParticipantsViewModel.swift */,
+				0A606D3226645C2C00DB1D54 /* ParticipantCell.swift */,
 			);
 			path = RaffleParticipantsView;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				0AE6783A2664116F00D7CEEE /* HomeViewModel.swift in Sources */,
 				0AE6782A2663C24100D7CEEE /* APIError.swift in Sources */,
 				0A606D2526643AE300DB1D54 /* PostRaffle.swift in Sources */,
+				0A606D3326645C2C00DB1D54 /* ParticipantCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
