@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = RafflesViewModel()
+    
     var body: some View {
         Text("Hello, world!")
             .padding()
+            .onAppear {
+                viewModel.getRaffles()
+            }
     }
 }
 
