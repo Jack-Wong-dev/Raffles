@@ -11,9 +11,9 @@ import SwiftUI
 struct RafflesApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+//            HomeView()
+            
                 .textFieldStyle(RoundedBorderTextFieldStyle())
         }
-        
     }
 }
