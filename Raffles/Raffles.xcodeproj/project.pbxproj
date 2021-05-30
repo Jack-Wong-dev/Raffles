@@ -14,6 +14,7 @@
 		0AA8AB642662FEC900978B99 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8AB632662FEC900978B99 /* HTTPMethod.swift */; };
 		0AA8AB662662FFF500978B99 /* PathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8AB652662FFF500978B99 /* PathComponent.swift */; };
 		0AA8AB682663010900978B99 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8AB672663010900978B99 /* API.swift */; };
+		0AA8AB6A2663024F00978B99 /* RaffleAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8AB692663024F00978B99 /* RaffleAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		0AA8AB632662FEC900978B99 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		0AA8AB652662FFF500978B99 /* PathComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathComponent.swift; sourceTree = "<group>"; };
 		0AA8AB672663010900978B99 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		0AA8AB692663024F00978B99 /* RaffleAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaffleAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				0AA8AB632662FEC900978B99 /* HTTPMethod.swift */,
 				0AA8AB652662FFF500978B99 /* PathComponent.swift */,
 				0AA8AB672663010900978B99 /* API.swift */,
+				0AA8AB692663024F00978B99 /* RaffleAPIClient.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 				0AA8AB662662FFF500978B99 /* PathComponent.swift in Sources */,
 				0AA8AB642662FEC900978B99 /* HTTPMethod.swift in Sources */,
 				0AA8AB682663010900978B99 /* API.swift in Sources */,
+				0AA8AB6A2663024F00978B99 /* RaffleAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
