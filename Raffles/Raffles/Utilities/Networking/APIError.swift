@@ -10,6 +10,7 @@ import SwiftUI
 enum APIError: Error {
     case decodingError(Error)
     case httpError(Int)
+    case api(ErrorResponse)
     case noInternet
     case unknown
 }

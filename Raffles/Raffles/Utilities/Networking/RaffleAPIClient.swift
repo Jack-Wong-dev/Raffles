@@ -54,22 +54,30 @@ extension RaffleAPIClient: API {
             .mapError { _ in .noInternet }
             .flatMap { data, response -> AnyPublisher<T, APIError> in
                 if let response = response as? HTTPURLResponse {
-                    //If successful response
-                    if case 200...299 = response.statusCode {
-                        
-                        let decoder = JSONDecoder()
-                        let formatter = DateFormatter()
-                        //Used for 'create_At' and 'raffled_At' Date properties
-                        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                        decoder.dateDecodingStrategy = .formatted(formatter)
-                        
+                    
+                    let decoder = JSONDecoder()
+                    let formatter = DateFormatter()
+                    //Used for 'create_At' and 'raffled_At' Date properties
+                    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    decoder.dateDecodingStrategy = .formatted(formatter)
+                    
+                    switch response.statusCode {
+                    case 200...299:
+                        //If successful response
                         return Just(data)
                             .decode(type: T.self, decoder: decoder)
                             .mapError {.decodingError($0)}
                             .eraseToAnyPublisher()
-                    } else {
-                        return Fail(error: .httpError(response.statusCode))
-                            .eraseToAnyPublisher()
+                    default:
+                        do {
+                            let errorResponse = try decoder.decode(ErrorResponse.self, from: data)
+                            
+                            return Fail(error: .api(errorResponse))
+                                .eraseToAnyPublisher()
+                        } catch {
+                            return Fail(error: .httpError(response.statusCode))
+                                .eraseToAnyPublisher()
+                        }
                     }
                 }
                 
