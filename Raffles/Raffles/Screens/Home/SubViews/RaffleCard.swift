@@ -24,8 +24,13 @@ struct RaffleCard: View {
             .padding()
             .frame(maxWidth: .infinity)
             .background(
-                RoundedRectangle(cornerRadius: 8.0, style: .continuous)
-                    .strokeBorder(style: StrokeStyle(lineWidth: 2))
+                ZStack {
+                    RoundedRectangle(cornerRadius: 8.0, style: .continuous)
+                        .fill(Color(.secondarySystemBackground))
+                    
+                    RoundedRectangle(cornerRadius: 8.0, style: .continuous)
+                        .strokeBorder(style: StrokeStyle(lineWidth: 2))
+                }
             )
         }
     }

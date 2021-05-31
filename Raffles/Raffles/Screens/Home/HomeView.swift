@@ -60,6 +60,7 @@ struct HomeView: View {
                                         )
                                 }
                                 .accentColor(.white)
+                                .shadow(color: .shadow, radius: 15, x: 15, y: 15)
                             }
                             .padding(.horizontal)
                             
@@ -90,6 +91,7 @@ struct HomeView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 32)
+                            .shadow(color: .shadow, radius: 15, x: 15, y: 15) 
                     }
                     .padding()
                 }
