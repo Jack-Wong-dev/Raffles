@@ -63,9 +63,6 @@ final class HomeViewModel: ObservableObject {
             .map(\.isSuccess)
             .map{!$0}
             .assign(to: &$buttonDisabled)
-        
-        //Immediately fetch all raffles
-        getRaffles()
     }
     
     //MARK:- Methods
@@ -99,6 +96,7 @@ extension HomeViewModel {
     }
     
     func getRaffles()  {
+        print("fetching raffles again")
         isLoading = true
     
         getCancellable = rafflesPublisher()

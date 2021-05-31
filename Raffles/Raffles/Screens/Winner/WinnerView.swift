@@ -23,7 +23,6 @@ struct WinnerView: View {
             } else {
                 PickAWinnerView(viewModel: .init(raffle: viewModel.raffle)) { winner in
                     withAnimation {
-                        homeViewModel.getRaffles()
                         viewModel.winner = winner
                     }
                 }

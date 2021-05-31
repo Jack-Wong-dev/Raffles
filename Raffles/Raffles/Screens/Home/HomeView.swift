@@ -59,10 +59,11 @@ struct HomeView: View {
             } // Alert
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarHidden(true)
+            .onAppear(perform: viewModel.getRaffles)
         } // Navigation View
         .environmentObject(viewModel)
     }
-    
+        
     //MARK: Private methods
     private func scrollToTop(proxy: ScrollViewProxy) {
         withAnimation {
