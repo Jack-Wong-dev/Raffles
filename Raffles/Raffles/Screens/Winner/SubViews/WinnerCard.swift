@@ -8,40 +8,60 @@
 import SwiftUI
 
 struct WinnerCard: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+
     let winner: PickWinnerResponse
     
     var body: some View {
-        VStack {
+        ZStack(alignment: .top) {
+            switch (horizontalSizeClass, verticalSizeClass) {
+            //e.g iPhones in Portrait, some iPads in split screen
+            case (.compact, .regular):
+                VStack {
+                    content
+                }
+            default:
+                HStack {
+                    content
+                }
+            }
+        }
+        .padding()
+        .background(NeumorphicCard())
+    }
+    
+    var content: some View {
+        Group {
             Color.red
                 .scaledToFit()
                 .cornerRadius(8)
             
-            Group {
-                Text(winner.fullName)
-                    .font(.title2)
-                    .fontWeight(.medium)
-                
-                Text("Registered on \(winner.registeredAt)")
-                    .foregroundColor(Color(.secondaryLabel))
-                
+            ZStack(alignment: .topLeading) {
                 VStack(alignment: .leading) {
-                    Group {
-                        Label("\(winner.id)", systemImage: "number")
-                        Label(winner.email, systemImage: "envelope.fill")
-                        Label(winner.phone ?? "N/A", systemImage: "phone")
-                    }
+                    Text(winner.fullName)
+                        .font(.title2)
+                        .fontWeight(.medium)
+                    
+                    Text("Registered on \(winner.registeredAt)")
+                        .foregroundColor(Color(.secondaryLabel))
+                
+                    Label("\(winner.id)", systemImage: "number")
+                    Label(winner.email, systemImage: "envelope.fill")
+                    Label(winner.phone ?? "N/A", systemImage: "phone")
                 }
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(maxWidth: .infinity, alignment: .topLeading)
         }
-        .padding()
-        .background(NeumorphicCard())
     }
 }
 
 
 struct WinnerCard_Previews: PreviewProvider {
     static var previews: some View {
-        WinnerCard(winner: .placeholder)
+        Group {
+            WinnerCard(winner: .placeholder)
+            WinnerCard(winner: .placeholder)
+        }
     }
 }
