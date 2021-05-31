@@ -8,6 +8,9 @@
 import Foundation
 import Combine
 
+typealias ValidationErrorClosure = () -> String
+typealias ValidationPublisher = AnyPublisher<Validation, Never>
+
 class ValidationPublishers {
     typealias ValidationErrorClosure = () -> String
     typealias ValidationPublisher = AnyPublisher<Validation, Never>

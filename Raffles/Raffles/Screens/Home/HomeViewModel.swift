@@ -30,35 +30,64 @@ final class HomeViewModel: ObservableObject {
     @Published private(set) var isLoading: Bool
     @Published var alertMessage: AlertMessage?
     @Published var currentRaffleId: Int?
+    @Published private(set) var buttonDisabled: Bool
     
     private var getCancellable: AnyCancellable?
     private var postCancellable: AnyCancellable?
+//    private var bag: Set<AnyCancellable> = Set()
     
-    //For the sake of Dependency Injection
+    //MARK: - Validation Publishers
+    lazy var raffleNameValidation: ValidationPublisher = {
+        $raffleName.nonEmptyValidator("Name must be provided")
+    }()
+    
+    lazy var secretTokenValidation: ValidationPublisher = {
+        $secretToken.nonEmptyValidator("Secret Token must be provided")
+    }()
+    
+    lazy var allValidation: ValidationPublisher = {
+        Publishers.CombineLatest(
+            raffleNameValidation,
+            secretTokenValidation
+        ).map { v1, v2 in
+            return [v1, v2].allSatisfy {
+                $0.isSuccess } ? .success : .failure(message: "")
+        }.eraseToAnyPublisher()
+    }()
+    
+    //MARK:- Init For the sake of Dependency Injection
     init(raffleName: String = "",
          secretToken: String = "",
          raffles: [Raffle] = [],
          isLoading: Bool = false,
          showAlert: Bool = false,
-         alertMessage: AlertMessage? = nil
+         alertMessage: AlertMessage? = nil,
+         buttonDisabled: Bool = true
     ) {
         self.raffleName = raffleName
         self.secretToken = secretToken
         self.allRaffles = raffles
         self.isLoading = isLoading
         self.alertMessage = alertMessage
+        self.buttonDisabled = buttonDisabled
+        
+        allValidation
+            .map(\.isSuccess)
+            .map{!$0}
+            .assign(to: &$buttonDisabled)
         
         //Immediately fetch all raffles
         getRaffles()
     }
     
+    //MARK:- Methods
     func resetFields() {
         raffleName.removeAll()
         secretToken.removeAll()
     }
 }
 
-//Mark: Network Calls
+//Mark:- Network Calls
 extension HomeViewModel {
     typealias RafflesPublisher = AnyPublisher<[Raffle],APIError>
     typealias CreateRafflePublisher = AnyPublisher<PostRaffleResponse,APIError>

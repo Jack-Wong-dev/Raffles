@@ -59,11 +59,14 @@ struct HomeView: View {
                                         .shadow(color: .shadow, radius: 15, x: 15, y: 15)
                                 }
                                 .accentColor(.white)
-                            }
+                                .opacity(viewModel.buttonDisabled ? 0.5 : 1)
+                                .disabled(viewModel.buttonDisabled)
+                            } // Group
                             .padding(.horizontal)
                             
                             Text("All Raffles:").font(.title2.bold()).padding(.leading)
                             
+                            //MARK: Raffles List
                             AllRafflesView(viewModel: viewModel)
                             
                             Spacer(minLength: 0)
@@ -71,7 +74,7 @@ struct HomeView: View {
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                     }
-                    
+                    //MARK: Scroll To Top Button
                     Button(action: { scrollToTop(proxy: scrollProxy) }) {
                         Image(systemName: "arrow.up.circle.fill")
                             .resizable()
@@ -80,8 +83,8 @@ struct HomeView: View {
                             .shadow(color: .shadow, radius: 15, x: 15, y: 15)
                     }
                     .padding(.horizontal)
-                }
-            }//ZStack
+                } //ZStack
+            } //ScrollViewReader
             .alert(item: $viewModel.alertMessage) { message in
                 switch message {
                 case .success(let title, let content):
@@ -93,13 +96,14 @@ struct HomeView: View {
                 case .failure(let errorMessage):
                     return Alert(title: Text(errorMessage))
                 }
-            }
+            } // Alert
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarHidden(true)
         } // Navigation View
         .environmentObject(viewModel)
     }
     
+    //MARK: Private methods
     private func createNewRaffle() {
         withAnimation {
             viewModel.createRaffle()
