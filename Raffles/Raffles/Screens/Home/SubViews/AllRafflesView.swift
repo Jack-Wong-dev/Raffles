@@ -14,7 +14,7 @@ struct AllRafflesView: View {
         LazyVStack(alignment: .leading) {
             ForEach(allRaffles, id: \.id) { raffle in
                 NavigationLink(
-                    destination: RaffleParticipantsView(
+                    destination: RouterView(
                         viewModel: .init(id: raffle.id)
                     ),
                     label: {
