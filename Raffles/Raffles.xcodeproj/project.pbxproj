@@ -17,6 +17,7 @@
 		0A563658266567220037D7C0 /* Published-Extension .swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A563657266567220037D7C0 /* Published-Extension .swift */; };
 		0A56365A26656FE00037D7C0 /* CreateRaffleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A56365926656FE00037D7C0 /* CreateRaffleView.swift */; };
 		0A56365C266578740037D7C0 /* Date-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A56365B266578740037D7C0 /* Date-Extension.swift */; };
+		0A563664266582650037D7C0 /* RafflesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A563663266582650037D7C0 /* RafflesTests.swift */; };
 		0A606D2126641C7E00DB1D54 /* RaffleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D2026641C7E00DB1D54 /* RaffleCard.swift */; };
 		0A606D2326642B2900DB1D54 /* PostRaffleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D2226642B2900DB1D54 /* PostRaffleResponse.swift */; };
 		0A606D2526643AE300DB1D54 /* PostRaffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D2426643AE300DB1D54 /* PostRaffle.swift */; };
@@ -54,6 +55,16 @@
 		0AE6783D2664162300D7CEEE /* AllRafflesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6783C2664162300D7CEEE /* AllRafflesView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0A563666266582650037D7C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0AA8AB462662FDDB00978B99 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0AA8AB4D2662FDDB00978B99;
+			remoteInfo = Raffles;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0A1DB3ED26652B2F002A0134 /* WinnerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerCard.swift; sourceTree = "<group>"; };
 		0A1DB3F026652E81002A0134 /* RouterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterViewModel.swift; sourceTree = "<group>"; };
@@ -65,6 +76,9 @@
 		0A563657266567220037D7C0 /* Published-Extension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Published-Extension .swift"; sourceTree = "<group>"; };
 		0A56365926656FE00037D7C0 /* CreateRaffleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRaffleView.swift; sourceTree = "<group>"; };
 		0A56365B266578740037D7C0 /* Date-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date-Extension.swift"; sourceTree = "<group>"; };
+		0A563661266582650037D7C0 /* RafflesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RafflesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A563663266582650037D7C0 /* RafflesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RafflesTests.swift; sourceTree = "<group>"; };
+		0A563665266582650037D7C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A606D2026641C7E00DB1D54 /* RaffleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaffleCard.swift; sourceTree = "<group>"; };
 		0A606D2226642B2900DB1D54 /* PostRaffleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRaffleResponse.swift; sourceTree = "<group>"; };
 		0A606D2426643AE300DB1D54 /* PostRaffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRaffle.swift; sourceTree = "<group>"; };
@@ -105,6 +119,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0A56365E266582650037D7C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0AA8AB4B2662FDDB00978B99 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -150,6 +171,15 @@
 				0A1DB3FA266539D3002A0134 /* NeumorphicCard.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0A563662266582650037D7C0 /* RafflesTests */ = {
+			isa = PBXGroup;
+			children = (
+				0A563663266582650037D7C0 /* RafflesTests.swift */,
+				0A563665266582650037D7C0 /* Info.plist */,
+			);
+			path = RafflesTests;
 			sourceTree = "<group>";
 		};
 		0A606D262664488500DB1D54 /* Utilities */ = {
@@ -243,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				0AA8AB502662FDDB00978B99 /* Raffles */,
+				0A563662266582650037D7C0 /* RafflesTests */,
 				0AA8AB4F2662FDDB00978B99 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -251,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				0AA8AB4E2662FDDB00978B99 /* Raffles.app */,
+				0A563661266582650037D7C0 /* RafflesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -339,6 +371,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0A563660266582650037D7C0 /* RafflesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A563668266582650037D7C0 /* Build configuration list for PBXNativeTarget "RafflesTests" */;
+			buildPhases = (
+				0A56365D266582650037D7C0 /* Sources */,
+				0A56365E266582650037D7C0 /* Frameworks */,
+				0A56365F266582650037D7C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0A563667266582650037D7C0 /* PBXTargetDependency */,
+			);
+			name = RafflesTests;
+			productName = RafflesTests;
+			productReference = 0A563661266582650037D7C0 /* RafflesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		0AA8AB4D2662FDDB00978B99 /* Raffles */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0AA8AB5D2662FDDC00978B99 /* Build configuration list for PBXNativeTarget "Raffles" */;
@@ -365,6 +415,10 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					0A563660266582650037D7C0 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 0AA8AB4D2662FDDB00978B99;
+					};
 					0AA8AB4D2662FDDB00978B99 = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -384,11 +438,19 @@
 			projectRoot = "";
 			targets = (
 				0AA8AB4D2662FDDB00978B99 /* Raffles */,
+				0A563660266582650037D7C0 /* RafflesTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0A56365F266582650037D7C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0AA8AB4C2662FDDB00978B99 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -401,6 +463,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0A56365D266582650037D7C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A563664266582650037D7C0 /* RafflesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0AA8AB4A2662FDDB00978B99 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -453,7 +523,55 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		0A563667266582650037D7C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0AA8AB4D2662FDDB00978B99 /* Raffles */;
+			targetProxy = 0A563666266582650037D7C0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		0A563669266582650037D7C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8FR9D6557V;
+				INFOPLIST_FILE = RafflesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jackwong.RafflesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Raffles.app/Raffles";
+			};
+			name = Debug;
+		};
+		0A56366A266582650037D7C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8FR9D6557V;
+				INFOPLIST_FILE = RafflesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jackwong.RafflesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Raffles.app/Raffles";
+			};
+			name = Release;
+		};
 		0AA8AB5B2662FDDC00978B99 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -617,6 +735,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0A563668266582650037D7C0 /* Build configuration list for PBXNativeTarget "RafflesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A563669266582650037D7C0 /* Debug */,
+				0A56366A266582650037D7C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0AA8AB492662FDDB00978B99 /* Build configuration list for PBXProject "Raffles" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
