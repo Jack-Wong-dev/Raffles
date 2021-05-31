@@ -72,18 +72,6 @@ struct HomeView: View {
                         }
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
-                        .alert(item: $viewModel.alertMessage) { message in
-                            switch message {
-                            case .success(let successMessage):
-                                return Alert(
-                                    title: Text("Success"),
-                                    message: Text(successMessage),
-                                    dismissButton: .default(Text("Okay"), action: viewModel.resetFields)
-                                )
-                            case .failure(let errorMessage):
-                                return Alert(title: Text(errorMessage))
-                            }
-                        }
                     }
                     
                     Button(action: { scrollToTop(proxy: scrollProxy) }) {
@@ -96,9 +84,21 @@ struct HomeView: View {
                     .padding(.horizontal)
                 }
             }//ZStack
+            .alert(item: $viewModel.alertMessage) { message in
+                switch message {
+                case .success(let title, let content):
+                    return Alert(
+                        title: Text(title),
+                        message: Text(content),
+                        dismissButton: .default(Text("Okay"), action: viewModel.resetFields)
+                    )
+                case .failure(let errorMessage):
+                    return Alert(title: Text(errorMessage))
+                }
+            }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarHidden(true)
-        }
+        } // Navigation View
     }
     
     private func createNewRaffle() {

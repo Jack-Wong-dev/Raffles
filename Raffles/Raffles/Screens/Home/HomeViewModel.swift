@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 enum AlertMessage: Identifiable {
-    case success(String)
+    case success(title: String, content: String)
     case failure(String)
     
     var id: String {
@@ -77,7 +77,7 @@ extension HomeViewModel {
                 if response.success {
                     self?.getRaffles()
                 }
-                self?.alertMessage = .success(response.title)
+                self?.alertMessage = .success(title: response.title, content: "Created on: \(response.content.createdAt)")
             })
     }
     

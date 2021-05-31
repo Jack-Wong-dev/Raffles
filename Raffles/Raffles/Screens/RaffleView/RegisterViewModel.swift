@@ -16,6 +16,9 @@ final class RegisterViewModel: ObservableObject {
     @Published var email: String
     @Published var phoneNumber: String
     
+    @Published var alertMessage: AlertMessage?
+    @Published private(set) var isLoading: Bool
+    
     private var registerCancellable: AnyCancellable?
     
     init(
@@ -23,13 +26,17 @@ final class RegisterViewModel: ObservableObject {
         firstName: String = "",
         lastName: String = "",
         email: String = "",
-        phoneNumber: String = ""
+        phoneNumber: String = "",
+        alertMessage: AlertMessage? = nil,
+        isloading: Bool = false
     ) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
         self.phoneNumber = phoneNumber
+        self.alertMessage = alertMessage
+        self.isLoading = isloading
     }
     
     func reset() {
@@ -45,18 +52,23 @@ extension RegisterViewModel {
     typealias RegisterPublisher = AnyPublisher<RegisterParticipantResponse,APIError>
     
     func register()  {
+        isLoading = true
+        
         registerCancellable = registerParticipantPublisher()
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { completion in
+            .sink(receiveCompletion: { [weak self] completion in
                 if case .failure(let error) = completion {
                     #if DEBUG
                     print(error)
                     #endif
+                    self?.alertMessage = .failure(error.localizedDescription)
                 }
-            }, receiveValue: { response in
+                self?.isLoading = false
+            }, receiveValue: { [weak self] response in
                 #if DEBUG
                 dump(response)
                 #endif
+                self?.alertMessage = .success(title: response.title, content: response.content)
             })
     }
     

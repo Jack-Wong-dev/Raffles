@@ -118,13 +118,25 @@ struct RaffleView: View {
                                     .fill(Color.red)
                                 )
                         }
-                    }
+                    } // HStack
                     .padding(.horizontal)
-                }
+                } // VStack
                 .padding(.horizontal)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+            } // ScrollView
+        } // ZStack
+        .alert(item: $viewModel.alertMessage) { message in
+            switch message {
+            case .success(let title, let content):
+                return Alert(
+                    title: Text(title),
+                    message: Text(content),
+                    dismissButton: .default(Text("Okay"), action: viewModel.reset)
+                )
+            case .failure(let errorMessage):
+                return Alert(title: Text(errorMessage))
             }
         }
+        .textFieldStyle(RoundedBorderTextFieldStyle())
     }
     
     //MARK: Private Methods
