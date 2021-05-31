@@ -50,7 +50,7 @@ struct RouterView: View {
                 VStack(spacing: 20) {
                     HStack(spacing: 0) {
                         ForEach(RaffleScreen.allCases, id: \.self) { choice in
-                            SegmentedButton(screen: choice, currentScreen: $viewModel.screen)
+                            SelectionButton(screen: choice, currentScreen: $viewModel.screen)
                         }
                     }
                     .padding()
@@ -111,7 +111,7 @@ struct RouterView_Previews: PreviewProvider {
     }
 }
 
-struct SegmentedButton: View {
+struct SelectionButton: View {
     let screen: RaffleScreen
     @Binding var currentScreen: RaffleScreen
     
@@ -127,6 +127,8 @@ struct SegmentedButton: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 22)
                 Text(screen.rawValue.capitalized)
+                    .fontWeight(.medium)
+                    .lineLimit(1)
             }
             .foregroundColor(color)
             .font(.subheadline)
