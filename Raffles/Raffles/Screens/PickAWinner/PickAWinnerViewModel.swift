@@ -33,6 +33,13 @@ public struct PickWinnerResponse: Decodable {
   }
 }
 
+//MARK: - Computer Properties
+extension PickWinnerResponse {
+    var fullName: String {
+        "\(firstname) \(lastname)".capitalized
+    }
+}
+
 final class PickAWinnerViewModel: ObservableObject {
     let id: Int
     

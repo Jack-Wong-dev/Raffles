@@ -13,7 +13,8 @@ struct RafflesApp: App {
         WindowGroup {
 //            HomeView()
 //            RaffleView(viewModel: .init(id: 203))
-            PickAWinnerView(viewModel: .init(id: 211))
+//            PickAWinnerView(viewModel: .init(id: 211))
+            WinnerView(viewModel: .init(id: 203))
 //            RaffleParticipantsView(viewModel: .init(id: 8))
                 .textFieldStyle(RoundedBorderTextFieldStyle())
         }
