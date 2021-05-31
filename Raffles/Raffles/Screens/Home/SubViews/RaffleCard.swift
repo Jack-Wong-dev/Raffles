@@ -17,7 +17,7 @@ struct RaffleCard: View {
                     Text("\(raffle.name)'s raffle")
                         .font(.title2.bold())
                     
-                    Text("Created on: \(raffle.createdAt)")
+                    Text("Created on: \(raffle.createdDate)")
                         .fontWeight(.semibold)
                     
                     Text("Raffled On: \(raffle.raffleDate)")

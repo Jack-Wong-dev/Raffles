@@ -37,8 +37,12 @@ extension Raffle {
         return String(winningId)
     }
     
+    var createdDate: String {
+        createdAt.toString(.medium)
+    }
+    
     var raffleDate: String {
         guard let date = raffledAt else { return "Not raffled yet"}
-        return "\(date)"
+        return date.toString(.medium)
     }
 }
