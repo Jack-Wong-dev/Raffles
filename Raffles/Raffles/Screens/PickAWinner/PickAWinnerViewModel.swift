@@ -9,7 +9,9 @@ import Foundation
 import Combine
 
 final class PickAWinnerViewModel: ObservableObject {
-    init() {
-        
+    @Published var secretToken: String
+    
+    init(secretToken: String = "") {
+        self.secretToken = secretToken
     }
 }

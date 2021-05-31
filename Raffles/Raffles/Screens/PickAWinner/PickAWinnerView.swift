@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PickAWinnerView: View {
+    @StateObject var viewModel: PickAWinnerViewModel = .init()
     @State private var secretToken: String = ""
     
     var body: some View {
