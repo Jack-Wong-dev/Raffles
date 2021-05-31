@@ -82,6 +82,7 @@ struct RaffleView: View {
                         Text("Email ").fontWeight(.medium) +
                             Text("*").foregroundColor(.red).fontWeight(.medium)
                         TextField("Email", text: $viewModel.email)
+                            .keyboardType(.emailAddress)
                     }
                     
                     VStack(alignment: .leading, spacing: 4) {
