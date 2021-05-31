@@ -60,8 +60,8 @@ struct WinnerView: View {
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(height: 22)
-                                Text("Pick Winner")
-                                    .lineLimit(2)
+                                Text("Winner")
+                                    .lineLimit(1)
                             }
                         }
                         .font(.subheadline)

@@ -7,10 +7,23 @@
 
 import SwiftUI
 
-enum RaffleScreen {
-    case register
-    case participants
-    case winner
+enum RaffleScreen: String, CaseIterable {
+    case register = "register"
+    case participants = "participants"
+    case winner = "winner"
+}
+
+extension RaffleScreen {
+    var systemName: String {
+        switch self {
+        case .register:
+            return "square.and.pencil"
+        case .participants:
+            return "person.3.fill"
+        case .winner:
+            return "crown.fill"
+        }
+    }
 }
 
 final class RouterViewModel: ObservableObject {
@@ -36,53 +49,9 @@ struct RouterView: View {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 20) {
                     HStack(spacing: 0) {
-                        Group {
-                            VStack {
-                                Image(systemName: "ticket.fill")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(height: 22)
-                                Text("All Raffles")
-                            }
-                            
-                            VStack {
-                                Image(systemName: "square.and.pencil")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(height: 22)
-                                Text("Register")
-                            }
-                            .onTapGesture {
-                                viewModel.screen = .register
-                            }
-
-                            VStack {
-                                Image(systemName: "person.3.fill")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(height: 22)
-                                Text("Participants")
-                                    .lineLimit(1)
-                            }
-                            .onTapGesture {
-                                viewModel.screen = .participants
-                            }
-
-                            VStack {
-                                Image(systemName: "crown.fill")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(height: 22)
-                                Text("Pick Winner")
-                                    .lineLimit(2)
-                            }
-                            .onTapGesture {
-                                viewModel.screen = .winner
-                            }
+                        ForEach(RaffleScreen.allCases, id: \.self) { choice in
+                            SegmentedButton(screen: choice, currentScreen: $viewModel.screen)
                         }
-                        .font(.subheadline)
-                        .multilineTextAlignment(.center)
-                        .frame(maxWidth: .infinity)
                     }
                     .padding()
                     .background(
@@ -136,5 +105,32 @@ struct RouterView: View {
 struct RouterView_Previews: PreviewProvider {
     static var previews: some View {
         RouterView(viewModel: .init(id: 203))
+    }
+}
+
+struct SegmentedButton: View {
+    let screen: RaffleScreen
+    @Binding var currentScreen: RaffleScreen
+    
+    var body: some View {
+        Button(action: goToScreen) {
+            VStack {
+                Image(systemName: screen.systemName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 22)
+                Text(screen.rawValue.capitalized)
+            }
+            .foregroundColor(.red)
+            .font(.subheadline)
+            .multilineTextAlignment(.center)
+            .frame(maxWidth: .infinity)
+        }
+    }
+    
+    private func goToScreen() {
+        withAnimation {
+            currentScreen = screen
+        }
     }
 }
