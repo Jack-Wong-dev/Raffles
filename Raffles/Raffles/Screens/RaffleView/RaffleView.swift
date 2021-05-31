@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RaffleView: View {
-    @StateObject var viewModel: RegisterViewModel = .init()
+    @StateObject var viewModel: RegisterViewModel
     
     var body: some View {
         ZStack {
@@ -144,10 +144,10 @@ struct RaffleView: View {
 struct RaffleView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            RaffleView(viewModel: .init())
+            RaffleView(viewModel: .init(id: 203))
                 .preferredColorScheme(.dark)
             
-            RaffleView(viewModel: .init())
+            RaffleView(viewModel: .init(id: 203))
         }
     }
 }
