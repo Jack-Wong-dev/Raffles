@@ -13,10 +13,13 @@ struct RaffleCard: View {
     var body: some View {
         VStack {
             VStack(alignment: .leading, spacing: 10) {
-                Text("\(raffle.name)'s raffle").font(.title3).fontWeight(.medium)
-                Text("Created on: \(raffle.createdAt)")
-                Text("Winner ID: \(raffle.winner)")
-                Text("Raffled On: \(raffle.raffleDate)")
+                Group {
+                    Text("\(raffle.name)'s raffle").font(.title3).fontWeight(.medium)
+                    Text("Created on: \(raffle.createdAt)")
+                    Text("Winner ID: \(raffle.winner)")
+                    Text("Raffled On: \(raffle.raffleDate)")
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding()
             .frame(maxWidth: .infinity)
