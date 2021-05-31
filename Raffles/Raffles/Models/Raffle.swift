@@ -33,7 +33,7 @@ extension Raffle {
 //MARK: Computer Properties
 extension Raffle {
     var winner: String {
-        guard let winningId = winnerId else { return "No Winner Yet" }
+        guard let winningId = winnerId else { return "No One Yet" }
         return String(winningId)
     }
     

@@ -14,10 +14,22 @@ struct RaffleCard: View {
         VStack {
             VStack(alignment: .leading, spacing: 10) {
                 Group {
-                    Text("\(raffle.name)'s raffle").font(.title3).fontWeight(.medium)
+                    Text("\(raffle.name)'s raffle")
+                        .font(.title2.bold())
+                    
                     Text("Created on: \(raffle.createdAt)")
-                    Text("Winner ID: \(raffle.winner)")
+                        .fontWeight(.semibold)
+                    
                     Text("Raffled On: \(raffle.raffleDate)")
+                        .fontWeight(.semibold)
+                    
+                    Text("\(Image(systemName: "crown.fill")) ")
+                        .foregroundColor(raffle.winnerId != nil ? .yellow : Color(.label))
+                        .font(.callout.weight(.semibold))
+                    + Text("Winner ID: ")
+                        .font(.callout.weight(.semibold))
+                    + Text("\(raffle.winner)")
+                        .fontWeight(.heavy)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
