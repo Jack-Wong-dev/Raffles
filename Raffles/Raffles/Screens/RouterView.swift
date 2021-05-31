@@ -64,14 +64,17 @@ struct RouterView: View {
                         RegisterView(
                             viewModel: .init(id: viewModel.id)
                         )
+                        .transition(.scale.combined(with: .opacity))
                     case .participants:
                         RaffleParticipantsView(
                             viewModel: .init(id: viewModel.id)
                         )
+                        .transition(.scale.combined(with: .opacity))
                     case .winner:
                         PickAWinnerView(
                             viewModel: .init(id: viewModel.id)
                         )
+                        .transition(.scale.combined(with: .opacity))
                     }
                     
                     Spacer(minLength: 0)
