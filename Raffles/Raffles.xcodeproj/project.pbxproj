@@ -18,6 +18,12 @@
 		0A56365A26656FE00037D7C0 /* CreateRaffleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A56365926656FE00037D7C0 /* CreateRaffleView.swift */; };
 		0A56365C266578740037D7C0 /* Date-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A56365B266578740037D7C0 /* Date-Extension.swift */; };
 		0A563664266582650037D7C0 /* RafflesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A563663266582650037D7C0 /* RafflesTests.swift */; };
+		0A563683266587660037D7C0 /* APIMockResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A563682266587660037D7C0 /* APIMockResources.swift */; };
+		0A563692266589440037D7C0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8AB672663010900978B99 /* API.swift */; };
+		0A563693266589650037D7C0 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE678292663C24100D7CEEE /* APIError.swift */; };
+		0A5636942665899A0037D7C0 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8AB652662FFF500978B99 /* Endpoint.swift */; };
+		0A56369526658A900037D7C0 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D4A2664835700DB1D54 /* ErrorResponse.swift */; };
+		0A563697266596AB0037D7C0 /* raffles.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A563696266596AB0037D7C0 /* raffles.json */; };
 		0A606D2126641C7E00DB1D54 /* RaffleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D2026641C7E00DB1D54 /* RaffleCard.swift */; };
 		0A606D2326642B2900DB1D54 /* PostRaffleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D2226642B2900DB1D54 /* PostRaffleResponse.swift */; };
 		0A606D2526643AE300DB1D54 /* PostRaffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D2426643AE300DB1D54 /* PostRaffle.swift */; };
@@ -79,6 +85,8 @@
 		0A563661266582650037D7C0 /* RafflesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RafflesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A563663266582650037D7C0 /* RafflesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RafflesTests.swift; sourceTree = "<group>"; };
 		0A563665266582650037D7C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A563682266587660037D7C0 /* APIMockResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMockResources.swift; sourceTree = "<group>"; };
+		0A563696266596AB0037D7C0 /* raffles.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = raffles.json; sourceTree = "<group>"; };
 		0A606D2026641C7E00DB1D54 /* RaffleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaffleCard.swift; sourceTree = "<group>"; };
 		0A606D2226642B2900DB1D54 /* PostRaffleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRaffleResponse.swift; sourceTree = "<group>"; };
 		0A606D2426643AE300DB1D54 /* PostRaffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRaffle.swift; sourceTree = "<group>"; };
@@ -176,10 +184,20 @@
 		0A563662266582650037D7C0 /* RafflesTests */ = {
 			isa = PBXGroup;
 			children = (
+				0A5636812665874D0037D7C0 /* Services */,
 				0A563663266582650037D7C0 /* RafflesTests.swift */,
 				0A563665266582650037D7C0 /* Info.plist */,
+				0A563696266596AB0037D7C0 /* raffles.json */,
 			);
 			path = RafflesTests;
+			sourceTree = "<group>";
+		};
+		0A5636812665874D0037D7C0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0A563682266587660037D7C0 /* APIMockResources.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		0A606D262664488500DB1D54 /* Utilities */ = {
@@ -448,6 +466,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A563697266596AB0037D7C0 /* raffles.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +486,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A563683266587660037D7C0 /* APIMockResources.swift in Sources */,
+				0A563693266589650037D7C0 /* APIError.swift in Sources */,
+				0A563692266589440037D7C0 /* API.swift in Sources */,
+				0A56369526658A900037D7C0 /* ErrorResponse.swift in Sources */,
 				0A563664266582650037D7C0 /* RafflesTests.swift in Sources */,
+				0A5636942665899A0037D7C0 /* Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
