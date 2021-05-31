@@ -18,9 +18,7 @@ struct RaffleParticipantsView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             ParticipantsView(participants: viewModel.allParticipants)
-            
-            Spacer(minLength: 0)
-        }  
+        }
     }
 }
 

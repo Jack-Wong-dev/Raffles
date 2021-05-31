@@ -52,6 +52,9 @@ struct RouterView: View {
                                     .frame(height: 22)
                                 Text("Register")
                             }
+                            .onTapGesture {
+                                viewModel.screen = .register
+                            }
 
                             VStack {
                                 Image(systemName: "person.3.fill")
@@ -61,6 +64,9 @@ struct RouterView: View {
                                 Text("Participants")
                                     .lineLimit(1)
                             }
+                            .onTapGesture {
+                                viewModel.screen = .participants
+                            }
 
                             VStack {
                                 Image(systemName: "crown.fill")
@@ -69,6 +75,9 @@ struct RouterView: View {
                                     .frame(height: 22)
                                 Text("Pick Winner")
                                     .lineLimit(2)
+                            }
+                            .onTapGesture {
+                                viewModel.screen = .winner
                             }
                         }
                         .font(.subheadline)
