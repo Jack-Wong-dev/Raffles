@@ -12,7 +12,7 @@ extension Color {
     static let shadow = Color("shadow")
     static let lighting = Color("lighting")
     
-    static func getSelectionColor(using screen: RaffleScreen) -> Color {
+    static func getSelectionColor(using screen: ScreenOption) -> Color {
         switch screen {
         case .register:
             return .orange
