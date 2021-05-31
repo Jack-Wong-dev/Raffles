@@ -9,10 +9,6 @@ import SwiftUI
 
 struct RaffleView: View {
     @StateObject var viewModel: RegisterViewModel = .init()
-    @State private var firstName: String = ""
-    @State private var lastName: String = ""
-    @State private var email: String = ""
-    @State private var phoneNumber: String = ""
     
     var body: some View {
         ZStack {
@@ -83,23 +79,23 @@ struct RaffleView: View {
                 //MARK: Textfields
                 VStack(alignment: .leading, spacing: 4) {
                     Text("First Name ").fontWeight(.medium) + Text("*").foregroundColor(.red).fontWeight(.medium)
-                    TextField("First Name", text: $firstName)
+                    TextField("First Name", text: $viewModel.firstName)
                 }
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Last Name ").fontWeight(.medium) + Text("*").foregroundColor(.red).fontWeight(.medium)
-                    TextField("Last Name", text: $lastName)
+                    TextField("Last Name", text: $viewModel.lastName)
                 }
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Email ").fontWeight(.medium) +
                         Text("*").foregroundColor(.red).fontWeight(.medium)
-                    TextField("Email", text: $email)
+                    TextField("Email", text: $viewModel.email)
                 }
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Phone").fontWeight(.medium)
-                    TextField("Phone", text: $phoneNumber)
+                    TextField("Phone", text: $viewModel.phoneNumber)
                 }
                 
                 Spacer(minLength: 0)
