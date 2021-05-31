@@ -20,7 +20,6 @@ final class HomeViewModel: ObservableObject {
     
     private var getCancellable: AnyCancellable?
     private var postCancellable: AnyCancellable?
-//    private var bag: Set<AnyCancellable> = Set()
     
     //MARK: - Validation Publishers
     lazy var raffleNameValidation: ValidationPublisher = {
@@ -85,7 +84,6 @@ extension HomeViewModel {
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] completion in
                 if case .failure(let error) = completion {
-                    dump(error)
                     self?.alertMessage = .failure(error.localizedDescription)
                 }
                 self?.isLoading = false
@@ -98,14 +96,23 @@ extension HomeViewModel {
     }
     
     func getRaffles()  {
+        isLoading = true
+    
         getCancellable = rafflesPublisher()
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { completion in
+            .handleEvents(receiveCompletion: { [weak self] completion in
                 if case .failure(let error) = completion {
-                    dump(error)
+                    if case .api(let response) = error {
+                        self?.alertMessage = .failure(response.message)
+                    } else {
+                        self?.alertMessage = .failure(error.localizedDescription)
+                    }
                 }
-            }, receiveValue: { [weak self] receivedRaffles in
-                self?.allRaffles = receivedRaffles
+                self?.isLoading = false
+            })
+            .replaceError(with: [])
+            .sink(receiveValue: { [weak self] raffles in
+                self?.allRaffles = raffles
             })
     }
     

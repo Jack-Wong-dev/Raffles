@@ -26,6 +26,8 @@ struct HomeView: View {
                             
                             //MARK: Raffles List
                             AllRafflesView(viewModel: viewModel)
+                                .redacted(reason: viewModel.isLoading ? .placeholder : .init())
+                                .disabled(viewModel.isLoading)
                             
                             Spacer(minLength: 0)
                         }
