@@ -115,6 +115,10 @@ struct SegmentedButton: View {
     let screen: RaffleScreen
     @Binding var currentScreen: RaffleScreen
     
+    var color: Color {
+        screen == currentScreen ? .getSelectionColor(using: screen) : .secondary
+    }
+    
     var body: some View {
         Button(action: goToScreen) {
             VStack {
@@ -124,7 +128,7 @@ struct SegmentedButton: View {
                     .frame(height: 22)
                 Text(screen.rawValue.capitalized)
             }
-            .foregroundColor(.red)
+            .foregroundColor(color)
             .font(.subheadline)
             .multilineTextAlignment(.center)
             .frame(maxWidth: .infinity)

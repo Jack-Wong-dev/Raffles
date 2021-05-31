@@ -11,4 +11,15 @@ extension Color {
     static let background = Color("background")
     static let shadow = Color("shadow")
     static let lighting = Color("lighting")
+    
+    static func getSelectionColor(using screen: RaffleScreen) -> Color {
+        switch screen {
+        case .register:
+            return .red
+        case .participants:
+            return .green
+        case .winner:
+            return .yellow
+        }
+    }
 }
