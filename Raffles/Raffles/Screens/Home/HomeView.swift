@@ -20,49 +20,7 @@ struct HomeView: View {
                     
                     ScrollView(showsIndicators: false) {
                         VStack(alignment: .leading, spacing: 20) {
-                            Group {
-                                Text("Raffle App")
-                                    .font(.largeTitle.bold())
-                                    .frame(maxWidth: .infinity)
-                                    .id("top")
-                                
-                                Text("New Raffle:")
-                                    .font(.title.bold())
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text("Raffle Name ")
-                                        .fontWeight(.medium)
-                                     + Text("*").foregroundColor(.red).fontWeight(.medium)
-                                    TextField("", text: $viewModel.raffleName)
-                                }
-                                
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text("Raffle Secret Token ")
-                                        .fontWeight(.medium)
-                                     + Text("*").foregroundColor(.red).fontWeight(.medium)
-                                    TextField("", text: $viewModel.secretToken)
-                                }
-                                
-                                Text("You must remember the Raffle Token because it will be asked when picking a winner")
-                                
-                                Button(action: createNewRaffle) {
-                                    Text("Create New Raffle")
-                                        .bold()
-                                        .multilineTextAlignment(.center)
-                                        .padding()
-                                        .frame(maxWidth: .infinity)
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                                .fill(Color.blue)
-                                        )
-                                        .shadow(color: .shadow, radius: 15, x: 15, y: 15)
-                                }
-                                .accentColor(.white)
-                                .opacity(viewModel.buttonDisabled ? 0.5 : 1)
-                                .disabled(viewModel.buttonDisabled)
-                            } // Group
-                            .padding(.horizontal)
+                            CreateRaffleView()
                             
                             Text("All Raffles:").font(.title2.bold()).padding(.leading)
                             
@@ -104,12 +62,6 @@ struct HomeView: View {
     }
     
     //MARK: Private methods
-    private func createNewRaffle() {
-        withAnimation {
-            viewModel.createRaffle()
-        }
-    }
-    
     private func scrollToTop(proxy: ScrollViewProxy) {
         withAnimation {
             proxy.scrollTo("top", anchor: .top)

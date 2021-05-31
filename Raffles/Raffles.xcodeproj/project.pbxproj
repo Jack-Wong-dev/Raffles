@@ -15,6 +15,7 @@
 		0A1DB3FB266539D3002A0134 /* NeumorphicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1DB3FA266539D3002A0134 /* NeumorphicCard.swift */; };
 		0A563656266565240037D7C0 /* ValidationPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A563655266565240037D7C0 /* ValidationPublishers.swift */; };
 		0A563658266567220037D7C0 /* Published-Extension .swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A563657266567220037D7C0 /* Published-Extension .swift */; };
+		0A56365A26656FE00037D7C0 /* CreateRaffleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A56365926656FE00037D7C0 /* CreateRaffleView.swift */; };
 		0A606D2126641C7E00DB1D54 /* RaffleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D2026641C7E00DB1D54 /* RaffleCard.swift */; };
 		0A606D2326642B2900DB1D54 /* PostRaffleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D2226642B2900DB1D54 /* PostRaffleResponse.swift */; };
 		0A606D2526643AE300DB1D54 /* PostRaffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D2426643AE300DB1D54 /* PostRaffle.swift */; };
@@ -61,6 +62,7 @@
 		0A1DB3FA266539D3002A0134 /* NeumorphicCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphicCard.swift; sourceTree = "<group>"; };
 		0A563655266565240037D7C0 /* ValidationPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationPublishers.swift; sourceTree = "<group>"; };
 		0A563657266567220037D7C0 /* Published-Extension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Published-Extension .swift"; sourceTree = "<group>"; };
+		0A56365926656FE00037D7C0 /* CreateRaffleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRaffleView.swift; sourceTree = "<group>"; };
 		0A606D2026641C7E00DB1D54 /* RaffleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaffleCard.swift; sourceTree = "<group>"; };
 		0A606D2226642B2900DB1D54 /* PostRaffleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRaffleResponse.swift; sourceTree = "<group>"; };
 		0A606D2426643AE300DB1D54 /* PostRaffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRaffle.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 			children = (
 				0AE6783C2664162300D7CEEE /* AllRafflesView.swift */,
 				0A606D2026641C7E00DB1D54 /* RaffleCard.swift */,
+				0A56365926656FE00037D7C0 /* CreateRaffleView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				0AE6782F2663E76000D7CEEE /* HomeView.swift in Sources */,
 				0A606D462664777600DB1D54 /* SignUpForm.swift in Sources */,
 				0A606D5326648A9700DB1D54 /* WinnerViewModel.swift in Sources */,
+				0A56365A26656FE00037D7C0 /* CreateRaffleView.swift in Sources */,
 				0A606D2326642B2900DB1D54 /* PostRaffleResponse.swift in Sources */,
 				0A606D4B2664835700DB1D54 /* ErrorResponse.swift in Sources */,
 				0AE678312663F05600D7CEEE /* RegisterView.swift in Sources */,
