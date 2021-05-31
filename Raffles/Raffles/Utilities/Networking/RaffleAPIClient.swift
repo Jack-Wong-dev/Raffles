@@ -83,13 +83,23 @@ extension RaffleAPIClient: API {
     func get<T>(endpoint: Endpoint, params: [String:String]? = nil) -> AnyPublisher<T, APIError> where T : Decodable {
         let url = makeURL(endpoint: endpoint)
         let urlRequest = makeRequest(url: url, params: params)
+        
         return request(urlRequest)
             .eraseToAnyPublisher()
     }
     
-    func post<T,E>(endpoint: Endpoint, params: E? = nil) -> AnyPublisher<T, APIError> where T : Decodable, E : Encodable {
+    func post<T, E>(endpoint: Endpoint, params: E? = nil) -> AnyPublisher<T, APIError> where T : Decodable, E : Encodable {
         let url = makeURL(endpoint: endpoint)
         let urlRequest = makeRequest(url: url, httpMethod: .post, params: params)
+        
+        return request(urlRequest)
+            .eraseToAnyPublisher()
+    }
+    
+    func put<T, E>(endpoint: Endpoint, params: E?) -> AnyPublisher<T, APIError> where T : Decodable, E : Encodable {
+        let url = makeURL(endpoint: endpoint)
+        let urlRequest = makeRequest(url: url, httpMethod: .put, params: params)
+        
         return request(urlRequest)
             .eraseToAnyPublisher()
     }
