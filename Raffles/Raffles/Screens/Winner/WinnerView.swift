@@ -36,34 +36,6 @@ struct WinnerView: View {
 struct WinnerView_Previews: PreviewProvider {
     static var previews: some View {
         WinnerView(viewModel: .init(raffle: .placeholder))
-    }
-}
-
-struct WinnerCard: View {
-    let winner: PickWinnerResponse
-    
-    var body: some View {
-        VStack {
-            Color.red
-                .scaledToFit()
-            
-            Group {
-                Text(winner.fullName)
-                    .font(.title2)
-                    .fontWeight(.medium)
-                
-                Text("Registered on \(winner.registeredAt)")
-                    .foregroundColor(Color(.secondaryLabel))
-                
-                VStack(alignment: .leading) {
-                    Group {
-                        Label("\(winner.id)", systemImage: "number")
-                        Label(winner.email, systemImage: "envelope.fill")
-                        Label(winner.phone ?? "N/A", systemImage: "phone")
-                    }
-                }
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-        }
+            .environmentObject(HomeViewModel())
     }
 }

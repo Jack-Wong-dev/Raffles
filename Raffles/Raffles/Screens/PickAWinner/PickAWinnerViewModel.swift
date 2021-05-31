@@ -33,11 +33,24 @@ public struct PickWinnerResponse: Decodable {
   }
 }
 
+
 //MARK: - Computer Properties
 extension PickWinnerResponse {
     var fullName: String {
         "\(firstname) \(lastname)".capitalized
     }
+}
+
+extension PickWinnerResponse {
+    static let placeholder: PickWinnerResponse =
+        .init(id: 200,
+              raffleId: 203,
+              firstname: "Daniela",
+              lastname: "D",
+              email: "Daniela@REVillage.com",
+              phone: nil,
+              registeredAt: Date()
+        )
 }
 
 final class PickAWinnerViewModel: ObservableObject {
