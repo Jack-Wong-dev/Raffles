@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RaffleCard: View {
     let raffle: Raffle
-    
+
     var body: some View {
         VStack {
             VStack(alignment: .leading, spacing: 10) {
@@ -17,19 +17,47 @@ struct RaffleCard: View {
                     Text("\(raffle.name)'s raffle")
                         .font(.title2.bold())
                     
-                    Text("Created on: \(raffle.createdDate)")
-                        .fontWeight(.semibold)
+                    Label(
+                        title: {
+                            Text("Created on: \(raffle.createdDate)")
+                                .fontWeight(.semibold)
+                        },
+                        icon: {
+                            Image(systemName: "calendar")
+                                .scaledToFit()
+                                .frame(width: 22)
+                        }
+                    )
                     
-                    Text("Raffled On: \(raffle.raffleDate)")
-                        .fontWeight(.semibold)
+                    Label(
+                        title: {
+                            Text("Raffled On: \(raffle.raffleDate)")
+                            .fontWeight(.semibold)
+                        },
+                        icon: {
+                            Image(systemName: "checkmark.circle.fill")
+                                .scaledToFit()
+                                .frame(width: 22)
+                                .foregroundColor(
+                                    raffle.raffledAt != nil ? .green : Color(.label)
+                                )
+                        }
+                    )
                     
-                    Text("\(Image(systemName: "crown.fill")) ")
-                        .foregroundColor(raffle.winnerId != nil ? .yellow : Color(.label))
-                        .font(.callout.weight(.semibold))
-                    + Text("Winner ID: ")
-                        .font(.callout.weight(.semibold))
-                    + Text("\(raffle.winner)")
-                        .fontWeight(.heavy)
+                    Label(
+                        title: {
+                            Text("Winner ID: \(raffle.winner)")
+                                .fontWeight(.semibold)
+                        },
+                        icon: {
+                            Image(systemName: "crown.fill")
+                                .scaledToFit()
+                                .frame(width: 22)
+                                .foregroundColor(
+                                    raffle.winnerId != nil ? .yellow : Color(.label)
+                                )
+                        }
+                    )
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
