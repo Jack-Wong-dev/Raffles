@@ -18,6 +18,7 @@
 		0A606D3B2664686400DB1D54 /* Color-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D3A2664686400DB1D54 /* Color-Extension.swift */; };
 		0A606D3D26646B3400DB1D54 /* LinearGradient-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D3C26646B3400DB1D54 /* LinearGradient-Extension.swift */; };
 		0A606D3F26646DA200DB1D54 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D3E26646DA200DB1D54 /* RegisterViewModel.swift */; };
+		0A606D422664704600DB1D54 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D412664704600DB1D54 /* RoundedCorner.swift */; };
 		0AA8AB522662FDDB00978B99 /* RafflesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8AB512662FDDB00978B99 /* RafflesApp.swift */; };
 		0AA8AB562662FDDC00978B99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA8AB552662FDDC00978B99 /* Assets.xcassets */; };
 		0AA8AB592662FDDC00978B99 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA8AB582662FDDC00978B99 /* Preview Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		0A606D3A2664686400DB1D54 /* Color-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Extension.swift"; sourceTree = "<group>"; };
 		0A606D3C26646B3400DB1D54 /* LinearGradient-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinearGradient-Extension.swift"; sourceTree = "<group>"; };
 		0A606D3E26646DA200DB1D54 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		0A606D412664704600DB1D54 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		0AA8AB4E2662FDDB00978B99 /* Raffles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raffles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA8AB512662FDDB00978B99 /* RafflesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RafflesApp.swift; sourceTree = "<group>"; };
 		0AA8AB552662FDDC00978B99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 		0A606D262664488500DB1D54 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				0A606D402664703E00DB1D54 /* Shape */,
 				0A606D372664683200DB1D54 /* Extension */,
 				0A606D272664489000DB1D54 /* Validation */,
 				0AA8AB602662FE1D00978B99 /* Networking */,
@@ -132,6 +135,14 @@
 				0A606D3C26646B3400DB1D54 /* LinearGradient-Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		0A606D402664703E00DB1D54 /* Shape */ = {
+			isa = PBXGroup;
+			children = (
+				0A606D412664704600DB1D54 /* RoundedCorner.swift */,
+			);
+			path = Shape;
 			sourceTree = "<group>";
 		};
 		0AA8AB452662FDDB00978B99 = {
@@ -299,6 +310,7 @@
 				0A606D3F26646DA200DB1D54 /* RegisterViewModel.swift in Sources */,
 				0A606D2126641C7E00DB1D54 /* RaffleCard.swift in Sources */,
 				0AA8AB522662FDDB00978B99 /* RafflesApp.swift in Sources */,
+				0A606D422664704600DB1D54 /* RoundedCorner.swift in Sources */,
 				0AE6783D2664162300D7CEEE /* AllRafflesView.swift in Sources */,
 				0A606D3626645D5F00DB1D54 /* ParticipantsView.swift in Sources */,
 				0A606D29266448A700DB1D54 /* Validation.swift in Sources */,

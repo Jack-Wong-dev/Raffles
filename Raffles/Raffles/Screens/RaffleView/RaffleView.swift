@@ -17,16 +17,6 @@ struct RaffleView: View {
             
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 20) {
-                    Text("Raffle App")
-                        .font(.largeTitle)
-                        .bold()
-                        .frame(maxWidth: .infinity)
-                    
-                    Text("Sample Raffle")
-                        .font(.title)
-                        .bold()
-                        .frame(maxWidth: .infinity)
-                    
                     HStack(spacing: 0) {
                         Group {
                             VStack {
