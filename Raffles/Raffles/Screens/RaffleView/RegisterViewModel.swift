@@ -8,13 +8,6 @@
 import Foundation
 import Combine
 
-struct SignUpForm: Encodable {
-    let firstname: String
-    let lastname: String
-    let email: String
-    let phone: String?
-}
-
 final class RegisterViewModel: ObservableObject {
     let id: Int
     
