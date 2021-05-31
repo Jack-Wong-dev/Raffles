@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PickAWinnerView: View {
-    @StateObject var viewModel: PickAWinnerViewModel = .init()
+    @StateObject var viewModel: PickAWinnerViewModel
     @State private var secretToken: String = ""
     
     var body: some View {
@@ -112,9 +112,9 @@ struct PickAWinnerView: View {
 struct PickAWinnerView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            PickAWinnerView()
+            PickAWinnerView(viewModel: .init(id: 211))
             
-            PickAWinnerView()
+            PickAWinnerView(viewModel: .init(id: 211))
                 .preferredColorScheme(.dark)
         }
     }

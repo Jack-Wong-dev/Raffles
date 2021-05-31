@@ -8,6 +8,11 @@
 import Foundation
 import Combine
 
+public struct PickAWinnerRequest: Encodable {
+    let id: Int
+    let secretToken: String
+}
+
 public struct PickWinnerResponse: Decodable {
   let id: Int
   let raffleId: Int
@@ -29,9 +34,13 @@ public struct PickWinnerResponse: Decodable {
 }
 
 final class PickAWinnerViewModel: ObservableObject {
+    let id: Int
     @Published var secretToken: String
     
-    init(secretToken: String = "") {
+    init(id: Int,
+         secretToken: String = ""
+    ) {
+        self.id = id
         self.secretToken = secretToken
     }
 }
@@ -43,9 +52,15 @@ extension PickAWinnerViewModel {
         
     }
     
-//    private func winnerPublisher() -> WinnerPublisher {
-//        RaffleAPIClient
-//            .shared
-//
-//    }
+    private func winnerPublisher() -> WinnerPublisher {
+        RaffleAPIClient
+            .shared
+            .put(endpoint: .pickWinner(id: id),
+                 params: PickAWinnerRequest(
+                    id: id,
+                    secretToken: secretToken
+                 )
+            )
+            .eraseToAnyPublisher()
+    }
 }
