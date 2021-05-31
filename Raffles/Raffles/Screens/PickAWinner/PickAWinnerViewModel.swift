@@ -52,6 +52,10 @@ final class PickAWinnerViewModel: ObservableObject {
         self.alertMessage = alertMessage
         self.isLoading = isLoading
     }
+    
+    func reset() {
+        self.secretToken = .init()
+    }
 }
 
 //MARK: Network methods
