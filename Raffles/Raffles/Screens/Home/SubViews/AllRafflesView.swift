@@ -12,8 +12,17 @@ struct AllRafflesView: View {
     
     var body: some View {
         LazyVStack(alignment: .leading) {
-            ForEach(allRaffles, id: \.id, content: RaffleCard.init)
-                .padding(.horizontal)
+            ForEach(allRaffles, id: \.id) { raffle in
+                NavigationLink(
+                    destination: RaffleParticipantsView(
+                        viewModel: .init(id: raffle.id)
+                    ),
+                    label: {
+                        RaffleCard(raffle: raffle)
+                    })
+                    .accentColor(Color(.label))
+                    .padding(.horizontal)
+            }
         }
     }
 }

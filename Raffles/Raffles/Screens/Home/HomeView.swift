@@ -34,6 +34,7 @@ struct HomeView: View {
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                     TextField("", text: $viewModel.raffleName)
                                 }
+                                
                                 VStack(spacing: 4) {
                                     Text("Raffle Secret Token*")
                                         .fontWeight(.medium)
