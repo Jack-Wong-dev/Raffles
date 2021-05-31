@@ -149,6 +149,14 @@
 			path = Shape;
 			sourceTree = "<group>";
 		};
+		0A606D4726647D1000DB1D54 /* PickAWinner */ = {
+			isa = PBXGroup;
+			children = (
+				0AE6783426640D8C00D7CEEE /* PickAWinnerView.swift */,
+			);
+			path = PickAWinner;
+			sourceTree = "<group>";
+		};
 		0AA8AB452662FDDB00978B99 = {
 			isa = PBXGroup;
 			children = (
@@ -216,10 +224,10 @@
 		0AE6782D2663E73C00D7CEEE /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				0A606D4726647D1000DB1D54 /* PickAWinner */,
 				0AE678362664113300D7CEEE /* Home */,
 				0A606D2B2664545900DB1D54 /* RaffleParticipantsView */,
 				0A606D2A2664525B00DB1D54 /* RaffleView */,
-				0AE6783426640D8C00D7CEEE /* PickAWinnerView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
