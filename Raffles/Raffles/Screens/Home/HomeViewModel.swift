@@ -110,5 +110,6 @@ extension HomeViewModel {
         RaffleAPIClient
             .shared
             .get(endpoint: .allRaffles)
+            .eraseToAnyPublisher()
     }
 }
