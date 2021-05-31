@@ -82,6 +82,18 @@ struct HomeView: View {
                             .shadow(color: .shadow, radius: 15, x: 15, y: 15)
                     }
                     .padding(.horizontal)
+                    
+//                    ZStack(alignment: .bottomTrailing) {
+//                        Button(action: { }) {
+//                            Image(systemName: "plus.circle.fill")
+//                                .resizable()
+//                                .aspectRatio(contentMode: .fit)
+//                                .frame(width: 48)
+//                                .shadow(color: .shadow, radius: 15, x: 15, y: 15)
+//                        }
+//                        .padding(.horizontal)
+//                    }
+//                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
                 }
             }//ZStack
             .alert(item: $viewModel.alertMessage) { message in
