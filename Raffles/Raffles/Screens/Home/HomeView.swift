@@ -18,7 +18,7 @@ struct HomeView: View {
                     LinearGradient.background
                         .ignoresSafeArea()
                     
-                    ScrollView(showsIndicators: false) {
+                    ScrollView(showsIndicators: true) {
                         VStack(alignment: .leading, spacing: 20) {
                             CreateRaffleView()
                             

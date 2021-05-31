@@ -15,16 +15,48 @@ struct ParticipantCell: View {
             Text(participant.fullName)
                 .fontWeight(.medium)
             
-            HStack {
+            HStack(spacing: 20) {
                 Image(systemName: "person.crop.circle")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 50)
                 VStack(alignment: .leading) {
                     Group {
-                        Label("\(participant.id)", systemImage: "number")
-                        Label(participant.email, systemImage: "envelope.fill")
-                        Label(participant.phone ?? "N/A", systemImage: "phone")
+                        Label(
+                            title: {
+                                Text("\(participant.id)")
+                                    .fontWeight(.semibold)
+                            },
+                            icon: {
+                                Image(systemName: "number")
+                                    .scaledToFit()
+                                    .frame(width: 22)
+                            }
+                        )
+                        
+                        Label(
+                            title: {
+                                Text("\(participant.email)")
+                                    .fontWeight(.semibold)
+                            },
+                            icon: {
+                                Image(systemName: "envelope.fill")
+                                    .scaledToFit()
+                                    .frame(width: 22)
+                            }
+                        )
+                        
+                        Label(
+                            title: {
+                                Text("\(participant.phone ?? "")")
+                                    .fontWeight(.semibold)
+                            },
+                            icon: {
+                                Image(systemName: "phone")
+                                    .scaledToFit()
+                                    .frame(width: 22)
+                            }
+                        )
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }

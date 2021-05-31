@@ -33,8 +33,9 @@ struct RouterView: View {
                     Spacer(minLength: 0)
                 }
                 .padding(.horizontal)
-            }
-        }
+            } //ScrollView
+        } //ZStack
+        .navigationTitle(viewModel.raffle.name)
     }
 }
 
