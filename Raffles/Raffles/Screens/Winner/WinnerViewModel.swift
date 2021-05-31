@@ -10,7 +10,7 @@ import Combine
 
 final class WinnerViewModel: ObservableObject {
     //MARK: - Properties
-    private let id: Int
+    let raffle: Raffle
     
 //    @Published var alertMessage: AlertMessage?
     @Published private(set) var winner: PickWinnerResponse?
@@ -19,11 +19,10 @@ final class WinnerViewModel: ObservableObject {
     private var cancellable: AnyCancellable?
     
     //For the sake of Dependency Injection
-    init(id: Int, isLoading: Bool = false) {
-        self.id = id
+    init(raffle: Raffle, isLoading: Bool = false) {
+        self.raffle = raffle
         self.isLoading = false
         
-        //Immediately fetch all raffles
         getWinner()
     }
 }
@@ -33,22 +32,24 @@ extension WinnerViewModel {
     typealias RafflesPublisher = AnyPublisher<PickWinnerResponse,APIError>
     
     func getWinner()  {
-        cancellable = getWinnerPublisher()
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { completion in
-                if case .failure(let error) = completion {
-                    dump(error)
-                }
-            }, receiveValue: { [weak self] result in
-                self?.winner = result
-            })
+        if raffle.winnerId != nil {
+            cancellable = getWinnerPublisher()
+                .receive(on: DispatchQueue.main)
+                .sink(receiveCompletion: { completion in
+                    if case .failure(let error) = completion {
+                        dump(error)
+                    }
+                }, receiveValue: { [weak self] result in
+                    self?.winner = result
+                })
+        }
     }
     
     
     private func getWinnerPublisher() -> RafflesPublisher {
         RaffleAPIClient
             .shared
-            .get(endpoint: .retrieveWinner(id: id))
+            .get(endpoint: .retrieveWinner(id: raffle.id))
             .eraseToAnyPublisher()
     }
 }
