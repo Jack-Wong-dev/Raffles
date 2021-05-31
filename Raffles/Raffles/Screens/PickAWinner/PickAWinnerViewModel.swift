@@ -35,24 +35,49 @@ public struct PickWinnerResponse: Decodable {
 
 final class PickAWinnerViewModel: ObservableObject {
     let id: Int
+    
     @Published var secretToken: String
+    @Published var alertMessage: AlertMessage?
+    @Published private(set) var isLoading: Bool
+    
+    private var cancellable: AnyCancellable?
     
     init(id: Int,
-         secretToken: String = ""
+         secretToken: String = "",
+         alertMessage: AlertMessage? = nil,
+         isLoading: Bool = false
     ) {
         self.id = id
         self.secretToken = secretToken
+        self.alertMessage = alertMessage
+        self.isLoading = isLoading
     }
 }
 
 //MARK: Network methods
 extension PickAWinnerViewModel {
     typealias WinnerPublisher = AnyPublisher<PickWinnerResponse, APIError>
+    
     func pickWinner()  {
+        isLoading = true
         
+        cancellable = putWinnerPublisher()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { [weak self] completion in
+                if case .failure(let error) = completion {
+                    if case .api(let decoded) = error {
+                        self?.alertMessage = .failure(decoded.message)
+                    } else {
+                        self?.alertMessage = .failure(error.localizedDescription)
+                    }
+                }
+                self?.isLoading = false
+            }, receiveValue: { [weak self] response in
+                self?.alertMessage = .success(title: "Winner!", content: "\(response.firstname) \(response.lastname)")
+            })
     }
     
-    private func winnerPublisher() -> WinnerPublisher {
+    private func putWinnerPublisher() -> WinnerPublisher {
         RaffleAPIClient
             .shared
             .put(endpoint: .pickWinner(id: id),
