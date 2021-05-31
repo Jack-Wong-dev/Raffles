@@ -15,7 +15,7 @@ struct HomeView: View {
             //Making the whole screen scrollable will ensure the device can be used in landscape mode
             ScrollViewReader { scrollProxy in
                 ZStack(alignment: .topTrailing) {
-                    LinearGradient(gradient: Gradient(colors: [Color.lighting, Color.background]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                    LinearGradient.background
                         .ignoresSafeArea()
                     
                     ScrollView(showsIndicators: false) {

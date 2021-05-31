@@ -12,7 +12,7 @@ struct RaffleParticipantsView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color.lighting, Color.background]), startPoint: .topLeading, endPoint: .bottomTrailing)
+            LinearGradient.background
                 .ignoresSafeArea()
             
             ScrollView(showsIndicators: false) {
