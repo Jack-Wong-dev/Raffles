@@ -96,7 +96,6 @@ extension HomeViewModel {
     }
     
     func getRaffles()  {
-        print("fetching raffles again")
         isLoading = true
     
         getCancellable = rafflesPublisher()

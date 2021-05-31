@@ -93,10 +93,11 @@ extension RegisterViewModel {
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] completion in
                 if case .failure(let error) = completion {
-                    #if DEBUG
-                    print(error)
-                    #endif
-                    self?.alertMessage = .failure(error.localizedDescription)
+                    if case .api(let response) = error {
+                        self?.alertMessage = .failure(response.message)
+                    } else {
+                        self?.alertMessage = .failure(error.localizedDescription)
+                    }
                 }
                 self?.isLoading = false
             }, receiveValue: { [weak self] response in
