@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct RouterView: View {
-    @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel: RouterViewModel
     
     var body: some View {
@@ -25,8 +24,7 @@ struct RouterView: View {
                     }
                     .padding()
                     .background(
-                        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                            .strokeBorder(style: StrokeStyle(lineWidth: 2))
+                        NeumorphicCard()
                     )
                     .padding(.top)
                     
@@ -36,26 +34,6 @@ struct RouterView: View {
                 }
                 .padding(.horizontal)
             }
-        }
-        .navigationBarBackButtonHidden(true)
-        .toolbar(content: {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: dismiss){
-                    HStack {
-                        Image(systemName: "chevron.left")
-                        HStack(spacing: 2) {
-                            Image(systemName: "ticket.fill")
-                            Text("All Raffles")
-                        }
-                    }
-                }
-            }
-        })
-    }
-    
-    private func dismiss() {
-        withAnimation {
-            presentationMode.wrappedValue.dismiss()
         }
     }
 }

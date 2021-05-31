@@ -11,7 +11,7 @@ struct ParticipantsView: View {
     var participants: [Participant]
     
     var body: some View {
-        LazyVStack(alignment: .leading) {
+        LazyVStack(alignment: .leading, spacing: 20) {
             ForEach(participants, id: \.id, content: ParticipantCell.init)
         }
     }

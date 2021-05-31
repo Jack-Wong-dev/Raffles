@@ -32,8 +32,7 @@ struct ParticipantCell: View {
         }
         .padding()
         .background(
-            RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                .strokeBorder(style: StrokeStyle(lineWidth: 2))
+            NeumorphicCard()
         )
     }
 }

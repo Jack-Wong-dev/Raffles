@@ -11,7 +11,7 @@ struct AllRafflesView: View {
     var allRaffles: [Raffle]
     
     var body: some View {
-        LazyVStack(alignment: .leading) {
+        LazyVStack(alignment: .leading, spacing: 25) {
             ForEach(allRaffles, id: \.id) { raffle in
                 NavigationLink(
                     destination: RouterView(
