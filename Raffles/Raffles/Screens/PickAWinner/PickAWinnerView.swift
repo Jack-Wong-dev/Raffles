@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PickAWinnerView: View {
     @StateObject var viewModel: PickAWinnerViewModel
-    @State private var secretToken: String = ""
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -72,7 +71,8 @@ struct PickAWinnerView: View {
             Text("Pick a Winner")
                 .font(.title.bold())
             
-            TextField("Secret Token", text: $secretToken)
+            TextField("Secret Token", text: $viewModel.secretToken)
+                .autocapitalization(.none)
             
             Button(action: pickAWinner) {
                 Text("Pick a Winner")
