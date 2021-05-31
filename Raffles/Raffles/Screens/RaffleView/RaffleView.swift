@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RaffleView: View {
+    @StateObject var viewModel: RegisterViewModel = .init()
     @State private var firstName: String = ""
     @State private var lastName: String = ""
     @State private var email: String = ""
@@ -147,10 +148,10 @@ struct RaffleView: View {
 struct RaffleView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            RaffleView()
+            RaffleView(viewModel: .init())
                 .preferredColorScheme(.dark)
             
-            RaffleView()
+            RaffleView(viewModel: .init())
         }
     }
 }
