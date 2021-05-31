@@ -125,23 +125,23 @@
 			path = Validation;
 			sourceTree = "<group>";
 		};
-		0A606D2A2664525B00DB1D54 /* RaffleView */ = {
+		0A606D2A2664525B00DB1D54 /* Register */ = {
 			isa = PBXGroup;
 			children = (
 				0AE678302663F05600D7CEEE /* RegisterView.swift */,
 				0A606D3E26646DA200DB1D54 /* RegisterViewModel.swift */,
 			);
-			path = RaffleView;
+			path = Register;
 			sourceTree = "<group>";
 		};
-		0A606D2B2664545900DB1D54 /* RaffleParticipantsView */ = {
+		0A606D2B2664545900DB1D54 /* Participants */ = {
 			isa = PBXGroup;
 			children = (
 				0A606D3426645D2700DB1D54 /* SubViews */,
 				0AE678322663F3BE00D7CEEE /* RaffleParticipantsView.swift */,
 				0A606D2C266455B200DB1D54 /* ParticipantsViewModel.swift */,
 			);
-			path = RaffleParticipantsView;
+			path = Participants;
 			sourceTree = "<group>";
 		};
 		0A606D3426645D2700DB1D54 /* SubViews */ = {
@@ -258,8 +258,8 @@
 			isa = PBXGroup;
 			children = (
 				0AE678362664113300D7CEEE /* Home */,
-				0A606D2B2664545900DB1D54 /* RaffleParticipantsView */,
-				0A606D2A2664525B00DB1D54 /* RaffleView */,
+				0A606D2B2664545900DB1D54 /* Participants */,
+				0A606D2A2664525B00DB1D54 /* Register */,
 				0A606D4D26648A5E00DB1D54 /* Winner */,
 				0A606D5426649A8800DB1D54 /* RouterView.swift */,
 			);
