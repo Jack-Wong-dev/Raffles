@@ -92,7 +92,7 @@ struct RouterView: View {
                     
                     switch viewModel.screen {
                     case .register:
-                        RaffleView(
+                        RegisterView(
                             viewModel: .init(id: viewModel.id)
                         )
                     case .participants:

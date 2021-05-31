@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RaffleView: View {
+struct RegisterView: View {
     @StateObject var viewModel: RegisterViewModel
     
     var body: some View {
@@ -104,10 +104,10 @@ struct RaffleView: View {
 struct RaffleView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            RaffleView(viewModel: .init(id: 203))
+            RegisterView(viewModel: .init(id: 203))
                 .preferredColorScheme(.dark)
             
-            RaffleView(viewModel: .init(id: 203))
+            RegisterView(viewModel: .init(id: 203))
         }
     }
 }

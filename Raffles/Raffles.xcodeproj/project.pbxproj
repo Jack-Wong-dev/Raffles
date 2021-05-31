@@ -37,7 +37,7 @@
 		0AE678282663C10400D7CEEE /* Raffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE678272663C10400D7CEEE /* Raffle.swift */; };
 		0AE6782A2663C24100D7CEEE /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE678292663C24100D7CEEE /* APIError.swift */; };
 		0AE6782F2663E76000D7CEEE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6782E2663E76000D7CEEE /* HomeView.swift */; };
-		0AE678312663F05600D7CEEE /* RaffleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE678302663F05600D7CEEE /* RaffleView.swift */; };
+		0AE678312663F05600D7CEEE /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE678302663F05600D7CEEE /* RegisterView.swift */; };
 		0AE678332663F3BE00D7CEEE /* RaffleParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE678322663F3BE00D7CEEE /* RaffleParticipantsView.swift */; };
 		0AE6783526640D8C00D7CEEE /* PickAWinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6783426640D8C00D7CEEE /* PickAWinnerView.swift */; };
 		0AE6783A2664116F00D7CEEE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE678392664116F00D7CEEE /* HomeViewModel.swift */; };
@@ -77,7 +77,7 @@
 		0AE678272663C10400D7CEEE /* Raffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Raffle.swift; sourceTree = "<group>"; };
 		0AE678292663C24100D7CEEE /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		0AE6782E2663E76000D7CEEE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		0AE678302663F05600D7CEEE /* RaffleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaffleView.swift; sourceTree = "<group>"; };
+		0AE678302663F05600D7CEEE /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		0AE678322663F3BE00D7CEEE /* RaffleParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaffleParticipantsView.swift; sourceTree = "<group>"; };
 		0AE6783426640D8C00D7CEEE /* PickAWinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickAWinnerView.swift; sourceTree = "<group>"; };
 		0AE678392664116F00D7CEEE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 		0A606D2A2664525B00DB1D54 /* RaffleView */ = {
 			isa = PBXGroup;
 			children = (
-				0AE678302663F05600D7CEEE /* RaffleView.swift */,
+				0AE678302663F05600D7CEEE /* RegisterView.swift */,
 				0A606D3E26646DA200DB1D54 /* RegisterViewModel.swift */,
 			);
 			path = RaffleView;
@@ -362,7 +362,7 @@
 				0A606D5326648A9700DB1D54 /* WinnerViewModel.swift in Sources */,
 				0A606D2326642B2900DB1D54 /* PostRaffleResponse.swift in Sources */,
 				0A606D4B2664835700DB1D54 /* ErrorResponse.swift in Sources */,
-				0AE678312663F05600D7CEEE /* RaffleView.swift in Sources */,
+				0AE678312663F05600D7CEEE /* RegisterView.swift in Sources */,
 				0A606D3B2664686400DB1D54 /* Color-Extension.swift in Sources */,
 				0A606D2D266455B200DB1D54 /* ParticipantsViewModel.swift in Sources */,
 				0AA8AB642662FEC900978B99 /* HTTPMethod.swift in Sources */,
