@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WinnerView: View {
+struct ShowWinnerView: View {
     @StateObject var viewModel: WinnerViewModel
     
     var body: some View {
@@ -84,7 +84,7 @@ struct WinnerView: View {
 
 struct WinnerView_Previews: PreviewProvider {
     static var previews: some View {
-        WinnerView(viewModel: .init(id: 203))
+        ShowWinnerView(viewModel: .init(id: 203))
     }
 }
 
