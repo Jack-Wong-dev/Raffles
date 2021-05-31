@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 final class RegisterViewModel: ObservableObject {
+    //MARK:- Properties
     let id: Int
     
     @Published var firstName: String
@@ -18,9 +19,35 @@ final class RegisterViewModel: ObservableObject {
     
     @Published var alertMessage: AlertMessage?
     @Published private(set) var isLoading: Bool
+    @Published private(set) var registrationDisabled: Bool
     
     private var registerCancellable: AnyCancellable?
     
+    //MARK:- Validation Publishers
+    lazy var firstNameValidation: ValidationPublisher = {
+        $firstName.nonEmptyValidator("First name must be provided")
+    }()
+    
+    lazy var lastNameValidation: ValidationPublisher = {
+        $lastName.nonEmptyValidator("Last name must be provided")
+    }()
+    
+    #warning("TODO: Switch to a regular expression validation")
+    lazy var emailValidation: ValidationPublisher = {
+        $email.nonEmptyValidator("Email must be provided")
+    }()
+    
+    lazy var allValidation: ValidationPublisher = {
+        Publishers.CombineLatest3(
+            firstNameValidation,
+            lastNameValidation,
+            emailValidation
+        ).map { v1, v2, v3 in
+            return [v1, v2, v3].allSatisfy { $0.isSuccess } ? .success : .failure(message: "One or more fields is missing")
+        }.eraseToAnyPublisher()
+    }()
+    
+    //MARK: - Initializer
     init(
         id: Int,
         firstName: String = "",
@@ -28,7 +55,8 @@ final class RegisterViewModel: ObservableObject {
         email: String = "",
         phoneNumber: String = "",
         alertMessage: AlertMessage? = nil,
-        isloading: Bool = false
+        isLoading: Bool = false,
+        registrationDisabled: Bool = false
     ) {
         self.id = id
         self.firstName = firstName
@@ -36,9 +64,16 @@ final class RegisterViewModel: ObservableObject {
         self.email = email
         self.phoneNumber = phoneNumber
         self.alertMessage = alertMessage
-        self.isLoading = isloading
+        self.isLoading = isLoading
+        self.registrationDisabled = registrationDisabled
+        
+        allValidation
+            .map(\.isSuccess)
+            .map{!$0}
+            .assign(to: &$registrationDisabled)
     }
     
+    //MARK: - Methods
     func reset() {
         firstName = .init()
         lastName = .init()

@@ -54,6 +54,8 @@ struct RegisterView: View {
                                           corners: [.topLeft,.bottomLeft])
                         )
                 }
+                .opacity(viewModel.registrationDisabled ? 0.5 : 1)
+                .disabled(viewModel.registrationDisabled)
                 
                 Button(action: reset) {
                     Text("Reset")
