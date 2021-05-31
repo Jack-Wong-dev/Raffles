@@ -8,20 +8,21 @@
 import SwiftUI
 
 struct AllRafflesView: View {
-    var allRaffles: [Raffle]
+    @ObservedObject var viewModel: HomeViewModel
     
     var body: some View {
         LazyVStack(alignment: .leading, spacing: 25) {
-            ForEach(allRaffles, id: \.id) { raffle in
+            ForEach(viewModel.allRaffles, id: \.id) { raffle in
                 NavigationLink(
                     destination: RouterView(
                         viewModel: .init(raffle: raffle)
                     ),
-                    label: {
-                        RaffleCard(raffle: raffle)
-                    })
+                    tag: raffle.id,
+                    selection: $viewModel.currentRaffleId,
+                    label: {RaffleCard(raffle: raffle)})
                     .accentColor(Color(.label))
                     .padding(.horizontal)
+//                    .disabled(viewModel.currentRaffleId == raffle.id)
             }
         }
     }
@@ -33,9 +34,9 @@ struct AllRafflesView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            AllRafflesView(allRaffles: placeholders)
+            AllRafflesView(viewModel: .init())
             
-            AllRafflesView(allRaffles: placeholders)
+            AllRafflesView(viewModel: .init())
                 .preferredColorScheme(.dark)
         }
     }

@@ -16,5 +16,7 @@ final class RouterViewModel: ObservableObject {
     init(raffle: Raffle, screen: ScreenOption = .participants) {
         self.raffle = raffle
         self.screenOption = screen
+        
+        print(raffle)
     }
 }

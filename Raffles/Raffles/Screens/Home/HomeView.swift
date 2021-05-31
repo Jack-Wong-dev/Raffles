@@ -66,7 +66,7 @@ struct HomeView: View {
                             
                             Text("All Raffles:").font(.title2.bold()).padding(.leading)
                             
-                            AllRafflesView(allRaffles: viewModel.allRaffles)
+                            AllRafflesView(viewModel: viewModel)
                             
                             Spacer(minLength: 0)
                         }

@@ -29,6 +29,7 @@ final class HomeViewModel: ObservableObject {
     @Published var allRaffles: [Raffle]
     @Published private(set) var isLoading: Bool
     @Published var alertMessage: AlertMessage?
+    @Published var currentRaffleId: Int?
     
     private var getCancellable: AnyCancellable?
     private var postCancellable: AnyCancellable?
