@@ -99,7 +99,10 @@ struct RaffleView: View {
                                 .foregroundColor(.white)
                                 .padding(.vertical)
                                 .frame(maxWidth: .infinity)
-                                .background(Color.blue)
+                                .background(
+                                    RoundedCorner(radius: 16,
+                                                  corners: [.topLeft,.bottomLeft])
+                                )
                         }
                         
                         Button(action: reset) {
@@ -108,7 +111,12 @@ struct RaffleView: View {
                                 .foregroundColor(.white)
                                 .padding(.vertical)
                                 .frame(maxWidth: .infinity)
-                                .background(Color.red)
+                                .background(
+                                    RoundedCorner(radius: 16,
+                                                  corners: [.topRight,.bottomRight]
+                                    )
+                                    .fill(Color.red)
+                                )
                         }
                     }
                     .padding(.horizontal)
