@@ -20,6 +20,7 @@ final class HomeViewModel: ObservableObject {
     
     private var getCancellable: AnyCancellable?
     private var postCancellable: AnyCancellable?
+    var networkHelper: API
     
     //MARK: - Validation Publishers
     lazy var raffleNameValidation: ValidationPublisher = {
@@ -47,7 +48,8 @@ final class HomeViewModel: ObservableObject {
          isLoading: Bool = false,
          showAlert: Bool = false,
          alertMessage: AlertMessage? = nil,
-         buttonDisabled: Bool = true
+         buttonDisabled: Bool = true,
+         api: API = RaffleAPIClient.shared
     ) {
         self.raffleName = raffleName
         self.secretToken = secretToken
@@ -55,6 +57,7 @@ final class HomeViewModel: ObservableObject {
         self.isLoading = isLoading
         self.alertMessage = alertMessage
         self.buttonDisabled = buttonDisabled
+        self.networkHelper = api
         
         allValidation
             .map(\.isSuccess)
@@ -117,8 +120,8 @@ extension HomeViewModel {
     }
     
     private func createRafflePublisher() -> CreateRafflePublisher {
-        return RaffleAPIClient
-            .shared
+        return
+            networkHelper
             .post(endpoint: .createRaffle,
                   params:
                     PostRaffle(
@@ -130,8 +133,7 @@ extension HomeViewModel {
     }
     
     private func rafflesPublisher() -> RafflesPublisher {
-        RaffleAPIClient
-            .shared
+        networkHelper
             .get(endpoint: .allRaffles)
             .eraseToAnyPublisher()
     }

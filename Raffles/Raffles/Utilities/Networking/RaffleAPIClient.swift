@@ -25,6 +25,13 @@ final class RaffleAPIClient {
         return component.url!
     }
     
+    func makeRequest(url: URL, httpMethod: HTTPMethod = .get, queryParamsAsBody: Bool = true) -> URLRequest {
+        var request: URLRequest
+        request = URLRequest(url: url)
+        request.httpMethod = httpMethod.rawValue
+        return request
+    }
+    
     func makeRequest<E>(url: URL, httpMethod: HTTPMethod = .get, params: E? = nil, queryParamsAsBody: Bool = true) -> URLRequest where E: Encodable {
         var request: URLRequest
         request = URLRequest(url: url)
@@ -88,9 +95,9 @@ extension RaffleAPIClient: API {
             .eraseToAnyPublisher()
     }
     
-    func get<T>(endpoint: Endpoint, params: [String:String]? = nil) -> AnyPublisher<T, APIError> where T : Decodable {
+    func get<T>(endpoint: Endpoint) -> AnyPublisher<T, APIError> where T : Decodable {
         let url = makeURL(endpoint: endpoint)
-        let urlRequest = makeRequest(url: url, params: params)
+        let urlRequest = makeRequest(url: url)
         
         return request(urlRequest)
             .eraseToAnyPublisher()
