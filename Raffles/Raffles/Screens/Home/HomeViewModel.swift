@@ -8,20 +8,6 @@
 import Foundation
 import Combine
 
-enum AlertMessage: Identifiable {
-    case success(title: String, content: String)
-    case failure(String)
-    
-    var id: String {
-        switch self {
-        case .success:
-            return "Success"
-        case .failure:
-            return "Failure"
-        }
-    }
-}
-
 final class HomeViewModel: ObservableObject {
     //MARK: - Properties
     @Published var raffleName: String

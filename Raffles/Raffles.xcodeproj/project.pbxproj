@@ -24,6 +24,7 @@
 		0A5636942665899A0037D7C0 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8AB652662FFF500978B99 /* Endpoint.swift */; };
 		0A56369526658A900037D7C0 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D4A2664835700DB1D54 /* ErrorResponse.swift */; };
 		0A563697266596AB0037D7C0 /* raffles.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A563696266596AB0037D7C0 /* raffles.json */; };
+		0A563699266599930037D7C0 /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A563698266599930037D7C0 /* AlertMessage.swift */; };
 		0A606D2126641C7E00DB1D54 /* RaffleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D2026641C7E00DB1D54 /* RaffleCard.swift */; };
 		0A606D2326642B2900DB1D54 /* PostRaffleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D2226642B2900DB1D54 /* PostRaffleResponse.swift */; };
 		0A606D2526643AE300DB1D54 /* PostRaffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D2426643AE300DB1D54 /* PostRaffle.swift */; };
@@ -87,6 +88,7 @@
 		0A563665266582650037D7C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A563682266587660037D7C0 /* APIMockResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMockResources.swift; sourceTree = "<group>"; };
 		0A563696266596AB0037D7C0 /* raffles.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = raffles.json; sourceTree = "<group>"; };
+		0A563698266599930037D7C0 /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
 		0A606D2026641C7E00DB1D54 /* RaffleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaffleCard.swift; sourceTree = "<group>"; };
 		0A606D2226642B2900DB1D54 /* PostRaffleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRaffleResponse.swift; sourceTree = "<group>"; };
 		0A606D2426643AE300DB1D54 /* PostRaffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRaffle.swift; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				0A606D2E266456B600DB1D54 /* Participant.swift */,
 				0A606D432664740D00DB1D54 /* RegisterParticipantReponse.swift */,
 				0A606D452664777600DB1D54 /* SignUpForm.swift */,
+				0A563698266599930037D7C0 /* AlertMessage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				0A606D5326648A9700DB1D54 /* WinnerViewModel.swift in Sources */,
 				0A56365A26656FE00037D7C0 /* CreateRaffleView.swift in Sources */,
 				0A606D2326642B2900DB1D54 /* PostRaffleResponse.swift in Sources */,
+				0A563699266599930037D7C0 /* AlertMessage.swift in Sources */,
 				0A606D4B2664835700DB1D54 /* ErrorResponse.swift in Sources */,
 				0AE678312663F05600D7CEEE /* RegisterView.swift in Sources */,
 				0A606D3B2664686400DB1D54 /* Color-Extension.swift in Sources */,
