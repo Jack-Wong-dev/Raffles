@@ -30,19 +30,17 @@ struct HomeView: View {
                                     .font(.title.bold())
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 
-                                VStack(spacing: 4) {
-                                    Text("Raffle Name")
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("Raffle Name ")
                                         .fontWeight(.medium)
-                                        .lineLimit(1)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                     + Text("*").foregroundColor(.red).fontWeight(.medium)
                                     TextField("", text: $viewModel.raffleName)
                                 }
                                 
-                                VStack(spacing: 4) {
-                                    Text("Raffle Secret Token*")
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("Raffle Secret Token ")
                                         .fontWeight(.medium)
-                                        .lineLimit(1)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                     + Text("*").foregroundColor(.red).fontWeight(.medium)
                                     TextField("", text: $viewModel.secretToken)
                                 }
                                 
