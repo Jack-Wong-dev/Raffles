@@ -136,7 +136,7 @@ struct RaffleView: View {
     
     private func reset() {
         withAnimation {
-            
+            viewModel.reset()
         }
     }
 }
