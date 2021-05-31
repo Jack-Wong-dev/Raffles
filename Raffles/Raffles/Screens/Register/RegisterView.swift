@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RegisterView: View {
     @StateObject var viewModel: RegisterViewModel
+    @State private var show = false
     
     var body: some View {
         VStack(spacing: 20) {
@@ -71,7 +72,10 @@ struct RegisterView: View {
                         )
                 }
             } // HStack
+            .opacity(show ? 1 : 0)
+            .offset(y: show ? 0 : 20)
             .padding(.horizontal)
+            .onAppear(perform: showButtons)
         } // VStack
         
         .alert(item: $viewModel.alertMessage) { message in
@@ -99,6 +103,12 @@ struct RegisterView: View {
     private func reset() {
         withAnimation {
             viewModel.reset()
+        }
+    }
+    
+    private func showButtons() {
+        withAnimation(.easeOut.delay(0.4)) {
+            show = true
         }
     }
 }

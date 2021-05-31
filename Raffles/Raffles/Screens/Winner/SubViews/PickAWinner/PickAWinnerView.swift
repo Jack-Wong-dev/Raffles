@@ -11,6 +11,8 @@ struct PickAWinnerView: View {
     @StateObject var viewModel: PickAWinnerViewModel
     let completion: (PickWinnerResponse?) -> Void
     
+    @State private var show = false
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             Text("Pick a Winner")
@@ -47,6 +49,8 @@ struct PickAWinnerView: View {
                     )
                     .shadow(color: .shadow, radius: 15, x: 15, y: 15)
             }
+            .opacity(show ? 1 : 0)
+            .offset(y: show ? 0 : 20)
         }
         .textFieldStyle(RoundedBorderTextFieldStyle())
         .alert(item: $viewModel.alertMessage) { message in
@@ -65,11 +69,19 @@ struct PickAWinnerView: View {
                 return Alert(title: Text(errorMessage))
             }
         }
+        .onAppear(perform:showButton)
     }
     
+    //MARK: - Private methods
     private func pickAWinner() {
         withAnimation {
             viewModel.pickWinner()
+        }
+    }
+    
+    private func showButton() {
+        withAnimation(.easeOut.delay(0.4)) {
+            show = true
         }
     }
 }
