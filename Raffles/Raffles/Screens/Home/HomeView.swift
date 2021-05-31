@@ -58,9 +58,9 @@ struct HomeView: View {
                                             RoundedRectangle(cornerRadius: 16, style: .continuous)
                                                 .fill(Color.blue)
                                         )
+                                        .shadow(color: .shadow, radius: 15, x: 15, y: 15)
                                 }
                                 .accentColor(.white)
-                                .shadow(color: .shadow, radius: 15, x: 15, y: 15)
                             }
                             .padding(.horizontal)
                             

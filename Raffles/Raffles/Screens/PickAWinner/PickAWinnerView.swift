@@ -18,6 +18,21 @@ struct PickAWinnerView: View {
             TextField("Secret Token", text: $viewModel.secretToken)
                 .autocapitalization(.none)
             
+            VStack(alignment: .leading) {
+                Group {
+                    Text("Secret Token")
+                    Text("The secret token used when creating the raffle must be provided.")
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 8.0, style: .continuous)
+                    .strokeBorder(style: StrokeStyle(lineWidth: 1))
+            )
+            
+            Spacer(minLength: 0)
+            
             Button(action: pickAWinner) {
                 Text("Pick a Winner")
                     .font(.title3.bold())
@@ -28,19 +43,8 @@ struct PickAWinnerView: View {
                         RoundedRectangle(cornerRadius: 16, style: .continuous)
                             .fill(Color.blue)
                     )
+                    .shadow(color: .shadow, radius: 15, x: 15, y: 15)
             }
-            
-            VStack(alignment: .leading) {
-                Text("Secret Token")
-                Text("The secret token used when creating the raffle must be provided.")
-            }
-            .padding()
-            .background(
-                RoundedRectangle(cornerRadius: 8.0, style: .continuous)
-                    .strokeBorder(style: StrokeStyle(lineWidth: 1))
-            )
-            
-            Spacer(minLength: 0)
         }
         .textFieldStyle(RoundedBorderTextFieldStyle())
         .alert(item: $viewModel.alertMessage) { message in

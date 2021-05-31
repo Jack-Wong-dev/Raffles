@@ -58,6 +58,7 @@ struct RouterView: View {
                         RoundedRectangle(cornerRadius: 25.0, style: .continuous)
                             .strokeBorder(style: StrokeStyle(lineWidth: 2))
                     )
+                    .padding(.top)
                     
                     switch viewModel.screen {
                     case .register:
@@ -127,13 +128,13 @@ struct SelectionButton: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 22)
                 Text(screen.rawValue.capitalized)
-                    .fontWeight(.medium)
+                    .fontWeight(.bold)
                     .lineLimit(1)
+                    .font(.subheadline)
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity)
             }
             .foregroundColor(color)
-            .font(.subheadline)
-            .multilineTextAlignment(.center)
-            .frame(maxWidth: .infinity)
         }
     }
     
