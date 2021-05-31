@@ -53,6 +53,7 @@ struct RegisterView: View {
                         .background(
                             RoundedCorner(radius: 16,
                                           corners: [.topLeft,.bottomLeft])
+                                .shadow(color: .shadow, radius: 15, x: 15, y: 15)
                         )
                 }
                 .opacity(viewModel.registrationDisabled ? 0.5 : 1)
@@ -69,6 +70,7 @@ struct RegisterView: View {
                                           corners: [.topRight,.bottomRight]
                             )
                             .fill(Color.red)
+                            .shadow(color: .shadow, radius: 15, x: 15, y: 15)
                         )
                 }
             } // HStack

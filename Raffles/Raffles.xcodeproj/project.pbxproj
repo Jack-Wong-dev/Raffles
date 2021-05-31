@@ -16,6 +16,7 @@
 		0A563656266565240037D7C0 /* ValidationPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A563655266565240037D7C0 /* ValidationPublishers.swift */; };
 		0A563658266567220037D7C0 /* Published-Extension .swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A563657266567220037D7C0 /* Published-Extension .swift */; };
 		0A56365A26656FE00037D7C0 /* CreateRaffleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A56365926656FE00037D7C0 /* CreateRaffleView.swift */; };
+		0A56365C266578740037D7C0 /* Date-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A56365B266578740037D7C0 /* Date-Extension.swift */; };
 		0A606D2126641C7E00DB1D54 /* RaffleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D2026641C7E00DB1D54 /* RaffleCard.swift */; };
 		0A606D2326642B2900DB1D54 /* PostRaffleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D2226642B2900DB1D54 /* PostRaffleResponse.swift */; };
 		0A606D2526643AE300DB1D54 /* PostRaffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D2426643AE300DB1D54 /* PostRaffle.swift */; };
@@ -63,6 +64,7 @@
 		0A563655266565240037D7C0 /* ValidationPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationPublishers.swift; sourceTree = "<group>"; };
 		0A563657266567220037D7C0 /* Published-Extension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Published-Extension .swift"; sourceTree = "<group>"; };
 		0A56365926656FE00037D7C0 /* CreateRaffleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRaffleView.swift; sourceTree = "<group>"; };
+		0A56365B266578740037D7C0 /* Date-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date-Extension.swift"; sourceTree = "<group>"; };
 		0A606D2026641C7E00DB1D54 /* RaffleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaffleCard.swift; sourceTree = "<group>"; };
 		0A606D2226642B2900DB1D54 /* PostRaffleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRaffleResponse.swift; sourceTree = "<group>"; };
 		0A606D2426643AE300DB1D54 /* PostRaffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRaffle.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			children = (
 				0A606D3A2664686400DB1D54 /* Color-Extension.swift */,
 				0A606D3C26646B3400DB1D54 /* LinearGradient-Extension.swift */,
+				0A56365B266578740037D7C0 /* Date-Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				0A606D4926647DDC00DB1D54 /* PickAWinnerViewModel.swift in Sources */,
 				0AE678282663C10400D7CEEE /* Raffle.swift in Sources */,
 				0AE6783A2664116F00D7CEEE /* HomeViewModel.swift in Sources */,
+				0A56365C266578740037D7C0 /* Date-Extension.swift in Sources */,
 				0A606D3D26646B3400DB1D54 /* LinearGradient-Extension.swift in Sources */,
 				0AE6782A2663C24100D7CEEE /* APIError.swift in Sources */,
 				0A606D2526643AE300DB1D54 /* PostRaffle.swift in Sources */,
