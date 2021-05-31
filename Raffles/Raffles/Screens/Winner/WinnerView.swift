@@ -11,95 +11,74 @@ struct WinnerView: View {
     @StateObject var viewModel: WinnerViewModel
     
     var body: some View {
-        ZStack {
-            LinearGradient
-                .background
-                .ignoresSafeArea()
+        VStack(alignment: .leading, spacing: 20) {
+            Text("Raffle App")
+                .font(.largeTitle)
+                .bold()
+                .frame(maxWidth: .infinity)
             
-            ScrollView(showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 20) {
-                    Text("Raffle App")
-                        .font(.largeTitle)
-                        .bold()
-                        .frame(maxWidth: .infinity)
-                    
-                    Text("Sample Raffle")
-                        .font(.title)
-                        .bold()
-                        .frame(maxWidth: .infinity)
-                    
-                    HStack(spacing: 0) {
-                        Group {
-                            VStack {
-                                Image(systemName: "ticket.fill")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(height: 22)
-                                Text("All Raffles")
-                            }
-                            
-                            VStack {
-                                Image(systemName: "square.and.pencil")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(height: 22)
-                                Text("Register")
-                            }
-                            
-                            VStack {
-                                Image(systemName: "person.3.fill")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(height: 22)
-                                Text("Participants")
-                                    .lineLimit(1)
-                            }
-                            
-                            VStack {
-                                Image(systemName: "crown.fill")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(height: 22)
-                                Text("Winner")
-                                    .lineLimit(1)
-                            }
-                        }
-                        .font(.subheadline)
-                        .multilineTextAlignment(.center)
-                        .frame(maxWidth: .infinity)
-                    }
-                    .padding()
-                    .background(
-                        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                            .strokeBorder(style: StrokeStyle(lineWidth: 2))
-                    )
-                    
-                    Text("Winner")
-                        .font(.title.bold())
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    if let winner = viewModel.winner {
-                        WinnerCard(winner: winner)
+            Text("Sample Raffle")
+                .font(.title)
+                .bold()
+                .frame(maxWidth: .infinity)
+            
+            HStack(spacing: 0) {
+                Group {
+                    VStack {
+                        Image(systemName: "ticket.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 22)
+                        Text("All Raffles")
                     }
                     
-                    Spacer(minLength: 0)
+                    VStack {
+                        Image(systemName: "square.and.pencil")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 22)
+                        Text("Register")
+                    }
+                    
+                    VStack {
+                        Image(systemName: "person.3.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 22)
+                        Text("Participants")
+                            .lineLimit(1)
+                    }
+                    
+                    VStack {
+                        Image(systemName: "crown.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 22)
+                        Text("Winner")
+                            .lineLimit(1)
+                    }
                 }
-                .padding(.horizontal)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .font(.subheadline)
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity)
             }
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                    .strokeBorder(style: StrokeStyle(lineWidth: 2))
+            )
+            
+            Text("Winner")
+                .font(.title.bold())
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            if let winner = viewModel.winner {
+                WinnerCard(winner: winner)
+            }
+            
+            Spacer(minLength: 0)
         }
-        //        .alert(item: $viewModel.alertMessage) { message in
-        //            switch message {
-        //            case .success(let title, let content):
-        //                return Alert(
-        //                    title: Text(title),
-        //                    message: Text(content),
-        //                    dismissButton: .default(Text("Okay"), action: viewModel.reset)
-        //                )
-        //            case .failure(let errorMessage):
-        //                return Alert(title: Text(errorMessage))
-        //            }
-        //        }
+        .padding(.horizontal)
     }
 }
 

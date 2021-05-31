@@ -27,12 +27,12 @@ extension RaffleScreen {
 }
 
 final class RouterViewModel: ObservableObject {
-    let id: Int
+    let raffle: Raffle
     
     @Published var screen: RaffleScreen
     
-    init(id: Int, screen: RaffleScreen = .participants) {
-        self.id = id
+    init(raffle: Raffle, screen: RaffleScreen = .participants) {
+        self.raffle = raffle
         self.screen = screen
     }
 }
@@ -63,17 +63,17 @@ struct RouterView: View {
                     switch viewModel.screen {
                     case .register:
                         RegisterView(
-                            viewModel: .init(id: viewModel.id)
+                            viewModel: .init(id: viewModel.raffle.id)
                         )
                         .transition(.scale.combined(with: .opacity))
                     case .participants:
                         RaffleParticipantsView(
-                            viewModel: .init(id: viewModel.id)
+                            viewModel: .init(id: viewModel.raffle.id)
                         )
                         .transition(.scale.combined(with: .opacity))
                     case .winner:
                         PickAWinnerView(
-                            viewModel: .init(id: viewModel.id)
+                            viewModel: .init(raffle: viewModel.raffle)
                         )
                         .transition(.scale.combined(with: .opacity))
                     }
@@ -108,7 +108,7 @@ struct RouterView: View {
 
 struct RouterView_Previews: PreviewProvider {
     static var previews: some View {
-        RouterView(viewModel: .init(id: 203))
+        RouterView(viewModel: .init(raffle: .init(id: 203, name: "Meh", createdAt: Date(), raffledAt: nil, winnerId: nil)))
     }
 }
 

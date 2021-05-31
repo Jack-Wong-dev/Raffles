@@ -41,7 +41,7 @@ extension PickWinnerResponse {
 }
 
 final class PickAWinnerViewModel: ObservableObject {
-    let id: Int
+    let raffle: Raffle
     
     @Published var secretToken: String
     @Published var alertMessage: AlertMessage?
@@ -49,12 +49,12 @@ final class PickAWinnerViewModel: ObservableObject {
     
     private var cancellable: AnyCancellable?
     
-    init(id: Int,
+    init(raffle: Raffle,
          secretToken: String = "",
          alertMessage: AlertMessage? = nil,
          isLoading: Bool = false
     ) {
-        self.id = id
+        self.raffle = raffle
         self.secretToken = secretToken
         self.alertMessage = alertMessage
         self.isLoading = isLoading
@@ -91,9 +91,9 @@ extension PickAWinnerViewModel {
     private func putWinnerPublisher() -> WinnerPublisher {
         RaffleAPIClient
             .shared
-            .put(endpoint: .pickWinner(id: id),
+            .put(endpoint: .pickWinner(id: raffle.id),
                  params: PickAWinnerRequest(
-                    id: id,
+                    id: raffle.id,
                     secretToken: secretToken
                  )
             )

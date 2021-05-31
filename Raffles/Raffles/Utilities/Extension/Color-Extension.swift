@@ -15,7 +15,7 @@ extension Color {
     static func getSelectionColor(using screen: RaffleScreen) -> Color {
         switch screen {
         case .register:
-            return .red
+            return .orange
         case .participants:
             return .green
         case .winner:

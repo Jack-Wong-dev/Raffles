@@ -15,7 +15,7 @@ struct AllRafflesView: View {
             ForEach(allRaffles, id: \.id) { raffle in
                 NavigationLink(
                     destination: RouterView(
-                        viewModel: .init(id: raffle.id)
+                        viewModel: .init(raffle: raffle)
                     ),
                     label: {
                         RaffleCard(raffle: raffle)

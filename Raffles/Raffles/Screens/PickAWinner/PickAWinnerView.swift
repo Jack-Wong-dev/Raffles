@@ -71,9 +71,9 @@ struct PickAWinnerView: View {
 struct PickAWinnerView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            PickAWinnerView(viewModel: .init(id: 211))
+            PickAWinnerView(viewModel: .init(raffle: .placeholder))
             
-            PickAWinnerView(viewModel: .init(id: 211))
+            PickAWinnerView(viewModel: .init(raffle: .placeholder))
                 .preferredColorScheme(.dark)
         }
     }
