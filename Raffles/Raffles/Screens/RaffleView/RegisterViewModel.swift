@@ -51,7 +51,7 @@ final class RegisterViewModel: ObservableObject {
 extension RegisterViewModel {
     typealias RegisterPublisher = AnyPublisher<RegisterParticipantResponse,APIError>
     
-    func registerParticipant()  {
+    func register()  {
         registerCancellable = registerParticipantPublisher()
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in

@@ -130,7 +130,7 @@ struct RaffleView: View {
     //MARK: Private Methods
     private func submit() {
         withAnimation {
-            
+            viewModel.register()
         }
     }
     
