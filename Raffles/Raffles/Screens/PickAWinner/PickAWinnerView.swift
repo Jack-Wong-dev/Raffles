@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PickAWinnerView: View {
     @StateObject var viewModel: PickAWinnerViewModel
+    let completion: (PickWinnerResponse?) -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -17,6 +18,7 @@ struct PickAWinnerView: View {
             
             TextField("Secret Token", text: $viewModel.secretToken)
                 .autocapitalization(.none)
+                .disableAutocorrection(true)
             
             VStack(alignment: .leading) {
                 Group {
@@ -53,7 +55,11 @@ struct PickAWinnerView: View {
                 return Alert(
                     title: Text(title),
                     message: Text(content),
-                    dismissButton: .default(Text("Okay"), action: viewModel.reset)
+                    dismissButton: .default(Text("Okay")) {
+                        if let winner = viewModel.winner {
+                            completion(winner)
+                        }
+                    }
                 )
             case .failure(let errorMessage):
                 return Alert(title: Text(errorMessage))
@@ -71,9 +77,13 @@ struct PickAWinnerView: View {
 struct PickAWinnerView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            PickAWinnerView(viewModel: .init(raffle: .placeholder))
+            PickAWinnerView(viewModel: .init(raffle: .placeholder)) { winner in
+                
+            }
             
-            PickAWinnerView(viewModel: .init(raffle: .placeholder))
+            PickAWinnerView(viewModel: .init(raffle: .placeholder)) { winner in 
+                
+            }
                 .preferredColorScheme(.dark)
         }
     }

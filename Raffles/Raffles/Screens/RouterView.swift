@@ -72,10 +72,7 @@ struct RouterView: View {
                         )
                         .transition(.scale.combined(with: .opacity))
                     case .winner:
-                        ShowWinnerView(viewModel: .init(raffle: viewModel.raffle))
-//                        PickAWinnerView(
-//                            viewModel: .init(raffle: viewModel.raffle)
-//                        )
+                        WinnerView(viewModel: .init(raffle: viewModel.raffle))
                         .transition(.scale.combined(with: .opacity))
                     }
                     

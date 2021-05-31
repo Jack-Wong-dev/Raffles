@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct ShowWinnerView: View {
+struct WinnerView: View {
+    @EnvironmentObject var homeViewModel: HomeViewModel
     @StateObject var viewModel: WinnerViewModel
     
     var body: some View {
@@ -18,8 +19,15 @@ struct ShowWinnerView: View {
                         
             if let winner = viewModel.winner {
                 WinnerCard(winner: winner)
+                    .transition(.scale.combined(with: .opacity))
             } else {
-                PickAWinnerView(viewModel: .init(raffle: viewModel.raffle))
+                PickAWinnerView(viewModel: .init(raffle: viewModel.raffle)) { winner in
+                    withAnimation {
+                        homeViewModel.getRaffles()
+                        viewModel.winner = winner
+                    }
+                }
+                .transition(.scale.combined(with: .opacity))
             }
         }
     }
@@ -27,7 +35,7 @@ struct ShowWinnerView: View {
 
 struct WinnerView_Previews: PreviewProvider {
     static var previews: some View {
-        ShowWinnerView(viewModel: .init(raffle: .placeholder))
+        WinnerView(viewModel: .init(raffle: .placeholder))
     }
 }
 

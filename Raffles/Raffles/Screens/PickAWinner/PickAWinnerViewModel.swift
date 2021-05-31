@@ -46,6 +46,7 @@ final class PickAWinnerViewModel: ObservableObject {
     @Published var secretToken: String
     @Published var alertMessage: AlertMessage?
     @Published private(set) var isLoading: Bool
+    var winner: PickWinnerResponse?
     
     private var cancellable: AnyCancellable?
     
@@ -85,6 +86,7 @@ extension PickAWinnerViewModel {
                 self?.isLoading = false
             }, receiveValue: { [weak self] response in
                 self?.alertMessage = .success(title: "Winner!", content: "\(response.firstname) \(response.lastname)")
+                self?.winner = response
             })
     }
     

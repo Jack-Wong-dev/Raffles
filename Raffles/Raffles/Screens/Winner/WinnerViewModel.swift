@@ -13,7 +13,7 @@ final class WinnerViewModel: ObservableObject {
     let raffle: Raffle
     
 //    @Published var alertMessage: AlertMessage?
-    @Published private(set) var winner: PickWinnerResponse?
+    @Published var winner: PickWinnerResponse?
     @Published private(set) var isLoading: Bool
     
     private var cancellable: AnyCancellable?
@@ -44,7 +44,6 @@ extension WinnerViewModel {
                 })
         }
     }
-    
     
     private func getWinnerPublisher() -> RafflesPublisher {
         RaffleAPIClient
