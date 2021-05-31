@@ -94,7 +94,6 @@ extension HomeViewModel {
     }
     
     private func createRafflePublisher() -> CreateRafflePublisher {
-        print(raffleName, secretToken)
         return RaffleAPIClient
             .shared
             .post(endpoint: .createRaffle,
