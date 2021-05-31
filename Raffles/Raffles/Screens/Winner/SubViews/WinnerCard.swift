@@ -14,6 +14,7 @@ struct WinnerCard: View {
         VStack {
             Color.red
                 .scaledToFit()
+                .cornerRadius(8)
             
             Group {
                 Text(winner.fullName)
@@ -33,6 +34,8 @@ struct WinnerCard: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
+        .padding()
+        .background(NeumorphicCard())
     }
 }
 
