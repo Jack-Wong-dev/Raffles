@@ -13,6 +13,7 @@
 		0A1DB3F626652EF6002A0134 /* SelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1DB3F526652EF6002A0134 /* SelectionButton.swift */; };
 		0A1DB3F826653719002A0134 /* CurrentSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1DB3F726653719002A0134 /* CurrentSelectionView.swift */; };
 		0A1DB3FB266539D3002A0134 /* NeumorphicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1DB3FA266539D3002A0134 /* NeumorphicCard.swift */; };
+		0A563656266565240037D7C0 /* ValidationPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A563655266565240037D7C0 /* ValidationPublishers.swift */; };
 		0A606D2126641C7E00DB1D54 /* RaffleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D2026641C7E00DB1D54 /* RaffleCard.swift */; };
 		0A606D2326642B2900DB1D54 /* PostRaffleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D2226642B2900DB1D54 /* PostRaffleResponse.swift */; };
 		0A606D2526643AE300DB1D54 /* PostRaffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D2426643AE300DB1D54 /* PostRaffle.swift */; };
@@ -57,6 +58,7 @@
 		0A1DB3F526652EF6002A0134 /* SelectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionButton.swift; sourceTree = "<group>"; };
 		0A1DB3F726653719002A0134 /* CurrentSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentSelectionView.swift; sourceTree = "<group>"; };
 		0A1DB3FA266539D3002A0134 /* NeumorphicCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphicCard.swift; sourceTree = "<group>"; };
+		0A563655266565240037D7C0 /* ValidationPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationPublishers.swift; sourceTree = "<group>"; };
 		0A606D2026641C7E00DB1D54 /* RaffleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaffleCard.swift; sourceTree = "<group>"; };
 		0A606D2226642B2900DB1D54 /* PostRaffleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRaffleResponse.swift; sourceTree = "<group>"; };
 		0A606D2426643AE300DB1D54 /* PostRaffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRaffle.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				0A606D28266448A700DB1D54 /* Validation.swift */,
+				0A563655266565240037D7C0 /* ValidationPublishers.swift */,
 			);
 			path = Validation;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				0AA8AB662662FFF500978B99 /* Endpoint.swift in Sources */,
 				0AE6783526640D8C00D7CEEE /* PickAWinnerView.swift in Sources */,
 				0A606D2F266456B600DB1D54 /* Participant.swift in Sources */,
+				0A563656266565240037D7C0 /* ValidationPublishers.swift in Sources */,
 				0AE678332663F3BE00D7CEEE /* RaffleParticipantsView.swift in Sources */,
 				0A1DB3EE26652B2F002A0134 /* WinnerCard.swift in Sources */,
 				0AE6782F2663E76000D7CEEE /* HomeView.swift in Sources */,
