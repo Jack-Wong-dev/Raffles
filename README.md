@@ -1,5 +1,7 @@
 # Raffles
-
+A Raffle app. 
+Users can create a raffle and pull a winner among the participants.  
+Users can join other raffles as a participant.
 
 ## Technologies Used
 * SwiftUI (https://developer.apple.com/documentation/swiftui)
