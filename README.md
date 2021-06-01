@@ -37,7 +37,7 @@ Users can join other raffles as a participant.
 | --- | --- |
 | ![iPhone 12 Pro Light Mode](Images/WinnerLight.png) | ![iPhone 12 Pro Dark Mode](Images/WinnerDark.png) |
 
-| Landscape Light Model | Landscape Dark Mode
+| Landscape Light Mode | Landscape Dark Mode
 | --- | --- |
 | ![iPhone 12 Pro Light Mode](Images/LandscapeLight.png) | ![iPhone 12 Pro Dark Mode](Images/LandscapeDark.png) |
 
