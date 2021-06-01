@@ -3,6 +3,11 @@ A Raffle app.
 Users can create a raffle and pull a winner among the participants.  
 Users can join other raffles as a participant.
 
+| ![](Videos/raffle.gif) | ![](Videos/scrolling.gif) |
+| --- | --- |
+| ![](Videos/register.gif) | ![](Videos/winner.gif) |
+| --- | --- |
+
 ## Technologies Used
 * SwiftUI (https://developer.apple.com/documentation/swiftui)
 * Combine (https://firebase.google.com/docs)
@@ -30,3 +35,5 @@ Users can join other raffles as a participant.
 | Landscape Light Model | Landscape Dark Mode
 | --- | --- |
 | ![iPhone 12 Pro Light Mode](Images/LandscapeLight.png) | ![iPhone 12 Pro Dark Mode](Images/LandscapeDark.png) |
+
+
