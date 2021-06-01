@@ -3,14 +3,13 @@ A Raffle app.
 Users can create a raffle and pull a winner among the participants.  
 Users can join other raffles as a participant.
 
-| ![](Videos/raffle.gif) | ![](Videos/scrolling.gif) |
-| --- | --- |
-| ![](Videos/register.gif) | ![](Videos/winner.gif) |
-| --- | --- |
 
 ## Technologies Used
 * SwiftUI (https://developer.apple.com/documentation/swiftui)
 * Combine (https://firebase.google.com/docs)
+
+| ![](Videos/raffle.gif) | ![](Videos/scrolling.gif) |
+| ![](Videos/register.gif) | ![](Videos/winner.gif) |
 
 | Home View Light Mode | Home View Dark Mode |
 | --- | --- |
