@@ -41,7 +41,16 @@ Users can join other raffles as a participant.
 | --- | --- |
 | ![iPhone 12 Pro Light Mode](Images/LandscapeLight.png) | ![iPhone 12 Pro Dark Mode](Images/LandscapeDark.png) |
 
+| iPad Pro Light Mode | 
+| --- | 
+| ![iPad Pro Light Mode](Images/iPadLight.png) | 
+
+|iPad Pro Dark Mode|
+| --- | 
+| ![iPad Pro Dark Mode](Images/iPadDark.png) |
+
 ### Notes
 * Built using XCode 12.5, with a deployment target of iOS 14.5
 * XCode 12.5 currently produces a 'Unable to present. Please file a bug.' report on the console.  This is related to the Navigation API.
+* Navigation on iPad OS is still a WIP.
 * No third party dependicies required to run the app.
