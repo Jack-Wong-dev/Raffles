@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Date {
+public extension Date {
     func toString(_ style: DateFormatter.Style) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = style

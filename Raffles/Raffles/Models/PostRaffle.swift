@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PostRaffle: Encodable {
+public struct PostRaffle: Encodable {
     let name: String
     let secretToken: String
 }

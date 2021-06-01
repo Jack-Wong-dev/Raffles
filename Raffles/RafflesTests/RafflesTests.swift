@@ -10,13 +10,13 @@ import Combine
 @testable import Raffles
 
 class RafflesTests: XCTestCase {
-    var raffle: Raffle!
     var homeViewModel: HomeViewModel!
+    var mockAPI: MockAPI!
     var cancellables: Set<AnyCancellable>!
     
     override func setUp() {
-        raffle = Raffle.placeholder
-        homeViewModel = HomeViewModel()
+        mockAPI = MockAPI.shared
+        homeViewModel = HomeViewModel(api: mockAPI)
         cancellables = []
     }
 
@@ -24,8 +24,19 @@ class RafflesTests: XCTestCase {
         cancellables = []
     }
     
-    func testLoadingImagesAtLaunch() {
+    func test_allRafflesReturnsResponse() {
+        let raffles = [Raffle(id: 0, name: "PS5", createdAt: Date(), raffledAt: Date(), winnerId: 888)]
         
+        let expectation = XCTestExpectation(description: "all raffles")
+        
+        _ = homeViewModel.rafflesPublisher().sink { completion in
+            
+        } receiveValue: { response in
+            XCTAssertEqual(raffles.first?.name, response.first?.name)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 1)
     }
 //    override func setUpWithError() throws {
 //        // Put setup code here. This method is called before the invocation of each test method in the class.

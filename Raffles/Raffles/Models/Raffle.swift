@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Raffle: Decodable {
+public struct Raffle: Decodable {
   let id: Int
   let name: String
   let createdAt: Date
@@ -26,12 +26,12 @@ struct Raffle: Decodable {
 }
 
 //MARK: Placeholder for Preview
-extension Raffle {
+public extension Raffle {
     static let placeholder = Raffle(id: 0, name: "Johnny", createdAt: .init(), raffledAt: nil, winnerId: 11)
 }
 
 //MARK: Computer Properties
-extension Raffle {
+public extension Raffle {
     var winner: String {
         guard let winningId = winnerId else { return "No One Yet" }
         return String(winningId)

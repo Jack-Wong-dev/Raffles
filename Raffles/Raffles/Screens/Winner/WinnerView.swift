@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct WinnerView: View {
-    @EnvironmentObject var homeViewModel: HomeViewModel
     @StateObject var viewModel: WinnerViewModel
     
     var body: some View {
@@ -35,6 +34,5 @@ struct WinnerView: View {
 struct WinnerView_Previews: PreviewProvider {
     static var previews: some View {
         WinnerView(viewModel: .init(raffle: .placeholder))
-            .environmentObject(HomeViewModel())
     }
 }

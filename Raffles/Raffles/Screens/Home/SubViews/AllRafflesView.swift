@@ -17,8 +17,8 @@ struct AllRafflesView: View {
                     destination: RouterView(
                         viewModel: .init(raffle: raffle)
                     ),
-                    tag: raffle.id,
-                    selection: $viewModel.currentRaffleId,
+//                    tag: raffle.id,
+//                    selection: $viewModel.currentRaffleId,
                     label: {RaffleCard(raffle: raffle)})
                     .accentColor(Color(.label))
                     .padding(.horizontal)

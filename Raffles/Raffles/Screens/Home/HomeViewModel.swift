@@ -15,7 +15,7 @@ final class HomeViewModel: ObservableObject {
     @Published var allRaffles: [Raffle]
     @Published private(set) var isLoading: Bool
     @Published var alertMessage: AlertMessage?
-    @Published var currentRaffleId: Int?
+//    @Published var currentRaffleId: Int?
     @Published private(set) var buttonDisabled: Bool
     
     private var getCancellable: AnyCancellable?
@@ -116,7 +116,7 @@ extension HomeViewModel {
             })
     }
     
-    private func createRafflePublisher() -> CreateRafflePublisher {
+    func createRafflePublisher() -> CreateRafflePublisher {
         return
             networkHelper
             .post(endpoint: .createRaffle,
@@ -129,7 +129,7 @@ extension HomeViewModel {
             .eraseToAnyPublisher()
     }
     
-    private func rafflesPublisher() -> RafflesPublisher {
+    func rafflesPublisher() -> RafflesPublisher {
         networkHelper
             .get(endpoint: .allRaffles)
             .eraseToAnyPublisher()

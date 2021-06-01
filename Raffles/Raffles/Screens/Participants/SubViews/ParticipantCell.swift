@@ -13,6 +13,7 @@ struct ParticipantCell: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(participant.fullName)
+                .font(.title2)
                 .fontWeight(.medium)
             
             HStack(spacing: 20) {

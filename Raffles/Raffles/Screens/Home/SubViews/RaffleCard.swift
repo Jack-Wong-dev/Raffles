@@ -14,7 +14,7 @@ struct RaffleCard: View {
         VStack {
             VStack(alignment: .leading, spacing: 10) {
                 Group {
-                    Text("\(raffle.name)'s raffle")
+                    Text(raffle.name)
                         .font(.title2.bold())
                     
                     Label(
