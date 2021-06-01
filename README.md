@@ -8,7 +8,6 @@ Users can join other raffles as a participant.
 * SwiftUI (https://developer.apple.com/documentation/swiftui)
 * Combine (https://firebase.google.com/docs)
 
-
 | Creating A Raffle | Scrolling to see raffles |
 | --- | --- |
 | ![](Videos/raffle.gif) | ![](Videos/scrolling.gif) |
@@ -42,4 +41,7 @@ Users can join other raffles as a participant.
 | --- | --- |
 | ![iPhone 12 Pro Light Mode](Images/LandscapeLight.png) | ![iPhone 12 Pro Dark Mode](Images/LandscapeDark.png) |
 
-
+### Notes
+* Built using XCode 12.5, with a deployment target of iOS 14.5
+* XCode 12.5 currently produces a 'Unable to present. Please file a bug.' report on the console.  This is related to the Navigation API.
+* No third party dependicies required to run the app.
