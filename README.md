@@ -8,10 +8,14 @@ Users can join other raffles as a participant.
 * SwiftUI (https://developer.apple.com/documentation/swiftui)
 * Combine (https://firebase.google.com/docs)
 
+
 | Creating A Raffle | Scrolling to see raffles |
-| ![](Videos/raffle.gif) | ![](Videos/scrolling.gif) |
 | --- | --- |
+| ![](Videos/raffle.gif) | ![](Videos/scrolling.gif) |
+
+
 | Participating in a raffle | Picking a winner |
+| --- | --- |
 | ![](Videos/register.gif) | ![](Videos/winner.gif) |
 
 | Home View Light Mode | Home View Dark Mode |
