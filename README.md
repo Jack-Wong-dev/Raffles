@@ -6,7 +6,7 @@ Users can join other raffles as a participant.
 
 ## Technologies Used
 * SwiftUI (https://developer.apple.com/documentation/swiftui)
-* Combine (https://firebase.google.com/docs)
+* Combine (https://developer.apple.com/documentation/combine)
 
 | Creating A Raffle | Scrolling to see raffles |
 | --- | --- |
