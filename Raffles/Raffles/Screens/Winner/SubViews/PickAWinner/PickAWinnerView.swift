@@ -45,7 +45,7 @@ struct PickAWinnerView: View {
                     .frame(maxWidth: .infinity)
                     .background(
                         RoundedRectangle(cornerRadius: 16, style: .continuous)
-                            .fill(Color.blue)
+                            .fill(LinearGradient(gradient: .init(colors: [.blue, .purple]), startPoint: .topLeading, endPoint: .bottomTrailing))
                     )
                     .shadow(color: .shadow, radius: 15, x: 15, y: 15)
             }

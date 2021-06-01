@@ -12,11 +12,9 @@ struct CreateRaffleView: View {
     
     var body: some View {
         Group {
-            Text("Raffle App")
-                .font(.largeTitle.bold())
-                .frame(maxWidth: .infinity)
+            AppTitle()
                 .id("top")
-            
+
             Text("New Raffle:")
                 .font(.title.bold())
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -45,7 +43,7 @@ struct CreateRaffleView: View {
                     .frame(maxWidth: .infinity)
                     .background(
                         RoundedRectangle(cornerRadius: 16, style: .continuous)
-                            .fill(Color.blue)
+                            .fill(LinearGradient(gradient: .init(colors: [.purple, .blue]), startPoint: .leading, endPoint: .trailing))
                     )
                     .shadow(color: .shadow, radius: 15, x: 15, y: 15)
             }

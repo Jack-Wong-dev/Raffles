@@ -33,22 +33,59 @@ struct WinnerCard: View {
     
     var content: some View {
         Group {
-            Color.red
+            Color.clear
                 .scaledToFit()
-                .cornerRadius(8)
+                .overlay(
+                    Image("trophy")
+                        .renderingMode(.original)
+                        .scaledToFit()
+                )
             
             ZStack(alignment: .topLeading) {
                 VStack(alignment: .leading) {
                     Text(winner.fullName)
                         .font(.title2)
                         .fontWeight(.medium)
-                    
-                    Text("Registered on \(winner.registeredAt)")
-                        .foregroundColor(Color(.secondaryLabel))
                 
-                    Label("\(winner.id)", systemImage: "number")
-                    Label(winner.email, systemImage: "envelope.fill")
-                    Label(winner.phone ?? "N/A", systemImage: "phone")
+                    Label(
+                        title: {
+                            Text("\(winner.id)")
+                                .fontWeight(.semibold)
+                        },
+                        icon: {
+                            Image(systemName: "number")
+                                .scaledToFit()
+                                .frame(width: 22)
+                        }
+                    )
+                    
+                    Label(
+                        title: {
+                            Text("\(winner.email)")
+                                .fontWeight(.semibold)
+                        },
+                        icon: {
+                            Image(systemName: "envelope.fill")
+                                .scaledToFit()
+                                .frame(width: 22)
+                        }
+                    )
+                    
+                    Label(
+                        title: {
+                            Text("\(winner.phone ?? "")")
+                                .fontWeight(.semibold)
+                        },
+                        icon: {
+                            Image(systemName: "phone")
+                                .scaledToFit()
+                                .frame(width: 22)
+                        }
+                    )
+                    
+                    Text("Registered on \(winner.registerdDate)")
+                        .font(.caption.weight(.medium))
+                        .foregroundColor(Color(.secondaryLabel))
                 }
             }
             .frame(maxWidth: .infinity, alignment: .topLeading)

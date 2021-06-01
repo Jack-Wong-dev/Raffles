@@ -11,11 +11,9 @@ struct RaffleParticipantsView: View {
     @StateObject var viewModel: ParticipantsViewModel
     
     var body: some View {
-        VStack(spacing: 20) {
-            Text("Participants: \(viewModel.allParticipants.count) total")
-                .font(.title2)
-                .fontWeight(.medium)
-                .frame(maxWidth: .infinity, alignment: .leading)
+        VStack(alignment: .leading) {
+            Text("Participants: \(viewModel.allParticipants.count)")
+                .font(.title.bold())
             
             ParticipantsView(participants: viewModel.allParticipants)
         }

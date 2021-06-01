@@ -39,6 +39,10 @@ extension PickWinnerResponse {
     var fullName: String {
         "\(firstname) \(lastname)".capitalized
     }
+    
+    var registerdDate: String {
+        registeredAt.toString(.medium)
+    }
 }
 
 extension PickWinnerResponse {

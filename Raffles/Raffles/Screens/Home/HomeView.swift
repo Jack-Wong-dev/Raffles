@@ -62,6 +62,7 @@ struct HomeView: View {
             .onAppear(perform: viewModel.getRaffles)
         } // Navigation View
         .environmentObject(viewModel)
+        .accentColor(.purple)
     }
         
     //MARK: Private methods

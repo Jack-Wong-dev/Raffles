@@ -53,6 +53,9 @@ struct RegisterView: View {
                         .background(
                             RoundedCorner(radius: 16,
                                           corners: [.topLeft,.bottomLeft])
+                                .fill(
+                                    LinearGradient(gradient: .init(colors: [.blue, .purple]), startPoint: .leading, endPoint: .trailing)
+                                )
                                 .shadow(color: .shadow, radius: 15, x: 15, y: 15)
                         )
                 }
@@ -69,7 +72,9 @@ struct RegisterView: View {
                             RoundedCorner(radius: 16,
                                           corners: [.topRight,.bottomRight]
                             )
-                            .fill(Color.red)
+                            .fill(
+                                LinearGradient(gradient: .init(colors: [.purple, .red]), startPoint: .leading, endPoint: .trailing)
+                            )
                             .shadow(color: .shadow, radius: 15, x: 15, y: 15)
                         )
                 }
