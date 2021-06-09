@@ -11,7 +11,7 @@ struct CreateRaffleView: View {
     @EnvironmentObject var viewModel: HomeViewModel
     
     var body: some View {
-        Group {
+        VStack {
             AppTitle()
                 .id("top")
 

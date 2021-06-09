@@ -9,21 +9,10 @@ import SwiftUI
 
 struct AppTitle: View {
     var body: some View {
-        HStack {
-            Spacer(minLength: 0)
-            Text("Raffle App")
-                .font(.largeTitle.weight(.heavy))
-                
-                .opacity(0)
-                .overlay(
-                    LinearGradient(gradient: .init(colors: [.purple, .blue, .purple]), startPoint: .leading, endPoint: .trailing)
-                        .mask(
-                            Text("Raffle App")
-                                .font(.largeTitle.weight(.heavy))
-                        )
-                )
-            Spacer(minLength: 0)
-        }
+        Text("Raffle App")
+            .font(.largeTitle.weight(.heavy))
+            .foregroundStyle(.linearGradient(.init(colors: [.purple, .blue, .purple]), startPoint: .leading, endPoint: .trailing))
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
     }
 }
 
