@@ -117,8 +117,7 @@ extension HomeViewModel {
     }
     
     func createRafflePublisher() -> CreateRafflePublisher {
-        return
-            networkHelper
+        networkHelper
             .post(endpoint: .createRaffle,
                   params:
                     PostRaffle(

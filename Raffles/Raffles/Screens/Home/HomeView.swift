@@ -42,23 +42,6 @@ struct HomeView: View {
                         print("refreshing")
                     }
 
-                    
-//                    ScrollView(showsIndicators: true) {
-//                        VStack(alignment: .leading, spacing: 20) {
-//                            CreateRaffleView()
-//
-//                            Text("All Raffles:").font(.title2.bold()).padding(.leading)
-//
-//                            //MARK: Raffles List
-//                            AllRafflesView(viewModel: viewModel)
-//                                .redacted(reason: viewModel.isLoading ? .placeholder : .init())
-//                                .disabled(viewModel.isLoading)
-//
-//                            Spacer(minLength: 0)
-//                        }
-//                        .autocapitalization(.none)
-//                        .disableAutocorrection(true)
-//                    }
                     //MARK: Scroll To Top Button
                     VStack {
                         Button(action: { scrollToTop(proxy: scrollProxy) }) {
@@ -96,6 +79,12 @@ struct HomeView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarHidden(true)
             .onAppear(perform: viewModel.getRaffles)
+//            .task(viewModel.getRaffles)
+            
+            Text("Raffles!")
+                .font(.largeTitle)
+                .bold()
+                .foregroundStyle(LinearGradient(colors: [.purple, .blue], startPoint: .leading, endPoint: .trailing))
         } // Navigation View
         .environmentObject(viewModel)
         .accentColor(.purple)
@@ -103,13 +92,13 @@ struct HomeView: View {
         
     //MARK: Private methods
     private func scrollToTop(proxy: ScrollViewProxy) {
-        withAnimation {
+        withAnimation(.interactiveSpring()) {
             proxy.scrollTo("top", anchor: .top)
         }
     }
     
     private func scrollToBottom(proxy: ScrollViewProxy) {
-        withAnimation {
+        withAnimation(.interactiveSpring()) {
             proxy.scrollTo("bottom", anchor: .bottom)
         }
     }
