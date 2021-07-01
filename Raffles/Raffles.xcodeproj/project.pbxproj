@@ -55,6 +55,7 @@
 		0A606D4F26648A6C00DB1D54 /* WinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D4E26648A6C00DB1D54 /* WinnerView.swift */; };
 		0A606D5326648A9700DB1D54 /* WinnerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D5226648A9700DB1D54 /* WinnerViewModel.swift */; };
 		0A606D5526649A8800DB1D54 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A606D5426649A8800DB1D54 /* RouterView.swift */; };
+		0A6D64B6268D7E8C00AC49C2 /* TrackableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D64B5268D7E8C00AC49C2 /* TrackableScrollView.swift */; };
 		0AA8AB522662FDDB00978B99 /* RafflesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8AB512662FDDB00978B99 /* RafflesApp.swift */; };
 		0AA8AB562662FDDC00978B99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA8AB552662FDDC00978B99 /* Assets.xcassets */; };
 		0AA8AB592662FDDC00978B99 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA8AB582662FDDC00978B99 /* Preview Assets.xcassets */; };
@@ -120,6 +121,7 @@
 		0A606D4E26648A6C00DB1D54 /* WinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerView.swift; sourceTree = "<group>"; };
 		0A606D5226648A9700DB1D54 /* WinnerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerViewModel.swift; sourceTree = "<group>"; };
 		0A606D5426649A8800DB1D54 /* RouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
+		0A6D64B5268D7E8C00AC49C2 /* TrackableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackableScrollView.swift; sourceTree = "<group>"; };
 		0AA8AB4E2662FDDB00978B99 /* Raffles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raffles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA8AB512662FDDB00978B99 /* RafflesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RafflesApp.swift; sourceTree = "<group>"; };
 		0AA8AB552662FDDC00978B99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			children = (
 				0A1DB3FA266539D3002A0134 /* NeumorphicCard.swift */,
 				0A5636AE2665BFAD0037D7C0 /* AppTitle.swift */,
+				0A6D64B5268D7E8C00AC49C2 /* TrackableScrollView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				0A606D3D26646B3400DB1D54 /* LinearGradient-Extension.swift in Sources */,
 				0A5636AF2665BFAD0037D7C0 /* AppTitle.swift in Sources */,
 				0AE6782A2663C24100D7CEEE /* APIError.swift in Sources */,
+				0A6D64B6268D7E8C00AC49C2 /* TrackableScrollView.swift in Sources */,
 				0A606D2526643AE300DB1D54 /* PostRaffle.swift in Sources */,
 				0A606D3326645C2C00DB1D54 /* ParticipantCell.swift in Sources */,
 				0A1DB3F626652EF6002A0134 /* SelectionButton.swift in Sources */,

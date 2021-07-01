@@ -14,7 +14,7 @@ struct CreateRaffleView: View {
         VStack {
             AppTitle()
                 .id("top")
-
+                
             Text("New Raffle:")
                 .font(.title.bold())
                 .frame(maxWidth: .infinity, alignment: .leading)

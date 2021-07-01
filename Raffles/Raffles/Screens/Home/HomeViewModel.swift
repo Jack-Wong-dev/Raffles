@@ -12,7 +12,7 @@ final class HomeViewModel: ObservableObject {
     //MARK: - Properties
     @Published var raffleName: String
     @Published var secretToken: String
-    @Published var allRaffles: [Raffle]
+    @Published var allRaffles: [Raffle] 
     @Published private(set) var isLoading: Bool
     @Published var alertMessage: AlertMessage?
 //    @Published var currentRaffleId: Int?

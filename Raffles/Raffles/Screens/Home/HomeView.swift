@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var viewModel: HomeViewModel = .init()
+    @State private var yContentOffset: CGFloat = .zero
     
     var body: some View {
         NavigationView {
@@ -18,30 +19,65 @@ struct HomeView: View {
                     LinearGradient.background
                         .ignoresSafeArea()
                     
-                    ScrollView(showsIndicators: true) {
+                    TrackableScrollView { offset in
+                        yContentOffset = offset.y
+                    } content: {
                         VStack(alignment: .leading, spacing: 20) {
                             CreateRaffleView()
-                            
+
                             Text("All Raffles:").font(.title2.bold()).padding(.leading)
-                            
+
                             //MARK: Raffles List
                             AllRafflesView(viewModel: viewModel)
                                 .redacted(reason: viewModel.isLoading ? .placeholder : .init())
                                 .disabled(viewModel.isLoading)
-                            
+
                             Spacer(minLength: 0)
+                                .id("bottom")
                         }
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                     }
-                    //MARK: Scroll To Top Button
-                    Button(action: { scrollToTop(proxy: scrollProxy) }) {
-                        Image(systemName: "arrow.up.circle.fill")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 32)
-                            .shadow(color: .shadow, radius: 15, x: 15, y: 15)
+                    .refreshable {
+                        print("refreshing")
                     }
+
+                    
+//                    ScrollView(showsIndicators: true) {
+//                        VStack(alignment: .leading, spacing: 20) {
+//                            CreateRaffleView()
+//
+//                            Text("All Raffles:").font(.title2.bold()).padding(.leading)
+//
+//                            //MARK: Raffles List
+//                            AllRafflesView(viewModel: viewModel)
+//                                .redacted(reason: viewModel.isLoading ? .placeholder : .init())
+//                                .disabled(viewModel.isLoading)
+//
+//                            Spacer(minLength: 0)
+//                        }
+//                        .autocapitalization(.none)
+//                        .disableAutocorrection(true)
+//                    }
+                    //MARK: Scroll To Top Button
+                    VStack {
+                        Button(action: { scrollToTop(proxy: scrollProxy) }) {
+                            Image(systemName: "arrow.up.circle.fill")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 32)
+                                .shadow(color: .shadow, radius: 15, x: 15, y: 15)
+                        }
+                        
+                        Button(action: { scrollToBottom(proxy: scrollProxy) }) {
+                            Image(systemName: "arrow.down.circle.fill")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 32)
+                                .shadow(color: .shadow, radius: 15, x: 15, y: 15)
+                        }
+                    }
+                    .opacity(yContentOffset < -10 ? 1 : 0)
                     .padding(.horizontal)
                 } //ZStack
             } //ScrollViewReader
@@ -69,6 +105,12 @@ struct HomeView: View {
     private func scrollToTop(proxy: ScrollViewProxy) {
         withAnimation {
             proxy.scrollTo("top", anchor: .top)
+        }
+    }
+    
+    private func scrollToBottom(proxy: ScrollViewProxy) {
+        withAnimation {
+            proxy.scrollTo("bottom", anchor: .bottom)
         }
     }
 }
