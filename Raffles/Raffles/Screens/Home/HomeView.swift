@@ -49,8 +49,7 @@ struct HomeView: View {
                             switch viewModel.loadingState {
                             case .loading:
                                 ForEach(0..<10) { index in
-                                    RaffleCard(raffle: .placeholder)
-                                        .redacted(reason: .placeholder)
+                                    RaffleCardPlaceholder()
                                         .padding(.horizontal)
                                         .tag(index)
                                 }

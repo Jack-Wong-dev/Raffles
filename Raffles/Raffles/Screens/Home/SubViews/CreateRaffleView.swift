@@ -7,8 +7,14 @@
 
 import SwiftUI
 
+enum CreateRaffleFocus {
+    case name
+    case secretToken
+}
+
 struct CreateRaffleView: View {
     @EnvironmentObject var viewModel: HomeViewModel
+    @FocusState var focus: CreateRaffleFocus?
     
     var body: some View {
         VStack {

@@ -27,7 +27,6 @@ final class HomeViewModel: ObservableObject {
     @Published private(set) var buttonDisabled: Bool
     @Published var filter: RaffleFilter
     
-    private var getCancellable: AnyCancellable?
     private var postCancellable: AnyCancellable?
     var networkHelper: API
     
@@ -80,23 +79,6 @@ final class HomeViewModel: ObservableObject {
             .map{!$0}
             .assign(to: &$buttonDisabled)
         
-//        $allRaffles
-//            .combineLatest($filter)
-//            .map { raffles, selectedFilter -> [Raffle] in
-//                switch selectedFilter {
-//                case .none:
-//                    return raffles
-//                case .recent:
-//                    return raffles.sorted { lhs, rhs in
-//                        lhs.createdAt > rhs.createdAt
-//                    }
-//                case .name:
-//                    return raffles.sorted { lhs, rhs in
-//                        lhs.name < rhs.name
-//                    }
-//                }
-//            }
-//            .assign(to: &$filteredRaffles)
         $loadingState
             .filter({
                 guard case .loaded(_) = $0
@@ -105,8 +87,7 @@ final class HomeViewModel: ObservableObject {
             })
             .combineLatest($filter)
             .map { loadedState, selectedFilter in
-                guard case .loaded(let raffles) = loadedState
-                else { return [Raffle]() }
+                guard case .loaded(let raffles) = loadedState else { return [Raffle]() }
 
                 switch selectedFilter {
                 case .none:
@@ -118,6 +99,10 @@ final class HomeViewModel: ObservableObject {
                 }
             }
             .assign(to: &$filteredRaffles)
+    }
+    
+    deinit {
+        postCancellable?.cancel()
     }
     
     //MARK:- Methods
@@ -150,27 +135,6 @@ extension HomeViewModel {
             })
     }
     
-//    func getRaffles()  {
-//        isLoading = true
-//
-//        getCancellable = rafflesPublisher()
-//            .receive(on: DispatchQueue.main)
-//            .handleEvents(receiveCompletion: { [weak self] completion in
-//                if case .failure(let error) = completion {
-//                    if case .api(let response) = error {
-//                        self?.alertMessage = .failure(response.message)
-//                    } else {
-//                        self?.alertMessage = .failure(error.localizedDescription)
-//                    }
-//                }
-//                self?.isLoading = false
-//            })
-//            .replaceError(with: [])
-//            .sink(receiveValue: { [weak self] raffles in
-//                self?.allRaffles = raffles
-//            })
-//    }
-    
     func getRaffles()  {
         rafflesPublisher()
             .map(LoadingState.loaded)
@@ -195,16 +159,5 @@ extension HomeViewModel {
         networkHelper
             .get(endpoint: .allRaffles)
             .eraseToAnyPublisher()
-    }
-}
-
-extension Sequence {
-    func sorted<T: Comparable>(
-        by keyPath: KeyPath<Element, T>,
-        using comparator: (T, T) -> Bool = (<)
-    ) -> [Element] {
-        sorted { a, b in
-            comparator(a[keyPath: keyPath], b[keyPath: keyPath])
-        }
     }
 }

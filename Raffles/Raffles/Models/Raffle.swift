@@ -12,8 +12,6 @@ public struct Raffle: Decodable {
   let name: String
   let createdAt: Date
   let raffledAt: Date?
-//    let createdAt: String
-//    let raffledAt: String?
   let winnerId: Int?
 
   private enum CodingKeys: String, CodingKey {
@@ -27,7 +25,7 @@ public struct Raffle: Decodable {
 
 //MARK: Placeholder for Preview
 public extension Raffle {
-    static let placeholder = Raffle(id: 0, name: "Johnny", createdAt: .init(), raffledAt: nil, winnerId: 11)
+    static let placeholder = Raffle(id: 0, name: "Placeholder Name", createdAt: .init(), raffledAt: nil, winnerId: 777)
 }
 
 //MARK: Computer Properties

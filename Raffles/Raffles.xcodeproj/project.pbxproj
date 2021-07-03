@@ -13,6 +13,8 @@
 		0A1DB3F626652EF6002A0134 /* SelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1DB3F526652EF6002A0134 /* SelectionButton.swift */; };
 		0A1DB3F826653719002A0134 /* CurrentSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1DB3F726653719002A0134 /* CurrentSelectionView.swift */; };
 		0A1DB3FB266539D3002A0134 /* NeumorphicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1DB3FA266539D3002A0134 /* NeumorphicCard.swift */; };
+		0A5069C82690CD020074BF25 /* Sequence-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5069C72690CD020074BF25 /* Sequence-Extension.swift */; };
+		0A5069CA2690E0800074BF25 /* RaffleCardPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5069C92690E0800074BF25 /* RaffleCardPlaceholder.swift */; };
 		0A563656266565240037D7C0 /* ValidationPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A563655266565240037D7C0 /* ValidationPublishers.swift */; };
 		0A563658266567220037D7C0 /* Published-Extension .swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A563657266567220037D7C0 /* Published-Extension .swift */; };
 		0A56365A26656FE00037D7C0 /* CreateRaffleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A56365926656FE00037D7C0 /* CreateRaffleView.swift */; };
@@ -91,6 +93,8 @@
 		0A1DB3F526652EF6002A0134 /* SelectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionButton.swift; sourceTree = "<group>"; };
 		0A1DB3F726653719002A0134 /* CurrentSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentSelectionView.swift; sourceTree = "<group>"; };
 		0A1DB3FA266539D3002A0134 /* NeumorphicCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphicCard.swift; sourceTree = "<group>"; };
+		0A5069C72690CD020074BF25 /* Sequence-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Sequence-Extension.swift"; path = "../../../../../../Sequence-Extension.swift"; sourceTree = "<group>"; };
+		0A5069C92690E0800074BF25 /* RaffleCardPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaffleCardPlaceholder.swift; sourceTree = "<group>"; };
 		0A563655266565240037D7C0 /* ValidationPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationPublishers.swift; sourceTree = "<group>"; };
 		0A563657266567220037D7C0 /* Published-Extension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Published-Extension .swift"; sourceTree = "<group>"; };
 		0A56365926656FE00037D7C0 /* CreateRaffleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRaffleView.swift; sourceTree = "<group>"; };
@@ -294,6 +298,7 @@
 				0A606D3C26646B3400DB1D54 /* LinearGradient-Extension.swift */,
 				0A56365B266578740037D7C0 /* Date-Extension.swift */,
 				0AE678242663B91300D7CEEE /* Extension-URL.swift */,
+				0A5069C72690CD020074BF25 /* Sequence-Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -417,6 +422,7 @@
 				0AE6783C2664162300D7CEEE /* AllRafflesView.swift */,
 				0A606D2026641C7E00DB1D54 /* RaffleCard.swift */,
 				0A56365926656FE00037D7C0 /* CreateRaffleView.swift */,
+				0A5069C92690E0800074BF25 /* RaffleCardPlaceholder.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -546,6 +552,7 @@
 			files = (
 				0AE678252663B91300D7CEEE /* Extension-URL.swift in Sources */,
 				0A606D3F26646DA200DB1D54 /* RegisterViewModel.swift in Sources */,
+				0A5069C82690CD020074BF25 /* Sequence-Extension.swift in Sources */,
 				0A606D2126641C7E00DB1D54 /* RaffleCard.swift in Sources */,
 				0A606D4F26648A6C00DB1D54 /* WinnerView.swift in Sources */,
 				0AA8AB522662FDDB00978B99 /* RafflesApp.swift in Sources */,
@@ -562,6 +569,7 @@
 				0AA8AB662662FFF500978B99 /* Endpoint.swift in Sources */,
 				0AE6783526640D8C00D7CEEE /* PickAWinnerView.swift in Sources */,
 				0A606D2F266456B600DB1D54 /* Participant.swift in Sources */,
+				0A5069CA2690E0800074BF25 /* RaffleCardPlaceholder.swift in Sources */,
 				0A563656266565240037D7C0 /* ValidationPublishers.swift in Sources */,
 				0AE678332663F3BE00D7CEEE /* RaffleParticipantsView.swift in Sources */,
 				0A1DB3EE26652B2F002A0134 /* WinnerCard.swift in Sources */,
