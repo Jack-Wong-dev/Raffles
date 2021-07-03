@@ -10,7 +10,7 @@ import SwiftUI
 enum LoadingState<T> {
     case loading
     case loaded(T)
-    case error(APIError)
+    case failed(APIError)
 }
 
 struct HomeView: View {
@@ -46,9 +46,20 @@ struct HomeView: View {
                             .padding(.horizontal)
 
                             //MARK: Raffles List
-                            AllRafflesView(viewModel: viewModel)
-                                .redacted(reason: viewModel.isLoading ? .placeholder : .init())
-                                .disabled(viewModel.isLoading)
+//                            AllRafflesView(viewModel: viewModel)
+//                                .redacted(reason: viewModel.isLoading ? .placeholder : .init())
+//                                .disabled(viewModel.isLoading)
+                            switch viewModel.loadingState {
+                            case .loading:
+                                ProgressView()
+                            case .loaded:
+                                AllRafflesView(viewModel: viewModel)
+                                    .redacted(reason: viewModel.isLoading ? .placeholder : .init())
+                                    .disabled(viewModel.isLoading)
+                            case .failed(let error):
+                                Text(error.localizedDescription)
+                                    .fontWeight(.semibold)
+                            }
 
                             Spacer(minLength: 0)
                                 .id("bottom")
