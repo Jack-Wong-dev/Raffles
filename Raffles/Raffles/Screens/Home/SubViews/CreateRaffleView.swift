@@ -28,15 +28,23 @@ struct CreateRaffleView: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text("Raffle Name ")
                     .fontWeight(.medium)
-                    + Text("*").foregroundColor(.red).fontWeight(.medium)
+                + Text("*").foregroundColor(.red).fontWeight(.medium)
+                
                 TextField("", text: $viewModel.raffleName)
+                    .submitLabel(.next)
+                    .focused($focus, equals: .name)
             }
             
             VStack(alignment: .leading, spacing: 4) {
                 Text("Raffle Secret Token ")
                     .fontWeight(.medium)
-                    + Text("*").foregroundColor(.red).fontWeight(.medium)
+                + Text("*").foregroundColor(.red).fontWeight(.medium)
+                
                 TextField("", text: $viewModel.secretToken)
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
+                    .submitLabel(.done)
+                    .focused($focus, equals: .secretToken)
             }
             
             Text("You must remember the Raffle Token because it will be asked when picking a winner")
@@ -57,6 +65,14 @@ struct CreateRaffleView: View {
             .opacity(viewModel.buttonDisabled ? 0.5 : 1)
             .disabled(viewModel.buttonDisabled)
         } // Group
+        .onSubmit {
+            switch focus {
+            case .name:
+                focus = .secretToken
+            default:
+                print("Joining chat room")
+            }
+        }
         .padding(.horizontal)
     }
     

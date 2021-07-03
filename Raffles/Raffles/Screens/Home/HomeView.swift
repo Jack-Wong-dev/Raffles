@@ -48,11 +48,7 @@ struct HomeView: View {
                             //MARK: Raffles List
                             switch viewModel.loadingState {
                             case .loading:
-                                ForEach(0..<10) { index in
-                                    RaffleCardPlaceholder()
-                                        .padding(.horizontal)
-                                        .tag(index)
-                                }
+                                RaffleCardPlaceholders()
                             case .loaded:
                                 AllRafflesView(viewModel: viewModel)
                                 
@@ -136,5 +132,17 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+    }
+}
+
+struct RaffleCardPlaceholders: View {
+    var body: some View {
+        LazyVStack(spacing: 25) {
+            ForEach(0..<10) { index in
+                RaffleCardPlaceholder()
+                    .padding(.horizontal)
+                    .tag(index)
+            }
+        }
     }
 }
