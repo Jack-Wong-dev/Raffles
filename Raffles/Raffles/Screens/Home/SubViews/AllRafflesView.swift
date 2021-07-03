@@ -12,18 +12,7 @@ struct AllRafflesView: View {
     
     var body: some View {
         LazyVStack(alignment: .leading, spacing: 25) {
-            ForEach(viewModel.allRaffles, id: \.id) { raffle in
-                NavigationLink(
-                    destination: RouterView(
-                        viewModel: .init(raffle: raffle)
-                    ),
-//                    tag: raffle.id,
-//                    selection: $viewModel.currentRaffleId,
-                    label: {RaffleCard(raffle: raffle)})
-                    .accentColor(Color(.label))
-                    .padding(.horizontal)
-//                    .disabled(viewModel.currentRaffleId == raffle.id)
-            }
+            ForEach(viewModel.filteredRaffles, id: \.id, content: RaffleRow.init)
         }
     }
 }
@@ -39,5 +28,21 @@ struct AllRafflesView_Previews: PreviewProvider {
             AllRafflesView(viewModel: .init())
                 .preferredColorScheme(.dark)
         }
+    }
+}
+
+struct RaffleRow: View {
+    let raffle: Raffle
+    
+    var body: some View {
+        NavigationLink(
+            destination: RouterView(
+                viewModel: .init(raffle: raffle)
+            ),
+            label: {
+            RaffleCard(raffle: raffle)
+        })
+            .accentColor(Color(.label))
+            .padding(.horizontal)
     }
 }

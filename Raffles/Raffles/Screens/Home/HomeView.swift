@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+enum LoadingState<T> {
+    case loading
+    case loaded(T)
+    case error(APIError)
+}
+
 struct HomeView: View {
     @StateObject var viewModel: HomeViewModel = .init()
     @State private var yContentOffset: CGFloat = .zero
@@ -25,7 +31,19 @@ struct HomeView: View {
                         VStack(alignment: .leading, spacing: 20) {
                             CreateRaffleView()
 
-                            Text("All Raffles:").font(.title2.bold()).padding(.leading)
+                            HStack {
+                                Text("All Raffles:").font(.title2.bold())
+                                
+                                Spacer(minLength: 0)
+    
+                                Picker("", selection: $viewModel.filter) {
+                                    ForEach(RaffleFilter.allCases, id: \.hashValue) { filter in
+                                        Text(filter.rawValue).tag(filter)
+                                    }
+                                }
+                                .pickerStyle(.menu)
+                            }
+                            .padding(.horizontal)
 
                             //MARK: Raffles List
                             AllRafflesView(viewModel: viewModel)

@@ -8,15 +8,24 @@
 import Foundation
 import Combine
 
+enum RaffleFilter: String, CaseIterable {
+    case none = "None"
+    case recent = "Recent"
+    case name = "Name"
+}
+
 final class HomeViewModel: ObservableObject {
     //MARK: - Properties
     @Published var raffleName: String
     @Published var secretToken: String
+//    @Published var loadingState: LoadingState<[Raffle]> = .loading
+    @Published var filteredRaffles: [Raffle]
     @Published var allRaffles: [Raffle] 
     @Published private(set) var isLoading: Bool
     @Published var alertMessage: AlertMessage?
 //    @Published var currentRaffleId: Int?
     @Published private(set) var buttonDisabled: Bool
+    @Published var filter: RaffleFilter
     
     private var getCancellable: AnyCancellable?
     private var postCancellable: AnyCancellable?
@@ -42,27 +51,50 @@ final class HomeViewModel: ObservableObject {
     }()
     
     //MARK:- Init For the sake of Dependency Injection
-    init(raffleName: String = "",
-         secretToken: String = "",
-         raffles: [Raffle] = [],
-         isLoading: Bool = false,
-         showAlert: Bool = false,
-         alertMessage: AlertMessage? = nil,
-         buttonDisabled: Bool = true,
-         api: API = RaffleAPIClient.shared
+    init(
+        raffleName: String = "",
+        secretToken: String = "",
+        filteredRaffles: [Raffle] = [],
+        raffles: [Raffle] = [],
+        isLoading: Bool = false,
+        showAlert: Bool = false,
+        alertMessage: AlertMessage? = nil,
+        buttonDisabled: Bool = true,
+        filter: RaffleFilter = .recent,
+        api: API = RaffleAPIClient.shared
     ) {
         self.raffleName = raffleName
         self.secretToken = secretToken
+        self.filteredRaffles = filteredRaffles
         self.allRaffles = raffles
         self.isLoading = isLoading
         self.alertMessage = alertMessage
         self.buttonDisabled = buttonDisabled
+        self.filter = filter
         self.networkHelper = api
         
         allValidation
             .map(\.isSuccess)
             .map{!$0}
             .assign(to: &$buttonDisabled)
+        
+        $allRaffles
+            .combineLatest($filter)
+            .map { raffles, selectedFilter -> [Raffle] in
+                switch selectedFilter {
+                case .none:
+                    return raffles
+                case .recent:
+                    return raffles.sorted { lhs, rhs in
+                        lhs.createdAt > rhs.createdAt
+                    }
+                case .name:
+                    return raffles.sorted { lhs, rhs in
+                        lhs.name < rhs.name
+                    }
+                }
+            }
+            .assign(to: &$filteredRaffles)
     }
     
     //MARK:- Methods
