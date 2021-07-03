@@ -7,9 +7,17 @@
 
 import SwiftUI
 
+enum RegisterFocusField {
+    case firstName
+    case lastName
+    case email
+    case phone
+}
+
 struct RegisterView: View {
     @StateObject var viewModel: RegisterViewModel
     @State private var show = false
+    @FocusState private var focusField: RegisterFocusField?
     
     var body: some View {
         VStack(spacing: 20) {
@@ -21,23 +29,48 @@ struct RegisterView: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text("First Name ").fontWeight(.medium) + Text("*").foregroundColor(.red).fontWeight(.medium)
                 TextField("First Name", text: $viewModel.firstName)
+                    .textContentType(.givenName)
+                    .submitLabel(.next)
+                    .focused($focusField, equals: .firstName)
             }
             
             VStack(alignment: .leading, spacing: 4) {
                 Text("Last Name ").fontWeight(.medium) + Text("*").foregroundColor(.red).fontWeight(.medium)
                 TextField("Last Name", text: $viewModel.lastName)
+                    .textContentType(.familyName)
+                    .submitLabel(.next)
+                    .focused($focusField, equals: .lastName)
             }
             
             VStack(alignment: .leading, spacing: 4) {
                 Text("Email ").fontWeight(.medium) +
                     Text("*").foregroundColor(.red).fontWeight(.medium)
                 TextField("Email", text: $viewModel.email)
+                    .textContentType(.emailAddress)
                     .keyboardType(.emailAddress)
+                    .submitLabel(.next)
+                    .focused($focusField, equals: .email)
             }
             
             VStack(alignment: .leading, spacing: 4) {
                 Text("Phone").fontWeight(.medium)
                 TextField("Phone", text: $viewModel.phoneNumber)
+                    .textContentType(.telephoneNumber)
+                    .keyboardType(.namePhonePad)
+                    .submitLabel(.done)
+                    .focused($focusField, equals: .phone)
+            }
+            .onSubmit {
+                switch focusField {
+                case .firstName:
+                    focusField = .lastName
+                case .lastName:
+                    focusField = .email
+                case .email:
+                    focusField = .phone
+                default:
+                    print("done")
+                }
             }
             
             Spacer(minLength: 0)
@@ -104,12 +137,14 @@ struct RegisterView: View {
     private func submit() {
         withAnimation {
             viewModel.register()
+            hideKeyboard()
         }
     }
     
     private func reset() {
         withAnimation {
             viewModel.reset()
+            hideKeyboard()
         }
     }
     
@@ -128,5 +163,11 @@ struct RaffleView_Previews: PreviewProvider {
             
             RegisterView(viewModel: .init(id: 203))
         }
+    }
+}
+
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }

@@ -79,6 +79,7 @@ struct CreateRaffleView: View {
     private func createNewRaffle() {
         withAnimation {
             viewModel.createRaffle()
+            hideKeyboard()
         }
     }
 }
