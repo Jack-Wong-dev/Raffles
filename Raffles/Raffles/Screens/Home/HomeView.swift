@@ -46,16 +46,17 @@ struct HomeView: View {
                             .padding(.horizontal)
 
                             //MARK: Raffles List
-//                            AllRafflesView(viewModel: viewModel)
-//                                .redacted(reason: viewModel.isLoading ? .placeholder : .init())
-//                                .disabled(viewModel.isLoading)
                             switch viewModel.loadingState {
                             case .loading:
-                                ProgressView()
+                                ForEach(0..<10) { index in
+                                    RaffleCard(raffle: .placeholder)
+                                        .redacted(reason: .placeholder)
+                                        .padding(.horizontal)
+                                        .tag(index)
+                                }
                             case .loaded:
                                 AllRafflesView(viewModel: viewModel)
-                                    .redacted(reason: viewModel.isLoading ? .placeholder : .init())
-                                    .disabled(viewModel.isLoading)
+                                
                             case .failed(let error):
                                 Text(error.localizedDescription)
                                     .fontWeight(.semibold)

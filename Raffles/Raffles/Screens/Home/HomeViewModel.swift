@@ -112,13 +112,9 @@ final class HomeViewModel: ObservableObject {
                 case .none:
                     return raffles
                 case .recent:
-                    return raffles.sorted { lhs, rhs in
-                        lhs.createdAt > rhs.createdAt
-                    }
+                    return raffles.sorted(by: \.createdAt, using: > )
                 case .name:
-                    return raffles.sorted { lhs, rhs in
-                        lhs.name < rhs.name
-                    }
+                    return raffles.sorted(by: \.name, using: < )
                 }
             }
             .assign(to: &$filteredRaffles)
@@ -199,5 +195,16 @@ extension HomeViewModel {
         networkHelper
             .get(endpoint: .allRaffles)
             .eraseToAnyPublisher()
+    }
+}
+
+extension Sequence {
+    func sorted<T: Comparable>(
+        by keyPath: KeyPath<Element, T>,
+        using comparator: (T, T) -> Bool = (<)
+    ) -> [Element] {
+        sorted { a, b in
+            comparator(a[keyPath: keyPath], b[keyPath: keyPath])
+        }
     }
 }
