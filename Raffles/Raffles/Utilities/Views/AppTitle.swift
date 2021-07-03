@@ -12,7 +12,7 @@ struct AppTitle: View {
         Text("Raffle App")
             .font(.largeTitle.weight(.heavy))
             .foregroundStyle(.linearGradient(.init(colors: [.purple, .blue, .purple]), startPoint: .leading, endPoint: .trailing))
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            .frame(maxWidth: .infinity, alignment: .center)
     }
 }
 

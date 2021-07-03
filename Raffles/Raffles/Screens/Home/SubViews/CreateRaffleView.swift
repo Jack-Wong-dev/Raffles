@@ -44,8 +44,8 @@ struct CreateRaffleView: View {
                     .background(
                         RoundedRectangle(cornerRadius: 16, style: .continuous)
                             .fill(LinearGradient(gradient: .init(colors: [.purple, .blue]), startPoint: .leading, endPoint: .trailing))
+                            .shadow(color: .shadow, radius: 15, x: 15, y: 15)
                     )
-                    .shadow(color: .shadow, radius: 15, x: 15, y: 15)
             }
             .accentColor(.white)
             .opacity(viewModel.buttonDisabled ? 0.5 : 1)
