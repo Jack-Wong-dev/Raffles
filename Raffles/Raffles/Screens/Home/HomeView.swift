@@ -36,7 +36,7 @@ struct HomeView: View {
                                 
                                 Spacer(minLength: 0)
     
-                                Picker("", selection: $viewModel.filter) {
+                                Picker("Sort by", selection: $viewModel.filter) {
                                     ForEach(RaffleFilter.allCases, id: \.hashValue) { filter in
                                         Text(filter.rawValue).tag(filter)
                                     }
@@ -109,7 +109,12 @@ struct HomeView: View {
             Text("Raffles!")
                 .font(.largeTitle)
                 .bold()
-                .foregroundStyle(LinearGradient(colors: [.purple, .blue], startPoint: .leading, endPoint: .trailing))
+                .foregroundStyle(
+                    LinearGradient(
+                        colors: [.purple, .blue],
+                        startPoint: .leading,
+                        endPoint: .trailing)
+                )
         } // Navigation View
         .environmentObject(viewModel)
         .accentColor(.purple)
